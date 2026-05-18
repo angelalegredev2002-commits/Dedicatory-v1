@@ -1297,7 +1297,7 @@ hay besos que se dan con la memoria...`,
       const idx = parseInt(card.dataset.index);
       
       // Limpiar clases de animación y estados
-      card.classList.remove('state-0', 'state-1', 'state-2', 'state-hidden', 'exit-left', 'exit-right');
+      card.classList.remove('state-0', 'state-1', 'state-2', 'state-4', 'state-5', 'state-hidden');
 
       // Calcular la posición relativa en la pila circular
       let relativePos = (idx - stackIndex) % totalCards;
@@ -1309,6 +1309,10 @@ hay besos que se dan con la memoria...`,
         card.classList.add('state-1');
       } else if (relativePos === 2) {
         card.classList.add('state-2');
+      } else if (relativePos === 5) {
+        card.classList.add('state-5');
+      } else if (relativePos === 4) {
+        card.classList.add('state-4');
       } else {
         card.classList.add('state-hidden');
       }
@@ -1316,18 +1320,8 @@ hay besos que se dan con la memoria...`,
   }
 
   function nextCard() {
-    const cards = document.querySelectorAll('.stack-card');
-    const currentFrontCard = Array.from(cards).find(c => parseInt(c.dataset.index) === stackIndex);
-    
-    if (currentFrontCard) {
-      // Animación de salida volando hacia la izquierda
-      currentFrontCard.classList.add('exit-left');
-      
-      setTimeout(() => {
-        stackIndex = (stackIndex + 1) % totalCards;
-        renderStack();
-      }, 350);
-    }
+    stackIndex = (stackIndex + 1) % totalCards;
+    renderStack();
   }
 
   function prevCard() {
