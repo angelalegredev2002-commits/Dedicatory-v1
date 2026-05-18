@@ -1,0 +1,1406 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// ══════════════════════════════════════════════
+// PERSONALIZA AQUÍ TU DEDICATORIA
+// ══════════════════════════════════════════════
+
+const dedicatoria = {
+  para: "Lesly",                        // Nombre de la persona
+  de:   "Con todo mi corazón",
+  mensaje: `Hay palabras que a veces no sé cómo expresar, pero hoy quiero intentarlo desde lo más profundo de mi ser. Me enamoré de ti completamente, de una manera que nunca creí posible, y quiero serte siempre leal.
+
+Me encanta absolutamente todo de ti. Me encantan tus caricias que me dan paz, tu mirada, tu forma de ser, y hasta cuando te pones "celosita" te ves hermosa. Existen mil y un formas de decirte que te amo, y quiero pasar mi vida demostrártelas todas.
+
+Quizá a veces no sea el hombre más detallista, ni el caballero perfecto que dicen las historias, pero soy alguien muy humilde que te entrega su alma entera sin dudarlo. Alguien que haría lo que fuera solo por cuidarte y verte feliz.
+
+Gracias por existir, gracias por quedarte a mi lado. Te amo infinitamente.`,
+  // Pon la fecha de vuestro aniversario o fecha especial aquí (Formato: AAAA-MM-DD)
+  fechaInicio: "2026-04-18", 
+};
+
+// Canciones: Morat - Aprender A Quererte
+const canciones = [
+  {
+    titulo:  "Aprender a Quererte",
+    artista: "Morat",
+    src:     "/music/Morat_-_Aprender_A_Quererte_(SkySound.cc).mp3",
+    cover:   "", // Opcional: pon una imagen de portada si quieres
+    letras: [
+      { t: 0,   texto: "..." },
+      { t: 11,  texto: "Cuando te vi sentí algo raro por dentro" },
+      { t: 15,  texto: "Una mezcla de miedo con locura" },
+      { t: 19,  texto: "Y tu mirada me juró que si te pierdo" },
+      { t: 22,  texto: "Habré perdido la más grande fortuna" },
+      { t: 26,  texto: "No sé nada de tu historia ni de tu filosofía" },
+      { t: 30,  texto: "Hoy te escribo sin pensar y sin ortografía" },
+      { t: 34,  texto: "Para aprender a quererte" },
+      { t: 38,  texto: "Voy a estudiar cómo se cumplen tus sueños" },
+      { t: 42,  texto: "Voy a leerte siempre muy lentamente" },
+      { t: 46,  texto: "Quiero entenderte" },
+      { t: 50,  texto: "Cuando te vi tuve un buen presentimiento" },
+      { t: 54,  texto: "De esos que llegan una vez en la vida" },
+      { t: 57,  texto: "Quiero tenerte aunque sea solo un momentito" },
+      { t: 61,  texto: "Y si me dejas, tal vez todos los días" },
+      { t: 65,  texto: "No sé nada de tu historia ni de tu filosofía" },
+      { t: 69,  texto: "Hoy te escribo sin pensar y sin ortografía" },
+      { t: 73,  texto: "Para aprender a quererte" },
+      { t: 77,  texto: "Voy a estudiar cómo se cumplen tus sueños" },
+      { t: 80,  texto: "Voy a leerte siempre muy lentamente" },
+      { t: 84,  texto: "Quiero entenderte" },
+      { t: 88,  texto: "Para enseñarte a extrañarme" },
+      { t: 92,  texto: "Voy a escribirte mi canción más honesta" },
+      { t: 96,  texto: "Darte una vida con más sumas que restas" },
+      { t: 100, text: "Si tú me dejas, no habrá preguntas, solo respuestas" },
+      { t: 104, texto: "No descansaré, solo quiero tenerte a mi lado" },
+      { t: 112, texto: "Ruego que mi voz te demuestre lo que te he esperado" },
+      { t: 120, texto: "Antes de estar junto a ti por toda la vida" },
+      { t: 128, texto: "Quiero aprender a quererte" },
+      { t: 132, texto: "Quiero estudiar cómo se cumplen tus sueños" },
+      { t: 136, texto: "Voy a leerte siempre muy lentamente" },
+      { t: 140, texto: "Quiero entenderte" },
+      { t: 146, texto: "..." }
+    ],
+  },
+];
+
+// Fotos: coloca los archivos en /public/fotos/
+const fotos: string[] = [];
+---
+
+<Layout title={`Para ${dedicatoria.para}`} description="Una dedicatoria especial con amor">
+
+  <!-- ══ FONDO: Letras flotantes ══ -->
+  <div id="flotantes" class="fixed inset-0 overflow-hidden pointer-events-none z-0"></div>
+
+  <!-- ══ HERO ══ -->
+  <section class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center">
+    <p class="text-purple-400 text-sm font-light tracking-[0.4em] uppercase mb-6 flex items-center gap-2 justify-center">
+      <svg class="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>
+      Un rinconcito de amor solo para ti
+      <svg class="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>
+    </p>
+    <h1 class="glow-text font-black leading-tight mb-4 flex flex-col items-center justify-center">
+      <span class="text-white text-5xl md:text-7xl mb-2">Para ti, mi amor</span>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400 text-7xl md:text-[10rem] leading-none">
+        {dedicatoria.para}
+      </span>
+    </h1>
+    <div class="flex items-center gap-3 justify-center mt-4">
+      <p class="text-gray-400 text-xl tracking-widest">{dedicatoria.de}</p>
+      <svg class="w-5 h-5 text-purple-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+
+    <div class="mt-16 flex flex-col items-center gap-2 text-gray-500 text-sm animate-bounce">
+      <span>Desliza hacia abajo pliss</span>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ MENSAJE CON SOBRE INTERACTIVO ══ -->
+  <section class="relative z-10 py-28 px-6">
+    <div class="max-w-2xl mx-auto flex flex-col items-center">
+      
+      <p class="text-purple-400 text-sm font-semibold tracking-widest uppercase mb-12 text-center">
+        Tengo una cartita guardada para ti... ¿la abres, pliss? ✨
+      </p>
+
+      <div class="envelope-container w-full flex justify-center pb-[28rem] pt-[10rem]">
+        <div id="sobre" class="envelope flex items-center justify-center">
+          
+          <!-- Flap (tapa) del sobre -->
+          <div class="envelope-flap"></div>
+          
+          <!-- Pocket (bolsillo frontal) del sobre -->
+          <div class="envelope-pocket"></div>
+          
+          <!-- Sello lacrado del sobre (Corazón SVG en el centro) -->
+          <div id="sello" class="absolute z-10 transition-all duration-500 flex items-center justify-center bg-gray-900 border border-white/20 w-14 h-14 rounded-full shadow-lg">
+            <svg class="w-7 h-7 text-purple-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+
+          <!-- Carta que desliza hacia arriba -->
+          <div class="envelope-letter flex flex-col items-center justify-center text-center">
+            <span class="text-purple-400 text-2xl mb-4 font-serif">❝</span>
+            <p class="text-gray-200 text-base md:text-lg leading-relaxed whitespace-pre-line italic font-serif">
+              {dedicatoria.mensaje}
+            </p>
+            <span class="text-purple-400 text-2xl mt-4 font-serif">❞</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ LÍNEA DEL TIEMPO DE NUESTROS MOMENTOS ══ -->
+  <section class="relative z-10 py-16 px-6">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl font-bold text-white text-center mb-16 flex items-center justify-center gap-3">
+        <!-- SVG History icon -->
+        <svg class="w-7 h-7 text-fuchsia-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        El camino que estamos dibujando...
+      </h2>
+      
+      <div class="relative border-l-2 border-purple-500/30 pl-8 ml-4 space-y-12">
+        <!-- Hito 1 -->
+        <div class="relative">
+          <span class="absolute -left-[41px] top-1.5 bg-purple-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#c084fc]"></span>
+          <time class="text-xs text-purple-400 font-semibold uppercase tracking-widest">18 de Abril de 2026</time>
+          <h3 class="text-white text-lg font-bold mt-1 font-sans">El día que todo cambió</h3>
+          <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+            El día más bonito de todos. Cuando empezamos a compartir sonrisas y decidimos tomarnos de la mano para no soltarnos jamás.
+          </p>
+        </div>
+        
+        <!-- Hito 2 -->
+        <div class="relative">
+          <span class="absolute -left-[41px] top-1.5 bg-purple-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#c084fc]"></span>
+          <time class="text-xs text-purple-400 font-semibold uppercase tracking-widest">Cada segundito...</time>
+          <h3 class="text-white text-lg font-bold mt-1 font-sans">Coleccionando risas</h3>
+          <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+            Todas las conversaciones, los chistes tontos que solo nosotros entendemos y cada pequeño detalle que me hace quererte más.
+          </p>
+        </div>
+
+        <!-- Hito 3 -->
+        <div class="relative">
+          <span class="absolute -left-[41px] top-1.5 bg-fuchsia-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#e879f9] animate-pulse"></span>
+          <time class="text-xs text-fuchsia-400 font-semibold uppercase tracking-widest">Lo que viene...</time>
+          <h3 class="text-white text-lg font-bold mt-1 font-sans">Mil aventuras más</h3>
+          <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+            Este es solo el inicio de un viaje hermoso. Aún nos quedan millones de páginas por escribir y risas por compartir juntos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTADOR DE TIEMPO PREMIUM ══ -->
+  <section class="relative z-10 py-12 px-6">
+    <div class="max-w-xl mx-auto">
+      <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-center shadow-2xl">
+        <h3 class="text-purple-400 text-sm font-semibold tracking-widest uppercase mb-6 flex items-center justify-center gap-2">
+          <svg class="w-4 h-4 animate-spin-slow text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          El tiempo vuela cuando soy feliz a tu lado...
+        </h3>
+        <div class="grid grid-cols-4 gap-3 text-center">
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3">
+            <span id="c-dias" class="text-3xl md:text-4xl font-extrabold text-white glow-text">00</span>
+            <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Días</p>
+          </div>
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3">
+            <span id="c-horas" class="text-3xl md:text-4xl font-extrabold text-white glow-text">00</span>
+            <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Horas</p>
+          </div>
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3">
+            <span id="c-mins" class="text-3xl md:text-4xl font-extrabold text-white glow-text">00</span>
+            <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Min</p>
+          </div>
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3">
+            <span id="c-segs" class="text-3xl md:text-4xl font-extrabold text-white glow-text">00</span>
+            <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Seg</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ REPRODUCTOR ══ -->
+  <section class="relative z-10 py-20 px-6">
+    <div class="max-w-lg mx-auto">
+      <h2 class="text-3xl font-bold text-white text-center mb-12 flex items-center justify-center gap-3">
+        <!-- SVG Note Icon -->
+        <svg class="w-8 h-8 text-fuchsia-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        Nuestra melodía favorita
+      </h2>
+
+      <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
+
+        <!-- Portada -->
+        <div id="album-art"
+          class="w-44 h-44 mx-auto rounded-2xl mb-7 shadow-2xl flex items-center justify-center overflow-hidden
+                 bg-gradient-to-br from-purple-600 via-fuchsia-500 to-pink-600 relative transition-transform duration-500">
+          <!-- SVG Music Icon inside Album -->
+          <svg id="album-svg" class="w-16 h-16 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+
+        <!-- Info -->
+        <div class="text-center mb-6">
+          <p class="text-white text-xl font-bold font-sans" id="song-title">Cargando...</p>
+          <p class="text-gray-400 text-sm mt-1"   id="song-artist"></p>
+        </div>
+
+        <!-- Barra progreso -->
+        <div class="mb-5">
+          <div class="flex justify-between text-gray-500 text-xs mb-1">
+            <span id="t-actual">0:00</span>
+            <span id="t-total">0:00</span>
+          </div>
+          <div id="barra-prog"
+            class="w-full h-2 bg-white/10 rounded-full cursor-pointer group relative">
+            <div id="barra-fill"
+              class="h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 transition-all duration-200"
+              style="width:0%"></div>
+          </div>
+        </div>
+
+        <!-- Controles -->
+        <div class="flex items-center justify-center gap-8 mb-8">
+          <button id="btn-prev"
+            class="text-gray-400 hover:text-fuchsia-400 transition-colors flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 cursor-pointer select-none">
+            <!-- SVG Prev -->
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 19h2V5H6v14zm12-14l-8 7 8 7V5z"/>
+            </svg>
+          </button>
+
+          <button id="btn-play"
+            class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-600
+                   flex items-center justify-center shadow-lg shadow-pink-500/30
+                   hover:scale-110 active:scale-95 transition-transform cursor-pointer select-none">
+            <!-- SVG Play initially -->
+            <span id="play-icon-wrapper" class="flex items-center justify-center">
+              <svg class="w-6 h-6 text-white translate-x-[2px]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+          </button>
+
+          <button id="btn-next"
+            class="text-gray-400 hover:text-fuchsia-400 transition-colors flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 cursor-pointer select-none">
+            <!-- SVG Next -->
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 5v14h2V5h-2zm-12 14l8-7-8-7v14z"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Letras de la canción -->
+        <div class="bg-black/40 border border-white/5 rounded-2xl p-5 min-h-[90px] flex items-center justify-center">
+          <p id="lyric-display"
+            class="lyric-line text-center text-white text-base md:text-lg font-medium leading-relaxed px-2 font-serif">
+            Dale play y cantemos juntos...
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PILA DE CARTAS 3D INTERACTIVAS (TINDER DE RECUERDOS - ULTRA-SUAVE Y FLUIDO) ══ -->
+  <section class="relative z-10 py-24 px-6 overflow-hidden">
+    <div class="max-w-4xl mx-auto flex flex-col items-center">
+      <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
+        <!-- SVG Sparkles / Flower Icon -->
+        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l-.813-5.096L3.096 15.187 8.192 14.37 9 9.278l.808 5.093 5.096.817-5.091.816zM19.813 6.904L19 12l-.813-5.096-5.091-.717 5.091-.817.813-5.096.808 5.093 5.096.817-5.091.816z"/>
+        </svg>
+        Momentos que guardo en el corazón
+      </h2>
+      <p class="text-gray-400 text-center mb-16 text-sm max-w-md mx-auto">
+        Una cajita de recuerdos mágicos. Toca la carta de adelante para leer lo que te escribí, o usa los botones para ir al siguiente recuerdo.
+      </p>
+      
+      <!-- Contenedor del Deck 3D -->
+      <div id="galeria-stack" class="stack-container mb-12">
+        <!-- Rellenado dinámicamente con JS -->
+      </div>
+
+      <!-- Controles del Deck -->
+      <div class="flex items-center gap-6 mt-4">
+        <button id="btn-stack-prev"
+          class="w-12 h-12 rounded-full border border-white/10 hover:border-pink-500/50 bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-lg">
+          <!-- SVG Arrow Left -->
+          <svg class="w-5 h-5 text-gray-300 hover:text-fuchsia-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+          </svg>
+        </button>
+
+        <button id="btn-stack-next"
+          class="px-6 h-12 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 text-white font-semibold flex items-center gap-2 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-pink-500/20 cursor-pointer">
+          <span>Siguiente Recuerdo</span>
+          <!-- SVG Arrow Right -->
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ NUESTRO MAPA DE AVENTURAS CON CAMINO DE RUTA INTERACTIVO ══ -->
+  <section class="relative z-10 py-24 px-6 overflow-hidden">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
+        <!-- SVG Map/Compass Icon -->
+        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.61c-.38.19-.622.58-.622 1.006v11.162c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
+        </svg>
+        Nuestras próximas locuras juntos
+      </h2>
+      <p class="text-gray-400 text-center mb-20 text-sm max-w-md mx-auto">
+        Un mapa interactivo con todo lo que prometo que haremos juntos. Cuando cumplamos uno, ¡toca la tarjeta para tacharlo!
+      </p>
+
+      <!-- Contenedor del Mapa con Lineamiento -->
+      <div class="adventure-path-container">
+        <!-- Línea discontinua que conecta todos los hitos del mapa -->
+        <div class="adventure-trail-line"></div>
+
+        <!-- Parada 1: Viaje Soñado -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">1</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Airplane SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Viaje Soñado</h4>
+            <p class="adventure-desc">Ese viaje lejano del que tanto hablamos. Una maleta, dos boletos y todo el mundo por descubrir de tu mano.</p>
+          </div>
+        </div>
+
+        <!-- Parada 2: Tarde de Cocina -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">2</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Chef/Book SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Tarde de Cocina</h4>
+            <p class="adventure-desc">Intentar preparar una receta compleja juntos. Riendo, ensuciando la cocina y descubriendo quién cocina mejor.</p>
+          </div>
+        </div>
+
+        <!-- Parada 3: Noche de Estrellas -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">3</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Moon SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Noche de Estrellas</h4>
+            <p class="adventure-desc">Un picnic nocturno al aire libre bajo el manto estelar, acurrucados con una manta abrigadora y contando constelaciones.</p>
+          </div>
+        </div>
+
+        <!-- Parada 4: Cantar a Todo Pulmón -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">4</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Music SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Cantar a Todo Pulmón</h4>
+            <p class="adventure-desc">Ir al concierto de ese artista que nos encanta y cantar todas las canciones abrazados y sin voz al final de la noche.</p>
+          </div>
+        </div>
+
+        <!-- Parada 5: Maratón de Cine -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">5</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Film SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Maratón de Cine</h4>
+            <p class="adventure-desc">Un día entero en pijama, mucha comida deliciosa y ver todas las películas o series favoritas acurrucados en la cama.</p>
+          </div>
+        </div>
+
+        <!-- Parada 6: Aventura Sorpresa -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">6</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Gift / Sparkles SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l-.813-5.096L3.096 15.187 8.192 14.37 9 9.278l.808 5.093 5.096.817-5.091.816zM19.813 6.904L19 12l-.813-5.096-5.091-.717 5.091-.817.813-5.096.808 5.093 5.096.817-5.091.816z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Aventura Sorpresa</h4>
+            <p class="adventure-desc">Un plan misterioso que yo planificaré por completo y del cual tú solo sabrás los detalles en el último segundo.</p>
+          </div>
+        </div>
+
+        <!-- Parada 7: Ataque de Besos -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">7</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Heart SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Ataque de Besos</h4>
+            <p class="adventure-desc">Un plan infalible para llenarte de mil besitos y recordarte lo hermosa que eres para mí.</p>
+          </div>
+        </div>
+
+        <!-- Parada 8: Noche de Juegos -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">8</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Puzzle / Game SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a1.5 1.5 0 01-1.5 1.5H6a2.25 2.25 0 00-2.25 2.25v3.386c0 .355.186.676.401.959.221.29.349.634.349 1.003 0 1.036-1.007 1.875-2.25 1.875s-2.25-.84-2.25-1.875c0-.369.128-.713.349-1.003.215-.283.401-.604.401-.959v0a1.5 1.5 0 01-1.5-1.5H18a2.25 2.25 0 002.25-2.25V8.25A2.25 2.25 0 0018 6h-2.25a1.5 1.5 0 01-1.5-1.5v0z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Noche de Juegos</h4>
+            <p class="adventure-desc">Una competencia súper seria para ver quién gana... aunque al final siempre te dejaré ganar para ver tu sonrisa.</p>
+          </div>
+        </div>
+
+        <!-- Parada 9: Construir Nuestro Refugio -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">9</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Home/Castle SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Construir Nuestro Refugio</h4>
+            <p class="adventure-desc">Soñar y planear cada detalle de nuestro propio lugarcito en el mundo, donde solo existamos tú y yo.</p>
+          </div>
+        </div>
+
+        <!-- Parada 10: Nuestra Promesa Eterna -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">10</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Lock SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Nuestra Promesa Eterna</h4>
+            <p class="adventure-desc">Poner un candado con nuestros nombres en un lugar especial y botar la llave, como símbolo de que somos para siempre.</p>
+          </div>
+        </div>
+
+        <!-- Parada 11: Bailar Bajo la Lluvia -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">11</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Cloud/Rain SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Bailar Bajo la Lluvia</h4>
+            <p class="adventure-desc">Olvidarnos de todo, mojarnos sin importar nada y reírnos a carcajadas mientras bailamos sin música.</p>
+          </div>
+        </div>
+
+        <!-- Parada 12: Adoptar a un Peludito -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">12</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Paw/Pet SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Adoptar a un Peludito</h4>
+            <p class="adventure-desc">Agrandar nuestra pequeña familia y darle amor a un perrito o gatito que llene la casa de alegría.</p>
+          </div>
+        </div>
+
+        <!-- Parada 13: Perdernos en la Ciudad -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">13</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Map SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.61c-.38.19-.622.58-.622 1.006v11.162c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Perdernos Juntos</h4>
+            <p class="adventure-desc">Caminar por calles que no conocemos sin rumbo fijo, descubriendo lugares nuevos mientras nos tomamos de la mano.</p>
+          </div>
+        </div>
+
+        <!-- Parada 14: Ver el Amanecer -->
+        <div class="adventure-path-row">
+          <div class="adventure-path-node">14</div>
+          <div class="adventure-card group" onclick="toggleAdventure(this)">
+            <div class="heart-checkbox">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+              </svg>
+            </div>
+            <span class="adventure-badge">Por vivir juntos ✦</span>
+            <div class="adventure-icon">
+              <!-- Sunrise SVG -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+              </svg>
+            </div>
+            <h4 class="adventure-title">Ver el Amanecer</h4>
+            <p class="adventure-desc">Despertar súper temprano, prepararnos un café y ver cómo sale el sol sentados abrazaditos.</p>
+          </div>
+        </div>
+
+        <!-- End of map glowing message -->
+        <div class="mt-20 flex flex-col items-center justify-center text-center px-4 relative">
+          <!-- Decorative path continuation -->
+          <div class="absolute -top-12 left-1/2 w-0.5 h-12 bg-gradient-to-b from-rose-500/30 to-transparent dashed-line"></div>
+          <div class="w-16 h-16 rounded-full bg-purple-500/20 flex items-center justify-center mb-6 animate-pulse shadow-[0_0_20px_#f472b6]">
+            <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Y el mapa sigue...</h4>
+          <p class="text-purple-200/90 text-sm md:text-base max-w-md italic font-serif leading-relaxed">
+            Día tras día iré agregando nuestras nuevas aventuras y mil cosas más. Porque contigo el camino es infinito y quiero engreír siempre a mi celosita hermosa.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RAZONES POR LAS QUE ME ENAMORAS ══ -->
+  <section class="relative z-10 py-24 px-6 overflow-hidden">
+    <!-- Decorative background blobs -->
+    <div class="absolute top-1/2 left-1/4 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-3xl -z-10 mix-blend-screen pointer-events-none"></div>
+    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl -z-10 mix-blend-screen pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
+        <!-- SVG Sparkle/Heart Icon -->
+        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+        </svg>
+        Mil y un cosas que amo de ti
+      </h2>
+      <p class="text-gray-400 text-center mb-16 text-sm max-w-md mx-auto">
+        Si tuviera que escribir todas las cosas que me gustan de ti, me faltaría internet. Aquí te dejo solo algunas...
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Razón 1 -->
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(244,114,182,0.15)] group">
+          <h4 class="text-fuchsia-400 font-bold text-lg mb-3 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-fuchsia-500/20 flex items-center justify-center text-fuchsia-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+            </div>
+            Por tu sonrisa
+          </h4>
+          <p class="text-gray-300 text-sm leading-relaxed pl-13">
+            Porque cuando sonríes, parece que el mundo entero se detiene solo para admirarte. Eres mi luz en los días más grises.
+          </p>
+        </div>
+        
+        <!-- Razón 2 -->
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] group">
+          <h4 class="text-purple-400 font-bold text-lg mb-3 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/></svg>
+            </div>
+            Por tu ternura (y tus celos)
+          </h4>
+          <p class="text-gray-300 text-sm leading-relaxed pl-13">
+            Porque hasta cuando te pones modo "celosita" y me miras con esa carita tan tierna, me derrites el corazón y solo me dan ganas de abrazarte fuerte.
+          </p>
+        </div>
+
+        <!-- Razón 3 -->
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(251,113,133,0.15)] group">
+          <h4 class="text-purple-400 font-bold text-lg mb-3 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            </div>
+            Por tu fuerza
+          </h4>
+          <p class="text-gray-300 text-sm leading-relaxed pl-13">
+            Admiro la forma en la que luchas por lo que quieres. Me inspiras a ser mejor persona todos los días solo con verte intentarlo.
+          </p>
+        </div>
+
+        <!-- Razón 4 -->
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(251,191,36,0.15)] group">
+          <h4 class="text-amber-400 font-bold text-lg mb-3 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            Porque eres tú
+          </h4>
+          <p class="text-gray-300 text-sm leading-relaxed pl-13">
+            No necesito una razón complicada. Simplemente te quiero porque eres tú, la casualidad más hermosa y preciosa de mi vida.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MODAL DE POEMAS ══ -->
+  <div id="modal-poema" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md bg-black/70">
+    <div class="relative bg-gray-900 border border-white/10 rounded-3xl p-8 md:p-10 max-w-lg w-full text-center shadow-2xl transform scale-95 transition-transform duration-300">
+      
+      <!-- Botón cerrar -->
+      <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-white cursor-pointer transition-colors p-2 rounded-full hover:bg-white/5">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Icono decorativo dinámico -->
+      <div id="modal-icon" class="text-fuchsia-400 flex justify-center mb-6">
+        <!-- Se inyecta el SVG del cuadro correspondiente -->
+      </div>
+
+      <!-- Contenido del Poema -->
+      <p id="modal-poema-texto" class="text-purple-100 italic leading-relaxed text-lg whitespace-pre-line mb-6 font-serif">
+        Poema...
+      </p>
+      
+      <!-- Línea divisoria decorativa -->
+      <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-rose-500 to-transparent mx-auto mb-6"></div>
+
+      <!-- Dedicatoria -->
+      <p id="modal-dedicatoria" class="text-purple-400 font-semibold tracking-wide text-base">
+        Dedicatoria...
+      </p>
+      
+      <!-- Autor -->
+      <p id="modal-autor" class="text-gray-400 text-sm mt-2 font-light">
+        — Autor
+      </p>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="relative z-10 py-16 text-center text-gray-600 text-sm">
+    <!-- SVG pulsing Heart instead of Emoji -->
+    <svg class="w-6 h-6 text-purple-500 mx-auto mb-3 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <p class="tracking-wider">© 2026 Sakad Technology · Todos los derechos reservados</p>
+    <p class="text-xs text-gray-700 mt-1">Hecho con amor · Para {dedicatoria.para}</p>
+  </footer>
+
+  <!-- Audio oculto -->
+  <audio id="audio" preload="metadata"></audio>
+
+</Layout>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script define:vars={{ canciones, fotos, dedicatoria }}>
+
+  // ───────────────────────────────────────────
+  // BASE DE DATOS DE POEMAS Y DEDICATORIAS PARA LESLY
+  // ───────────────────────────────────────────
+  const POEMAS = [
+    {
+      poema: `Quiero hacer contigo
+lo que la primavera hace con los cerezos.`,
+      dedicatoria: `Para Lesly, el motivo de mi primavera eterna.`,
+      autor: "Pablo Neruda"
+    },
+    {
+      poema: `¿Qué es poesía? dices mientras clavas
+en mi pupila tu pupila azul.
+¿Qué es poesía? ¿Y tú me lo preguntas?
+Poesía... eres tú.`,
+      dedicatoria: `Lesly, eres mi poema preferido y mi inspiración diaria.`,
+      autor: "Gustavo Adolfo Bécquer"
+    },
+    {
+      poema: `Mi táctica es mirarte
+aprender cómo sos
+quererte como sos.
+
+Mi estrategia es que un día cualquiera
+no sé cómo ni sé con qué pretexto
+por fin me necesites.`,
+      dedicatoria: `Para Lesly, construyendo a tu lado nuestro lugar en el mundo.`,
+      autor: "Mario Benedetti"
+    },
+    {
+      poema: `Amor de mis entrañas, viva muerte,
+en vano espero tu palabra escrita
+y pienso, con la flor que se marchita,
+que si vivo sin mí quiero perderte.`,
+      dedicatoria: `Lesly, cada palabra tuya llena de luz mi vida entera.`,
+      autor: "Federico García Lorca"
+    },
+    {
+      poema: `Tus ojos son la patria del relámpago y de la lágrima,
+silencio que habla,
+tempestades sin viento, mar sin olas,
+pájaros presos, doradas fieras adormecidas...`,
+      dedicatoria: `Lesly, en tu mirada encuentro el refugio más dulce del mundo.`,
+      autor: "Octavio Paz"
+    },
+    {
+      poema: `Tu alma es el color del tiempo de otoño;
+tus ojos brillan como la estrella del atardecer;
+en tu sonrisa habita el suspiro de la mañana.`,
+      dedicatoria: `Para mi estrella más brillante y hermosa, Lesly.`,
+      autor: "Antonio Machado"
+    },
+    {
+      poema: `Para amar es necesario un alma libre,
+que vuele alto y dibuje en el viento
+las notas más bellas de nuestra canción.`,
+      dedicatoria: `Lesly, tu libertad, tu sonrisa y tu luz me enamoran cada día más.`,
+      autor: "Emily Dickinson"
+    },
+    {
+      poema: `Te quiero a las diez de la mañana, y a las once,
+y a las doce del día.
+Te quiero con toda mi alma y con todo mi cuerpo...`,
+      dedicatoria: `Lesly, te elijo y te quiero en cada segundo de mis días.`,
+      autor: "Jaime Sabines"
+    },
+    {
+      poema: `Una tarde la princesa
+vio una estrella aparecer;
+la princesa era traviesa
+y la quiso ir a coger...`,
+      dedicatoria: `Lesly, mi pequeña princesa que hace todo mi mundo mágico.`,
+      autor: "Rubén Darío"
+    },
+    {
+      poema: `Hay besos que pronuncian por sí solos
+la sentencia de amor condenatoria,
+hay besos que se dan con la mirada,
+hay besos que se dan con la memoria...`,
+      dedicatoria: `Cada beso y cada recuerdo junto a ti es un tesoro eterno, Lesly.`,
+      autor: "Gabriela Mistral"
+    }
+  ];
+
+  // Titles and short descriptions for our 3D Deck of Cards
+  const DETALLES_CARTAS = [
+    { titulo: "Primer Beso", desc: "El instante en que el tiempo se detuvo." },
+    { titulo: "Tu Sonrisa", desc: "La luz que ilumina mis días más grises." },
+    { titulo: "Caminos", desc: "Andar de tu mano es mi rumbo favorito." },
+    { titulo: "Tu Voz", desc: "Mi sintonía y melodía preferida." },
+    { titulo: "Miradas", desc: "Donde no hacen falta las palabras." },
+    { titulo: "Abrazos", desc: "El único lugar donde me siento a salvo." }
+  ];
+
+  // ───────────────────────────────────────────
+  // DIBUJAR ROSAS, FLORES Y CORAZONES FLOTANTES CON LETRAS (EXCLUYE LA COMBI XO/OX)
+  // ───────────────────────────────────────────
+  const COLORES  = ['#f472b6','#c084fc','#fb7185','#818cf8','#f9a8d4','#fbbf24','#a78bfa','#e879f9'];
+  const contenedor = document.getElementById('flotantes');
+
+  function crearLetra() {
+    const el = document.createElement('div');
+    
+    // 60% de probabilidades de renderizar un SVG premium de rosas/flores, 40% de letras y otros símbolos unicode
+    const isSVG = Math.random() < 0.6;
+    if (isSVG) {
+      const svgs = [
+        // Rosa vectorizada elegante con pétalo
+        `<svg viewBox="0 0 24 24" class="w-6 h-6 fill-rose-500/25 drop-shadow-[0_0_8px_rgba(244,114,182,0.35)]"><path d="M12 2C9 2 4 6 4 11c0 5.25 4.5 9 8 9s8-3.75 8-9c0-5-5-9-8-9z"/></svg>`,
+        // Flor silvestre delicada
+        `<svg viewBox="0 0 24 24" class="w-5 h-5 fill-pink-500/20 drop-shadow-[0_0_8px_rgba(244,114,182,0.3)]"><path d="M12 2a3 3 0 00-3 3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3 3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3 3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 00-3-3z"/></svg>`,
+        // Corazón glowing
+        `<svg viewBox="0 0 24 24" class="w-4 h-4 fill-rose-600/25 drop-shadow-[0_0_6px_rgba(244,114,182,0.35)]"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`,
+        // Destello / Brillo
+        `<svg viewBox="0 0 24 24" class="w-4 h-4 fill-purple-400/25 drop-shadow-[0_0_6px_rgba(168,85,247,0.3)]"><path d="M9.813 15.904L9 21l-.813-5.096L3.096 15.187 8.192 14.37 9 9.278l.808 5.093 5.096.817-5.091.816z"/></svg>`
+      ];
+      el.innerHTML = svgs[Math.floor(Math.random() * svgs.length)];
+    } else {
+      // Símbolos y letras puras: ¡Excluimos la x, o, X y O para prevenir cualquier combinación de "xo" u "ox"!
+      const unicodeSymbols = [
+        '✿', '❀', '⚘', '✨', '🍃', '★', '♡', '♥',
+        'A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','Y','Z',
+        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','p','q','r','s','t','u','v','w','y','z'
+      ];
+      el.textContent = unicodeSymbols[Math.floor(Math.random() * unicodeSymbols.length)];
+    }
+    
+    const dur   = Math.random() * 12 + 10;
+    const delay = Math.random() * 3;
+    el.style.cssText = `
+      position:absolute;
+      left:${Math.random() * 100}%;
+      bottom:-60px;
+      font-size:${Math.random() * 1.6 + 0.8}rem;
+      color:${COLORES[Math.floor(Math.random() * COLORES.length)]};
+      opacity:0;
+      animation:floatUp ${dur}s ${delay}s linear forwards;
+      pointer-events:none;
+      user-select:none;
+      transform: rotate(${Math.random() * 360}deg);
+    `;
+    contenedor.appendChild(el);
+    setTimeout(() => el.remove(), (dur + delay + 1) * 1000);
+  }
+
+  // Primeras letras inmediatas
+  for (let i = 0; i < 25; i++) crearLetra();
+  setInterval(crearLetra, 350);
+
+
+  // ───────────────────────────────────────────
+  // CORAZONES FLOTANTES AL HACER CLIC EN CUALQUIER PARTE
+  // ───────────────────────────────────────────
+  document.addEventListener('click', (e) => {
+    // Evitar disparar en botones, sobre de carta, enlaces, tarjetas de fotos o mapa de aventuras
+    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.stack-card') || e.target.closest('.envelope-container') || e.target.closest('.adventure-card')) return;
+
+    const heart = document.createElement('div');
+    heart.className = 'fixed pointer-events-none z-50 text-purple-500/80';
+    heart.style.left = `${e.clientX - 10}px`;
+    heart.style.top = `${e.clientY - 10}px`;
+    
+    // SVG de corazón
+    heart.innerHTML = `
+      <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    `;
+    
+    document.body.appendChild(heart);
+
+    // Animación personalizada vía JS Web Animations API
+    const xOffset = (Math.random() - 0.5) * 120; // desplazamiento horizontal
+    const keyframes = [
+      { transform: 'translate(0, 0) scale(1)', opacity: 0.8 },
+      { transform: `translate(${xOffset}px, -150px) scale(1.6)`, opacity: 0 }
+    ];
+    
+    heart.animate(keyframes, {
+      duration: 1200,
+      easing: 'ease-out',
+      fill: 'forwards'
+    });
+
+    setTimeout(() => heart.remove(), 1200);
+  });
+
+
+  // ───────────────────────────────────────────
+  // REPRODUCTOR CON LETRAS SINCRONIZADAS
+  // ───────────────────────────────────────────
+  const audio        = document.getElementById('audio');
+  const btnPlay      = document.getElementById('btn-play');
+  const btnPrev      = document.getElementById('btn-prev');
+  const btnNext      = document.getElementById('btn-next');
+  const barraFill    = document.getElementById('barra-fill');
+  const barraProg    = document.getElementById('barra-prog');
+  const tActual      = document.getElementById('t-actual');
+  const tTotal       = document.getElementById('t-total');
+  const lyricDisplay = document.getElementById('lyric-display');
+  const albumArt     = document.getElementById('album-art');
+  const albumSvg     = document.getElementById('album-svg');
+  const songTitle    = document.getElementById('song-title');
+  const songArtist   = document.getElementById('song-artist');
+  const playIconWrapper = document.getElementById('play-icon-wrapper');
+
+  let idx     = 0;
+  let playing = false;
+  let ultimaLetra = '';
+
+  const SVG_PLAY  = `<svg class="w-6 h-6 text-white translate-x-[2px]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+  const SVG_PAUSE = `<svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+
+  function fmt(s) {
+    if (!s || isNaN(s)) return '0:00';
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return `${m}:${sec.toString().padStart(2,'0')}`;
+  }
+
+  function cargarCancion(i) {
+    const c = canciones[i];
+    audio.src   = c.src;
+    songTitle.textContent  = c.titulo;
+    songArtist.textContent = c.artista;
+
+    if (c.cover) {
+      albumArt.style.backgroundImage = `url(${c.cover})`;
+      albumArt.style.backgroundSize  = 'cover';
+      albumSvg.style.display = 'none';
+    } else {
+      albumArt.style.backgroundImage = '';
+      albumSvg.style.display = '';
+    }
+  }
+
+  function actualizarLetra() {
+    const c = canciones[idx];
+    const t = audio.currentTime;
+    let letra = c.letras[0]?.texto ?? '';
+    for (const l of c.letras) {
+      if (t >= l.t) letra = l.texto;
+    }
+    if (letra !== ultimaLetra) {
+      ultimaLetra = letra;
+      // Re-trigger animation
+      lyricDisplay.classList.remove('lyric-line');
+      void lyricDisplay.offsetWidth;
+      lyricDisplay.classList.add('lyric-line');
+      lyricDisplay.textContent = letra;
+    }
+  }
+
+  function playTrack() {
+    audio.play().catch(() => {});
+    playIconWrapper.innerHTML = SVG_PAUSE;
+    albumArt.classList.add('spinning', 'pulsing-beat');
+    playing = true;
+  }
+
+  function pauseTrack() {
+    audio.pause();
+    playIconWrapper.innerHTML = SVG_PLAY;
+    albumArt.classList.remove('spinning', 'pulsing-beat');
+    playing = false;
+  }
+
+  btnPlay.addEventListener('click', () => {
+    if (audio.paused) {
+      playTrack();
+    } else {
+      pauseTrack();
+    }
+  });
+
+  btnNext.addEventListener('click', () => {
+    idx = (idx + 1) % canciones.length;
+    cargarCancion(idx);
+    if (playing) {
+      playTrack();
+    }
+  });
+
+  btnPrev.addEventListener('click', () => {
+    if (audio.currentTime > 3) { audio.currentTime = 0; return; }
+    idx = (idx - 1 + canciones.length) % canciones.length;
+    cargarCancion(idx);
+    if (playing) {
+      playTrack();
+    }
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    const pct = (audio.currentTime / audio.duration) * 100 || 0;
+    barraFill.style.width = `${pct}%`;
+    tActual.textContent   = fmt(audio.currentTime);
+    tTotal.textContent    = fmt(audio.duration);
+    actualizarLetra();
+  });
+
+  audio.addEventListener('ended', () => {
+    idx = (idx + 1) % canciones.length;
+    cargarCancion(idx);
+    playTrack();
+  });
+
+  barraProg.addEventListener('click', (e) => {
+    const rect = barraProg.getBoundingClientRect();
+    audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+  });
+
+  cargarCancion(0);
+
+
+  // ───────────────────────────────────────────
+  // INTERACCIÓN DE APERTURA DEL SOBRE DE CARTA
+  // ───────────────────────────────────────────
+  const sobre = document.getElementById('sobre');
+  const sello = document.getElementById('sello');
+
+  sobre.addEventListener('click', (e) => {
+    e.stopPropagation(); // Evitar disparar corazones de fondo al abrir/cerrar la carta
+    sobre.classList.toggle('open');
+    if (sobre.classList.contains('open')) {
+      sello.style.transform = 'scale(0) rotate(180deg)';
+      sello.style.opacity = '0';
+      // ¡AUTO-PLAY DE LA MÚSICA CON EFECTO DE BEAT AUTOMÁTICO AL ABRIR LA CARTA!
+      if (audio.paused) {
+        playTrack();
+      }
+    } else {
+      sello.style.transform = 'scale(1) rotate(0deg)';
+      sello.style.opacity = '1';
+    }
+  });
+
+
+  // ───────────────────────────────────────────
+  // CONTADOR DE TIEMPO TRANSCURRIDO (ANIVERSARIO)
+  // ───────────────────────────────────────────
+  const cDias  = document.getElementById('c-dias');
+  const cHoras = document.getElementById('c-horas');
+  const cMins  = document.getElementById('c-mins');
+  const cSegs  = document.getElementById('c-segs');
+
+  function actualizarContador() {
+    const fechaInicio = new Date(dedicatoria.fechaInicio + 'T00:00:00');
+    const ahora = new Date();
+    const diferencia = ahora - fechaInicio;
+
+    if (diferencia < 0) {
+      cDias.textContent  = "00";
+      cHoras.textContent = "00";
+      cMins.textContent  = "00";
+      cSegs.textContent  = "00";
+      return;
+    }
+
+    const msPorDia   = 1000 * 60 * 60 * 24;
+    const msPorHora  = 1000 * 60 * 60;
+    const msPorMin   = 1000 * 60;
+    const msPorSeg   = 1000;
+
+    const dias  = Math.floor(diferencia / msPorDia);
+    const horas = Math.floor((diferencia % msPorDia) / msPorHora);
+    const mins  = Math.floor((diferencia % msPorHora) / msPorMin);
+    const segs  = Math.floor((diferencia % msPorMin) / msPorSeg);
+
+    cDias.textContent  = dias.toString().padStart(2, '0');
+    cHoras.textContent = horas.toString().padStart(2, '0');
+    cMins.textContent  = mins.toString().padStart(2, '0');
+    cSegs.textContent  = segs.toString().padStart(2, '0');
+  }
+
+  actualizarContador();
+  setInterval(actualizarContador, 1000);
+
+
+  // ───────────────────────────────────────────
+  // MODAL E INTERACCIÓN DE POEMAS
+  // ───────────────────────────────────────────
+  const modal          = document.getElementById('modal-poema');
+  const modalClose     = document.getElementById('modal-close');
+  const modalIcon      = document.getElementById('modal-icon');
+  const modalTexto     = document.getElementById('modal-poema-texto');
+  const modalDedic     = document.getElementById('modal-dedicatoria');
+  const modalAutor     = document.getElementById('modal-autor');
+
+  function abrirPoema(i, svgHtml) {
+    const data = POEMAS[i % POEMAS.length];
+    modalIcon.innerHTML     = svgHtml;
+    modalTexto.textContent  = data.poema;
+    modalDedic.textContent  = data.dedicatoria;
+    modalAutor.textContent  = `— ${data.autor}`;
+    
+    // Abrir con animación
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.querySelector('div').classList.remove('scale-95');
+    modal.querySelector('div').classList.add('scale-100');
+  }
+
+  function cerrarModal() {
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.querySelector('div').classList.remove('scale-100');
+    modal.querySelector('div').classList.add('scale-95');
+  }
+
+  modalClose.addEventListener('click', cerrarModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) cerrarModal();
+  });
+
+
+  // ───────────────────────────────────────────
+  // 3D STACK CAROUSEL DE CARTAS ROMÁNTICAS
+  // ───────────────────────────────────────────
+  const galeriaStack = document.getElementById('galeria-stack');
+
+  // 6 SVGs premium para las cartas del Stack 3D
+  const SVG_STACK = [
+    // 1. Heart
+    `<svg class="w-12 h-12 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`,
+    // 2. Star
+    `<svg class="w-12 h-12 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`,
+    // 3. Sparkles
+    `<svg class="w-12 h-12 text-fuchsia-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>`,
+    // 4. Music
+    `<svg class="w-12 h-12 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    // 5. Camera
+    `<svg class="w-12 h-12 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>`,
+    // 6. Gift
+    `<svg class="w-12 h-12 text-fuchsia-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V6a2 2 0 10-2 2h2zm0 0H4v13a2 2 0 002 2h12a2 2 0 002-2V8H12z"/></svg>`
+  ];
+
+  const gradients = [
+    'from-pink-500/10 to-purple-500/10 hover:from-pink-500/15 hover:to-purple-500/15',
+    'from-rose-500/10 to-pink-500/10 hover:from-rose-500/15 hover:to-pink-500/15',
+    'from-purple-500/10 to-indigo-500/10 hover:from-purple-500/15 hover:to-indigo-500/15',
+    'from-indigo-500/10 to-blue-500/10 hover:from-indigo-500/15 hover:to-blue-500/15',
+    'from-amber-500/10 to-rose-500/10 hover:from-amber-500/15 hover:to-rose-500/15',
+    'from-fuchsia-500/10 to-pink-500/10 hover:from-fuchsia-500/15 hover:to-pink-500/15'
+  ];
+
+  // Instanciar las tarjetas en el DOM
+  SVG_STACK.forEach((svgContent, i) => {
+    const cardData = DETALLES_CARTAS[i % DETALLES_CARTAS.length];
+    
+    const div = document.createElement('div');
+    div.className = `stack-card bg-gradient-to-br ${gradients[i % gradients.length]}`;
+    div.dataset.index = i;
+    
+    div.innerHTML = `
+      <div class="flex flex-col items-center gap-1 w-full">
+        <span class="text-xs text-purple-400/50 uppercase tracking-widest font-semibold">Recuerdo ${i + 1} de ${SVG_STACK.length}</span>
+        <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center border border-white/5 shadow-inner mt-4">
+          ${svgContent}
+        </div>
+      </div>
+      
+      <div class="flex flex-col items-center mb-4">
+        <h4 class="stack-card-title font-sans">${cardData.titulo}</h4>
+        <p class="stack-card-desc font-sans">${cardData.desc}</p>
+      </div>
+
+      <!-- Icono decorativo de corazón -->
+      <svg class="w-6 h-6 text-white/10" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    `;
+
+    // Al hacer clic en la de enfrente, abre el poema.
+    div.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (div.classList.contains('state-0')) {
+        abrirPoema(i, svgContent);
+      }
+    });
+
+    galeriaStack.appendChild(div);
+  });
+
+  // ───────────────────────────────────────────
+  // MANEJADOR DE ESTADOS DEL STACK 3D (TINDER CAROUSEL)
+  // ───────────────────────────────────────────
+  let stackIndex = 0;
+  const totalCards = SVG_STACK.length;
+
+  function renderStack() {
+    const cards = document.querySelectorAll('.stack-card');
+    cards.forEach((card) => {
+      const idx = parseInt(card.dataset.index);
+      
+      // Limpiar clases de animación y estados
+      card.classList.remove('state-0', 'state-1', 'state-2', 'state-hidden', 'exit-left', 'exit-right');
+
+      // Calcular la posición relativa en la pila circular
+      let relativePos = (idx - stackIndex) % totalCards;
+      if (relativePos < 0) relativePos += totalCards;
+
+      if (relativePos === 0) {
+        card.classList.add('state-0');
+      } else if (relativePos === 1) {
+        card.classList.add('state-1');
+      } else if (relativePos === 2) {
+        card.classList.add('state-2');
+      } else {
+        card.classList.add('state-hidden');
+      }
+    });
+  }
+
+  function nextCard() {
+    const cards = document.querySelectorAll('.stack-card');
+    const currentFrontCard = Array.from(cards).find(c => parseInt(c.dataset.index) === stackIndex);
+    
+    if (currentFrontCard) {
+      // Animación de salida volando hacia la izquierda
+      currentFrontCard.classList.add('exit-left');
+      
+      setTimeout(() => {
+        stackIndex = (stackIndex + 1) % totalCards;
+        renderStack();
+      }, 350);
+    }
+  }
+
+  function prevCard() {
+    stackIndex = (stackIndex - 1 + totalCards) % totalCards;
+    renderStack();
+  }
+
+  document.getElementById('btn-stack-next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    nextCard();
+  });
+
+  document.getElementById('btn-stack-prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    prevCard();
+  });
+
+  // Renderizar la pila por primera vez
+  renderStack();
+</script>
+
+<script is:inline>
+  // ───────────────────────────────────────────
+  // MANEJADOR DE AVENTURAS INTERACTIVAS CON GLOW EN EL CAMINO (MAPA DE RUTA)
+  // ───────────────────────────────────────────
+  function toggleAdventure(card) {
+    card.classList.toggle('checked');
+    const badge = card.querySelector('.adventure-badge');
+    const row = card.closest('.adventure-path-row');
+    
+    if (card.classList.contains('checked')) {
+      badge.textContent = "¡Lo logramos! ✦";
+      if (row) {
+        row.classList.add('checked-row');
+      }
+      
+      // Efecto confeti de corazones al cumplir plan en su coordenada
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'fixed pointer-events-none z-50 text-purple-500/80';
+        
+        // Centrar alrededor de la tarjeta
+        const rect = card.getBoundingClientRect();
+        heart.style.left = `${rect.left + rect.width/2 + (Math.random() - 0.5) * 100}px`;
+        heart.style.top = `${rect.top + rect.height/2 + (Math.random() - 0.5) * 100}px`;
+        
+        heart.innerHTML = `
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        `;
+        
+        document.body.appendChild(heart);
+        
+        const xOffset = (Math.random() - 0.5) * 200;
+        const yOffset = -150 - Math.random() * 100;
+        
+        heart.animate([
+          { transform: 'translate(0, 0) scale(1)', opacity: 0.9 },
+          { transform: `translate(${xOffset}px, ${yOffset}px) scale(1.8)`, opacity: 0 }
+        ], {
+          duration: 1500,
+          easing: 'ease-out',
+          fill: 'forwards'
+        });
+        
+        setTimeout(() => heart.remove(), 1500);
+      }
+    } else {
+      badge.textContent = "Por vivir juntos ✦";
+      if (row) {
+        row.classList.remove('checked-row');
+      }
+    }
+  }
+</script>

@@ -1,0 +1,543 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/* ─── Scrollbar ────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 9999px;
+}
+
+/* ─── Floating letters ─────────────────────── */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 0.85;
+  }
+
+  92% {
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: translateY(-115vh) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+/* ─── Album art spin ───────────────────────── */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinning {
+  animation: spin-slow 10s linear infinite;
+}
+
+/* ─── Glow pulse ───────────────────────────── */
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    text-shadow: 0 0 10px #f472b6, 0 0 20px #f472b688;
+  }
+
+  50% {
+    text-shadow: 0 0 30px #f472b6, 0 0 60px #f472b6aa, 0 0 90px #a855f766;
+  }
+}
+
+.glow-text {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ─── Lyric fade ───────────────────────────── */
+@keyframes lyric-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lyric-line {
+  animation: lyric-in 0.4s ease forwards;
+}
+
+/* ─── Photo hover lift ─────────────────────── */
+.photo-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow: 0 20px 40px rgba(244, 114, 182, 0.3);
+}
+
+/* ─── Envelope Animation ──────────────────── */
+.envelope-container {
+  perspective: 1000px;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 280px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.envelope:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(244, 114, 182, 0.15);
+}
+
+.envelope.open {
+  transform: rotateX(10deg) translateY(60px);
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+  clip-path: polygon(0 0, 50% 55%, 100% 0);
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transform-origin: top;
+  transition: transform 0.5s ease, z-index 0.5s ease;
+  z-index: 3;
+}
+
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope-pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0 0 20px 20px;
+  clip-path: polygon(0 40%, 50% 65%, 100% 40%, 100% 100%, 0 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+}
+
+.envelope-letter {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  height: 80%;
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.5s ease, height 0.5s ease;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(0) scale(0.95);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.envelope.open .envelope-letter {
+  transform: translateY(-240px) scale(1.05);
+  z-index: 4;
+  opacity: 1;
+  height: auto;
+  pointer-events: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(244, 114, 182, 0.1);
+}
+
+/* ─── Album beat pulse ─────────────────────── */
+@keyframes beat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(244, 114, 182, 0.25);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 20px 50px rgba(244, 114, 182, 0.55), 0 0 30px rgba(168, 85, 247, 0.3);
+  }
+}
+
+.pulsing-beat {
+  animation: beat 1.4s infinite ease-in-out;
+}
+
+/* ─── 3D Card Stack Carousel (Pila de Cartas 3D) ─── */
+.stack-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 380px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.stack-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Estado 0: Al frente */
+.stack-card.state-0 {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+  z-index: 30;
+  pointer-events: auto;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(244, 114, 182, 0.15);
+}
+
+.stack-card.state-0:hover {
+  transform: translate3d(0, -8px, 0) scale(1.03);
+  border-color: rgba(244, 114, 182, 0.45);
+  box-shadow: 0 25px 50px rgba(244, 114, 182, 0.3), 0 0 30px rgba(244, 114, 182, 0.15);
+}
+
+/* Estado 1: Segunda carta */
+.stack-card.state-1 {
+  transform: translate3d(0, -22px, -60px) scale(0.92);
+  opacity: 0.75;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Estado 2: Tercera carta */
+.stack-card.state-2 {
+  transform: translate3d(0, -44px, -120px) scale(0.84);
+  opacity: 0.45;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Cartas en el fondo ocultas */
+.stack-card.state-hidden {
+  transform: translate3d(0, -66px, -180px) scale(0.76);
+  opacity: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Transición especial de salida al cambiar */
+.stack-card.exit-left {
+  transform: translate3d(-350px, 20px, 50px) rotate(-15deg) scale(0.9);
+  opacity: 0;
+  z-index: 40;
+}
+
+.stack-card.exit-right {
+  transform: translate3d(350px, 20px, 50px) rotate(15deg) scale(0.9);
+  opacity: 0;
+  z-index: 40;
+}
+
+.stack-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 0.05em;
+}
+
+.stack-card-desc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 6px;
+}
+
+/* ─── Nuestro Mapa de Aventuras (Bucket List Timeline Path) ─── */
+.adventure-path-container {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* Winding Connector Trail Line */
+.adventure-trail-line {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 16px;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, transparent, transparent 5px, rgba(244, 114, 182, 0.3) 5px, rgba(244, 114, 182, 0.3) 15px);
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .adventure-trail-line {
+    left: 50%;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(to bottom, transparent, transparent 6px, rgba(244, 114, 182, 0.35) 6px, rgba(244, 114, 182, 0.35) 18px);
+  }
+}
+
+/* Map Path Node */
+.adventure-path-node {
+  position: absolute;
+  left: 16px;
+  top: 40px;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #030712;
+  border: 3px solid #f472b6;
+  box-shadow: 0 0 12px rgba(244, 114, 182, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #f472b6;
+  z-index: 10;
+  transition: all 0.4s ease;
+}
+
+.adventure-path-row.checked-row .adventure-path-node {
+  border-color: #4ade80;
+  color: #4ade80;
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+@media (min-width: 768px) {
+  .adventure-path-node {
+    left: 50%;
+    top: 50%;
+  }
+}
+
+.adventure-path-row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 48px;
+  padding-left: 48px;
+}
+
+.adventure-path-row:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .adventure-path-row {
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 64px;
+  }
+}
+
+.adventure-card {
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(12px);
+  padding: 24px;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+  overflow: hidden;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .adventure-card {
+    width: 44%;
+  }
+  
+  /* Alternate left/right positioning */
+  .adventure-path-row:nth-child(odd) .adventure-card {
+    margin-right: auto;
+  }
+  
+  .adventure-path-row:nth-child(even) .adventure-card {
+    margin-left: auto;
+  }
+}
+
+.adventure-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(to right, rgba(244, 114, 182, 0) 20%, rgba(244, 114, 182, 0.15) 50%, rgba(168, 85, 247, 0) 80%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  opacity: 0.5;
+}
+
+.adventure-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(244, 114, 182, 0.3);
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.05) 0%, rgba(168, 85, 247, 0.02) 100%);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 25px rgba(244, 114, 182, 0.1);
+}
+
+.adventure-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(to right, rgba(244, 114, 182, 0.2) 0%, rgba(168, 85, 247, 0.3) 50%, rgba(244, 114, 182, 0.2) 100%);
+}
+
+.adventure-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(244, 114, 182, 0.1);
+  color: #f472b6;
+  border: 1px solid rgba(244, 114, 182, 0.2);
+  display: inline-block;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.adventure-card.checked .adventure-badge {
+  background: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.2);
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.1);
+}
+
+.adventure-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.adventure-card:hover .adventure-icon {
+  background: rgba(244, 114, 182, 0.1);
+  border-color: rgba(244, 114, 182, 0.2);
+  color: #f472b6;
+  transform: scale(1.08);
+}
+
+.adventure-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.adventure-card:hover .adventure-title {
+  color: #f472b6;
+}
+
+.adventure-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.adventure-card:hover .adventure-desc {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Checkbox de Corazón interactivo */
+.heart-checkbox {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.heart-checkbox:hover {
+  background: rgba(244, 114, 182, 0.1);
+  border-color: rgba(244, 114, 182, 0.3);
+  color: #f472b6;
+  transform: scale(1.1);
+}
+
+.adventure-card.checked .heart-checkbox {
+  background: rgba(244, 114, 182, 0.2);
+  border-color: rgba(244, 114, 182, 0.4);
+  color: #f472b6;
+  box-shadow: 0 0 15px rgba(244, 114, 182, 0.3);
+}
+
+.adventure-card.checked .heart-checkbox svg {
+  fill: currentColor;
+}
