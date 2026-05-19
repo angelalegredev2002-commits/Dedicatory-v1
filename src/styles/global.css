@@ -18,6 +18,14 @@
   border-radius: 9999px;
 }
 
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* ─── Floating letters ─────────────────────── */
 @keyframes floatUp {
   0% {
