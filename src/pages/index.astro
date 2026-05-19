@@ -782,6 +782,107 @@ const fotos: string[] = [];
     </div>
   </section>
 
+  <!-- ══ VALES MÁGICOS (LOVE COUPONS) ══ -->
+  <section class="relative z-10 py-24 px-6 overflow-hidden">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
+        <!-- SVG Ticket Icon -->
+        <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"/>
+        </svg>
+        Vales Exclusivos para Ti
+      </h2>
+      <p class="text-gray-400 text-center mb-16 text-sm max-w-md mx-auto">
+        Un talonario especial que puedes canjear cuando tú quieras. (Toca un vale para reclamarlo)
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        
+        <!-- Vale 1 -->
+        <div class="ticket-card group cursor-pointer" onclick="reclamarVale(this, '¡Vale por un masaje reclamado! Prepárate para relajarte.')">
+          <div class="ticket-cutout left"></div>
+          <div class="ticket-cutout right"></div>
+          <div class="relative w-full h-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-2xl p-6 flex items-center justify-between overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] group-hover:border-amber-500/50">
+            <!-- Punteado divisor -->
+            <div class="absolute top-0 bottom-0 left-[25%] border-l-2 border-dashed border-amber-500/30"></div>
+            
+            <div class="w-1/4 flex flex-col items-center justify-center z-10 pr-4">
+              <svg class="w-10 h-10 text-amber-400 mb-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/></svg>
+              <span class="text-amber-500/80 text-xs font-bold tracking-widest uppercase transform -rotate-90 origin-center whitespace-nowrap mt-6">Válido 1 Uso</span>
+            </div>
+            
+            <div class="w-3/4 pl-8 z-10">
+              <h4 class="text-xl font-bold text-white mb-2 font-serif group-hover:text-amber-300 transition-colors">Masaje Relajante</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">Válido por un masaje completo después de un día cansado, sin derecho a quejas de mi parte.</p>
+              <button class="mt-4 px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider group-hover:bg-amber-500 group-hover:text-white transition-colors">Canjear Vale</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vale 2 -->
+        <div class="ticket-card group cursor-pointer" onclick="reclamarVale(this, '¡Noche de pelis activada! Tú eliges qué vemos.')">
+          <div class="ticket-cutout left"></div>
+          <div class="ticket-cutout right"></div>
+          <div class="relative w-full h-full bg-gradient-to-r from-fuchsia-500/10 to-purple-500/10 border border-fuchsia-500/20 rounded-2xl p-6 flex items-center justify-between overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(217,70,239,0.2)] group-hover:border-fuchsia-500/50">
+            <div class="absolute top-0 bottom-0 left-[25%] border-l-2 border-dashed border-fuchsia-500/30"></div>
+            <div class="w-1/4 flex flex-col items-center justify-center z-10 pr-4">
+              <svg class="w-10 h-10 text-fuchsia-400 mb-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
+              <span class="text-fuchsia-500/80 text-xs font-bold tracking-widest uppercase transform -rotate-90 origin-center whitespace-nowrap mt-6">Válido 1 Uso</span>
+            </div>
+            <div class="w-3/4 pl-8 z-10">
+              <h4 class="text-xl font-bold text-white mb-2 font-serif group-hover:text-fuchsia-300 transition-colors">Cine en Casa</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">Válido por una noche donde tú eliges la peli (aunque ya la hayamos visto) y yo pongo los snacks.</p>
+              <button class="mt-4 px-4 py-1.5 rounded-full bg-fuchsia-500/20 text-fuchsia-300 text-xs font-semibold uppercase tracking-wider group-hover:bg-fuchsia-500 group-hover:text-white transition-colors">Canjear Vale</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vale 3 -->
+        <div class="ticket-card group cursor-pointer" onclick="reclamarVale(this, '¡Paz automática! Prometo darte la razón.')">
+          <div class="ticket-cutout left"></div>
+          <div class="ticket-cutout right"></div>
+          <div class="relative w-full h-full bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 rounded-2xl p-6 flex items-center justify-between overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] group-hover:border-emerald-500/50">
+            <div class="absolute top-0 bottom-0 left-[25%] border-l-2 border-dashed border-emerald-500/30"></div>
+            <div class="w-1/4 flex flex-col items-center justify-center z-10 pr-4">
+              <svg class="w-10 h-10 text-emerald-400 mb-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+              <span class="text-emerald-500/80 text-xs font-bold tracking-widest uppercase transform -rotate-90 origin-center whitespace-nowrap mt-6">Comodín</span>
+            </div>
+            <div class="w-3/4 pl-8 z-10">
+              <h4 class="text-xl font-bold text-white mb-2 font-serif group-hover:text-emerald-300 transition-colors">Tener la Razón</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">Úsalo en cualquier momento. Automáticamente me rindo y admito que tú tienes la absoluta razón.</p>
+              <button class="mt-4 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider group-hover:bg-emerald-500 group-hover:text-white transition-colors">Canjear Vale</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vale 4 -->
+        <div class="ticket-card group cursor-pointer" onclick="reclamarVale(this, '¡Ataque de besos inminente! No tienes escapatoria.')">
+          <div class="ticket-cutout left"></div>
+          <div class="ticket-cutout right"></div>
+          <div class="relative w-full h-full bg-gradient-to-r from-rose-500/10 to-pink-500/10 border border-rose-500/20 rounded-2xl p-6 flex items-center justify-between overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(244,63,94,0.2)] group-hover:border-rose-500/50">
+            <div class="absolute top-0 bottom-0 left-[25%] border-l-2 border-dashed border-rose-500/30"></div>
+            <div class="w-1/4 flex flex-col items-center justify-center z-10 pr-4">
+              <svg class="w-10 h-10 text-rose-400 mb-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="text-rose-500/80 text-xs font-bold tracking-widest uppercase transform -rotate-90 origin-center whitespace-nowrap mt-6">Infinito</span>
+            </div>
+            <div class="w-3/4 pl-8 z-10">
+              <h4 class="text-xl font-bold text-white mb-2 font-serif group-hover:text-rose-300 transition-colors">Ataque de Besos</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">Válido por mil besos sin parar. Úsalo cuando necesites extra cariño o cuando estés celosita.</p>
+              <button class="mt-4 px-4 py-1.5 rounded-full bg-rose-500/20 text-rose-300 text-xs font-semibold uppercase tracking-wider group-hover:bg-rose-500 group-hover:text-white transition-colors">Canjear Vale</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast-vale" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-white text-gray-900 px-6 py-3 rounded-full font-bold shadow-2xl opacity-0 pointer-events-none transition-all duration-300 transform translate-y-8 z-50 flex items-center gap-2">
+      <svg class="w-5 h-5 text-rose-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <span id="toast-vale-text">Vale reclamado</span>
+    </div>
+  </section>
+
   <!-- ══ MODAL DE POEMAS ══ -->
   <div id="modal-poema" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md bg-black/70">
     <div class="relative bg-gray-900 border border-white/10 rounded-3xl p-8 md:p-10 max-w-lg w-full text-center shadow-2xl transform scale-95 transition-transform duration-300">
@@ -1462,4 +1563,53 @@ hay besos que se dan con la memoria...`,
     setTimeout(updateButtons, 100);
     window.addEventListener('resize', updateButtons);
   }
+
+  // --- Lógica Vales Mágicos ---
+  window.reclamarVale = function(elemento, mensaje) {
+    if (elemento.classList.contains('canjeado')) return; // Ya canjeado
+    
+    // Animación del vale
+    elemento.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      elemento.style.transform = 'scale(1)';
+      elemento.style.opacity = '0.6';
+      elemento.classList.add('canjeado');
+      const btn = elemento.querySelector('button');
+      if(btn) {
+        btn.textContent = '¡CANJEADO!';
+        btn.classList.add('bg-gray-500/50', 'text-gray-300');
+        btn.classList.remove('bg-amber-500/20', 'bg-fuchsia-500/20', 'bg-emerald-500/20', 'bg-rose-500/20');
+      }
+    }, 150);
+
+    // Disparar corazoncitos flotantes
+    for(let i=0; i<15; i++) {
+      setTimeout(() => {
+        const heart = document.createElement('div');
+        heart.className = 'fixed pointer-events-none z-50 text-rose-500';
+        heart.style.left = '50%';
+        heart.style.top = '50%';
+        heart.innerHTML = `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+        document.body.appendChild(heart);
+        const xOffset = (Math.random() - 0.5) * 400;
+        const yOffset = (Math.random() - 0.5) * 400;
+        heart.animate([
+          { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+          { transform: `translate(calc(-50% + ${xOffset}px), calc(-50% + ${yOffset}px)) scale(0)`, opacity: 0 }
+        ], { duration: 1000, easing: 'ease-out' });
+        setTimeout(() => heart.remove(), 1000);
+      }, i * 50);
+    }
+
+    // Mostrar Toast
+    const toast = document.getElementById('toast-vale');
+    const toastText = document.getElementById('toast-vale-text');
+    if(toast && toastText) {
+      toastText.textContent = mensaje;
+      toast.classList.remove('opacity-0', 'translate-y-8');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-8');
+      }, 3500);
+    }
+  };
 </script>

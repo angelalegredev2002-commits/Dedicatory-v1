@@ -316,6 +316,35 @@
   margin-top: 6px;
 }
 
+/* ─── Ticket Cutouts (Love Coupons) ───────────────────────── */
+.ticket-card {
+  position: relative;
+  background: transparent;
+  border-radius: 16px;
+}
+
+.ticket-cutout {
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  background: #030712; /* Matches tailwind body background */
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.ticket-cutout.left {
+  left: -12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ticket-cutout.right {
+  right: -12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
 /* ─── Nuestro Mapa de Aventuras (Bucket List Timeline Path) ─── */
 .adventure-path-container {
   position: relative;
