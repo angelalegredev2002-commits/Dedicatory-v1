@@ -901,11 +901,13 @@ const fotos: string[] = [];
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative min-h-[60px] w-full">
-          <button id="btn-si" class="px-8 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-xl rounded-full shadow-[0_0_20px_rgba(244,63,94,0.5)] hover:scale-110 active:scale-95 transition-transform z-20 cursor-pointer">
-            ¡Sí, acepto! ❤️
+          <button id="btn-si" class="px-8 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-xl rounded-full shadow-[0_0_20px_rgba(244,63,94,0.5)] hover:scale-110 active:scale-95 transition-transform z-20 cursor-pointer flex items-center justify-center gap-2">
+            ¡Sí, acepto! 
+            <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           </button>
-          <button id="btn-no" class="px-8 py-3 bg-white/10 text-gray-300 font-bold text-xl rounded-full hover:bg-white/20 transition-all absolute sm:relative z-10 cursor-pointer border border-white/5">
-            No 💔
+          <button id="btn-no" class="px-8 py-3 bg-white/10 text-gray-300 font-bold text-xl rounded-full hover:bg-white/20 transition-all absolute sm:relative z-10 cursor-pointer border border-white/5 flex items-center justify-center gap-2">
+            No 
+            <svg class="w-6 h-6 fill-current text-gray-400" viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5c0-3.08-2.42-5.5-5.5-5.5zm-5.5 13L10 13l2-3-3-4 3-2 1.5 3-1.5 3 2 3-3 3z"/></svg>
           </button>
         </div>
       </div>
