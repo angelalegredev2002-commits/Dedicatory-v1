@@ -129,19 +129,19 @@ const fotos: string[] = [];
           </p>
         </div>
         
-        <!-- Hito 2 -->
+        <!-- Hito 2 (Primer mes) -->
         <div class="relative">
-          <span class="absolute -left-[41px] top-1.5 bg-purple-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#c084fc]"></span>
-          <time class="text-xs text-purple-400 font-semibold uppercase tracking-widest">Cada segundito...</time>
-          <h3 class="text-white text-lg font-bold mt-1 font-sans">Coleccionando risas</h3>
+          <span class="absolute -left-[41px] top-1.5 bg-rose-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#f43f5e] animate-pulse"></span>
+          <time class="text-xs text-rose-400 font-semibold uppercase tracking-widest">18 de Mayo de 2026</time>
+          <h3 class="text-white text-lg font-bold mt-1 font-sans">Nuestro Primer Mes</h3>
           <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-            Todas las conversaciones, los chistes tontos que solo nosotros entendemos y cada pequeño detalle que me hace quererte más.
+            30 días increíbles desde que empezamos esta aventura. Cada día a tu lado me hace confirmar que eres mi casualidad más hermosa.
           </p>
         </div>
 
         <!-- Hito 3 -->
         <div class="relative">
-          <span class="absolute -left-[41px] top-1.5 bg-fuchsia-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#e879f9] animate-pulse"></span>
+          <span class="absolute -left-[41px] top-1.5 bg-fuchsia-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#e879f9]"></span>
           <time class="text-xs text-fuchsia-400 font-semibold uppercase tracking-widest">Lo que viene...</time>
           <h3 class="text-white text-lg font-bold mt-1 font-sans">Mil aventuras más</h3>
           <p class="text-gray-400 text-sm mt-2 leading-relaxed">
@@ -883,6 +883,46 @@ const fotos: string[] = [];
     </div>
   </section>
 
+  <!-- ══ LA PROPUESTA (INTERACTIVA) ══ -->
+  <section class="relative z-10 py-32 px-6 flex flex-col items-center justify-center min-h-[70vh]">
+    <div id="propuesta-container" class="max-w-xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 md:p-14 text-center shadow-2xl relative overflow-hidden transition-all duration-700">
+      
+      <!-- Fondo decorativo -->
+      <div class="absolute inset-0 bg-gradient-to-br from-rose-500/10 via-transparent to-purple-500/10 opacity-50"></div>
+      
+      <div id="propuesta-content" class="relative z-10">
+        <svg class="w-16 h-16 text-rose-500 mx-auto mb-6 animate-bounce" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-4 glow-text font-serif">
+          Lesli, mi amor...
+        </h2>
+        <p class="text-xl text-purple-200 mb-10 italic">
+          Después de todo lo que hemos vivido y de un mes increíble a tu lado, solo hay una cosa más que quiero pedirte hoy...<br><br>
+          <span class="font-bold text-2xl text-white block mt-4 drop-shadow-md">¿Quieres ser mi novia?</span>
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative min-h-[60px] w-full">
+          <button id="btn-si" class="px-8 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-xl rounded-full shadow-[0_0_20px_rgba(244,63,94,0.5)] hover:scale-110 active:scale-95 transition-transform z-20 cursor-pointer">
+            ¡Sí, acepto! ❤️
+          </button>
+          <button id="btn-no" class="px-8 py-3 bg-white/10 text-gray-300 font-bold text-xl rounded-full hover:bg-white/20 transition-all absolute sm:relative z-10 cursor-pointer border border-white/5">
+            No 💔
+          </button>
+        </div>
+      </div>
+      
+      <!-- Mensaje de Éxito (Oculto inicialmente) -->
+      <div id="propuesta-success" class="relative z-10 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-1000">
+        <svg class="w-24 h-24 text-rose-500 mx-auto mb-6 pulsing-beat" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <h2 class="text-4xl font-black text-white mb-4 glow-text font-serif">
+          ¡Sabía que dirías que sí!
+        </h2>
+        <p class="text-xl text-purple-200 font-light">
+          Me haces el hombre más feliz del mundo. Prometo cuidarte, amarte y hacer que cada día juntos sea mágico. ¡Te amo, celosita!
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ MODAL DE POEMAS ══ -->
   <div id="modal-poema" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md bg-black/70">
     <div class="relative bg-gray-900 border border-white/10 rounded-3xl p-8 md:p-10 max-w-lg w-full text-center shadow-2xl transform scale-95 transition-transform duration-300">
@@ -1612,4 +1652,71 @@ hay besos que se dan con la memoria...`,
       }, 3500);
     }
   };
+
+  // --- Lógica Propuesta de Noviazgo ---
+  const btnNo = document.getElementById('btn-no');
+  const btnSi = document.getElementById('btn-si');
+  const propuestaContent = document.getElementById('propuesta-content');
+  const propuestaSuccess = document.getElementById('propuesta-success');
+  const propuestaContainer = document.getElementById('propuesta-container');
+
+  if (btnNo && btnSi) {
+    // Hacer que el botón "No" huya del cursor
+    const moveBtnNo = () => {
+      const maxX = 150;
+      const maxY = 100;
+      
+      const newX = (Math.random() - 0.5) * maxX * 2;
+      const newY = (Math.random() - 0.5) * maxY * 2;
+      
+      btnNo.style.position = 'absolute';
+      btnNo.style.transform = `translate(${newX}px, ${newY}px)`;
+    };
+
+    btnNo.addEventListener('mouseover', moveBtnNo);
+    btnNo.addEventListener('touchstart', moveBtnNo);
+
+    // Cuando dice que SÍ
+    btnSi.addEventListener('click', () => {
+      // Ocultar la pregunta
+      propuestaContent.style.display = 'none';
+      
+      // Mostrar el mensaje de éxito
+      propuestaSuccess.classList.remove('hidden');
+      propuestaSuccess.classList.add('flex');
+      
+      // Cambiar fondo del contenedor
+      propuestaContainer.classList.add('bg-rose-900/40', 'border-rose-500/50');
+      
+      // Animación de aparición
+      setTimeout(() => {
+        propuestaSuccess.classList.remove('opacity-0');
+        propuestaSuccess.classList.add('opacity-100');
+      }, 50);
+
+      // Lluvia de corazones explosiva
+      for(let i=0; i<60; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.className = 'fixed pointer-events-none z-50 text-rose-500';
+          heart.style.left = '50%';
+          heart.style.top = '50%';
+          heart.innerHTML = `<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+          document.body.appendChild(heart);
+          
+          const angle = Math.random() * Math.PI * 2;
+          const velocity = 100 + Math.random() * 500;
+          const xOffset = Math.cos(angle) * velocity;
+          const yOffset = Math.sin(angle) * velocity;
+          
+          heart.animate([
+            { transform: 'translate(-50%, -50%) scale(0.5) rotate(0deg)', opacity: 1 },
+            { transform: `translate(calc(-50% + ${xOffset}px), calc(-50% + ${yOffset}px)) scale(2) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+          ], { duration: 1500 + Math.random() * 1500, easing: 'cubic-bezier(0.25, 1, 0.5, 1)' });
+          
+          setTimeout(() => heart.remove(), 3000);
+        }, i * 20);
+      }
+    });
+  }
 </script>
