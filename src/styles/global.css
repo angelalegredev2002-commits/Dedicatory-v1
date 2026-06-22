@@ -114,8 +114,8 @@
 .envelope {
   position: relative;
   width: 100%;
-  max-width: 480px;
-  height: 280px;
+  max-width: 520px;
+  height: 290px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -132,7 +132,7 @@
 }
 
 .envelope.open {
-  transform: rotateX(10deg) translateY(60px);
+  transform: rotateX(10deg) translateY(48px);
 }
 
 .envelope-flap {
@@ -170,27 +170,33 @@
 
 .envelope-letter {
   position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 90%;
-  height: 80%;
+  top: 8%;
+  left: 4.5%;
+  width: 91%;
+  height: 82%;
   background: rgba(17, 24, 39, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.5s ease, height 0.5s ease;
   z-index: 1;
   opacity: 0;
   transform: translateY(0) scale(0.95);
-  overflow: hidden;
+  overflow: auto;
+  scrollbar-width: none;
   pointer-events: none;
 }
 
+.envelope-letter::-webkit-scrollbar {
+  display: none;
+}
+
 .envelope.open .envelope-letter {
-  transform: translateY(-240px) scale(1.05);
+  transform: translateY(-220px) scale(1.03);
   z-index: 4;
   opacity: 1;
   height: auto;
+  max-height: min(70vh, 560px);
   pointer-events: auto;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(244, 114, 182, 0.1);
 }
@@ -377,8 +383,8 @@
   left: 16px;
   top: 40px;
   transform: translate(-50%, -50%);
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #030712;
   border: 3px solid #f472b6;
@@ -386,7 +392,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: #f472b6;
   z-index: 10;
@@ -412,8 +418,8 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 48px;
-  padding-left: 48px;
+  margin-bottom: 38px;
+  padding-left: 42px;
 }
 
 .adventure-path-row:last-child {
@@ -424,17 +430,17 @@
   .adventure-path-row {
     flex-direction: row;
     padding-left: 0;
-    margin-bottom: 64px;
+    margin-bottom: 50px;
   }
 }
 
 .adventure-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
   backdrop-filter: blur(12px);
-  padding: 24px;
+  padding: 18px;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   cursor: pointer;
   overflow: hidden;
@@ -460,7 +466,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 24px;
+  border-radius: 20px;
   padding: 1px;
   background: linear-gradient(to right, rgba(244, 114, 182, 0) 20%, rgba(244, 114, 182, 0.15) 50%, rgba(168, 85, 247, 0) 80%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -484,17 +490,17 @@
 }
 
 .adventure-badge {
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 4px 10px;
+  padding: 4px 9px;
   border-radius: 99px;
   background: rgba(244, 114, 182, 0.1);
   color: #f472b6;
   border: 1px solid rgba(244, 114, 182, 0.2);
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   transition: all 0.3s ease;
 }
 
@@ -506,9 +512,9 @@
 }
 
 .adventure-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
@@ -516,7 +522,7 @@
   justify-content: center;
   color: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .adventure-card:hover .adventure-icon {
@@ -527,10 +533,10 @@
 }
 
 .adventure-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   transition: color 0.3s ease;
 }
 
@@ -539,9 +545,9 @@
 }
 
 .adventure-desc {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.55);
-  line-height: 1.5;
+  line-height: 1.45;
   transition: color 0.3s ease;
 }
 
@@ -552,10 +558,10 @@
 /* Checkbox de Corazón interactivo */
 .heart-checkbox {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 32px;
-  height: 32px;
+  top: 18px;
+  right: 18px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -583,4 +589,1078 @@
 
 .adventure-card.checked .heart-checkbox svg {
   fill: currentColor;
+}
+
+/* ─── Ramo de rosas CSS en el footer ───────────────────── */
+@keyframes bouquet-sway {
+  0%, 100% {
+    transform: rotate(-1deg);
+  }
+
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+@keyframes rose-bloom {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+.rose-bouquet {
+  position: relative;
+  width: 420px;
+  max-width: 100%;
+  height: 360px;
+  margin: 0 auto 28px;
+  animation: bouquet-sway 5.5s ease-in-out infinite;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+}
+
+.bouquet-halo {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  width: 430px;
+  max-width: 92vw;
+  height: 290px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 50% 35%, rgba(192, 132, 252, 0.28), transparent 48%),
+    radial-gradient(circle at 30% 55%, rgba(168, 85, 247, 0.22), transparent 52%),
+    radial-gradient(circle at 70% 55%, rgba(96, 165, 250, 0.14), transparent 52%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.bouquet-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 198px;
+  height: 170px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(243, 232, 255, 0.7), rgba(216, 180, 254, 0.34) 30%, rgba(168, 85, 247, 0.24) 62%, rgba(67, 56, 202, 0.2));
+  clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+.bouquet-knot {
+  position: absolute;
+  left: 50%;
+  bottom: 96px;
+  width: 36px;
+  height: 36px;
+  transform: translateX(-50%) rotate(45deg);
+  background: linear-gradient(135deg, #c084fc, #8b5cf6);
+  border-radius: 8px;
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.45);
+}
+
+.bouquet-knot::before,
+.bouquet-knot::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  width: 26px;
+  height: 14px;
+  border: 2px solid rgba(216, 180, 254, 0.92);
+  border-radius: 999px 999px 999px 999px;
+}
+
+.bouquet-knot::before {
+  left: -20px;
+  transform: rotate(-32deg);
+}
+
+.bouquet-knot::after {
+  right: -20px;
+  transform: rotate(32deg);
+}
+
+.rose-stem {
+  position: absolute;
+  left: 50%;
+  bottom: 108px;
+  width: 8px;
+  height: 150px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #4ade80, #0f766e);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transform-origin: bottom center;
+}
+
+.stem-left {
+  transform: translateX(-50%) rotate(-28deg);
+}
+
+.stem-mid-left {
+  transform: translateX(-50%) rotate(-14deg);
+  height: 170px;
+}
+
+.stem-center {
+  transform: translateX(-50%) rotate(0deg);
+  height: 184px;
+}
+
+.stem-mid-right {
+  transform: translateX(-50%) rotate(14deg);
+  height: 170px;
+}
+
+.stem-right {
+  transform: translateX(-50%) rotate(28deg);
+}
+
+.rose-leaf {
+  position: absolute;
+  width: 50px;
+  height: 26px;
+  background: linear-gradient(135deg, #67e8f9, #0f766e 58%, #14532d);
+  border-radius: 100% 0 100% 0;
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.22);
+}
+
+.leaf-left {
+  left: 72px;
+  bottom: 150px;
+  transform: rotate(-32deg);
+}
+
+.leaf-mid-left {
+  left: 114px;
+  bottom: 178px;
+  transform: rotate(-8deg);
+}
+
+.leaf-center {
+  left: 184px;
+  bottom: 202px;
+  transform: rotate(18deg);
+}
+
+.leaf-mid-right {
+  right: 110px;
+  bottom: 180px;
+  transform: scaleX(-1) rotate(-8deg);
+}
+
+.leaf-right {
+  right: 70px;
+  bottom: 150px;
+  transform: scaleX(-1) rotate(-32deg);
+}
+
+.rose-flower {
+  position: absolute;
+  width: 112px;
+  height: 118px;
+  animation: rose-bloom 4.2s ease-in-out infinite;
+  filter: drop-shadow(0 14px 20px rgba(91, 33, 182, 0.26));
+  overflow: visible;
+}
+
+.rose-flower::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  width: 56px;
+  height: 28px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.9), transparent 35%),
+    radial-gradient(circle at 50% 25%, rgba(45, 212, 191, 0.8), transparent 42%),
+    radial-gradient(circle at 80% 50%, rgba(16, 185, 129, 0.9), transparent 35%);
+  filter: blur(1.5px);
+  z-index: 1;
+}
+
+.rose-flower::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 50% 40%, rgba(216, 180, 254, 0.24), transparent 72%);
+  z-index: 0;
+}
+
+.flower-left {
+  left: 8px;
+  bottom: 196px;
+  transform: rotate(-8deg);
+}
+
+.flower-mid-left {
+  left: 78px;
+  bottom: 246px;
+  animation-delay: 0.4s;
+  transform: rotate(-3deg);
+}
+
+.flower-center {
+  left: 146px;
+  bottom: 260px;
+  width: 126px;
+  height: 132px;
+  animation-delay: 0.8s;
+}
+
+.flower-mid-right {
+  right: 78px;
+  bottom: 246px;
+  animation-delay: 1.2s;
+  transform: rotate(3deg);
+}
+
+.flower-right {
+  right: 8px;
+  bottom: 196px;
+  animation-delay: 1.6s;
+  transform: rotate(8deg);
+}
+
+.sepal {
+  position: absolute;
+  width: 34px;
+  height: 42px;
+  bottom: 14px;
+  background: linear-gradient(180deg, #4ade80, #0f766e 65%, #14532d);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.sepal-1 {
+  left: 22px;
+  transform: rotate(-22deg);
+}
+
+.sepal-2 {
+  left: 39px;
+  width: 40px;
+  height: 52px;
+  transform: rotate(0deg);
+}
+
+.sepal-3 {
+  right: 22px;
+  transform: rotate(22deg);
+}
+
+.petal {
+  position: absolute;
+  background:
+    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.72), transparent 26%),
+    linear-gradient(180deg, #fdf4ff 0%, #e9d5ff 18%, #c084fc 48%, #9333ea 76%, #6b21a8 100%);
+  border-radius: 58% 58% 72% 72% / 42% 42% 84% 84%;
+  box-shadow:
+    inset 0 -10px 14px rgba(88, 28, 135, 0.42),
+    inset -6px 0 10px rgba(126, 34, 206, 0.2),
+    0 8px 16px rgba(88, 28, 135, 0.16);
+  transform-origin: bottom center;
+}
+
+.petal::before {
+  content: "";
+  position: absolute;
+  inset: 8px 10px auto;
+  height: 34%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0));
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.outer {
+  width: 60px;
+  height: 80px;
+  z-index: 3;
+}
+
+.outer-1 {
+  top: 4px;
+  left: 26px;
+  transform: rotate(-8deg);
+}
+
+.outer-2 {
+  top: 20px;
+  left: 0;
+  transform: rotate(-48deg);
+}
+
+.outer-3 {
+  top: 20px;
+  right: 0;
+  transform: rotate(48deg);
+}
+
+.outer-4 {
+  top: 48px;
+  left: 12px;
+  transform: rotate(-28deg);
+}
+
+.outer-5 {
+  top: 48px;
+  right: 12px;
+  transform: rotate(28deg);
+}
+
+.outer-6 {
+  top: 58px;
+  left: 27px;
+  transform: rotate(2deg);
+}
+
+.mid {
+  width: 48px;
+  height: 66px;
+  z-index: 5;
+}
+
+.mid-1 {
+  top: 20px;
+  left: 33px;
+  transform: rotate(-4deg);
+}
+
+.mid-2 {
+  top: 34px;
+  left: 14px;
+  transform: rotate(-30deg);
+}
+
+.mid-3 {
+  top: 34px;
+  right: 14px;
+  transform: rotate(30deg);
+}
+
+.mid-4 {
+  top: 54px;
+  left: 24px;
+  transform: rotate(-14deg);
+}
+
+.mid-5 {
+  top: 54px;
+  right: 24px;
+  transform: rotate(14deg);
+}
+
+.inner {
+  width: 32px;
+  height: 50px;
+  z-index: 7;
+  background:
+    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.8), transparent 26%),
+    linear-gradient(180deg, #fdf4ff 0%, #f3e8ff 20%, #d8b4fe 52%, #9333ea 82%, #6b21a8 100%);
+}
+
+.inner-1 {
+  top: 34px;
+  left: 40px;
+  transform: rotate(-8deg);
+}
+
+.inner-2 {
+  top: 42px;
+  left: 28px;
+  transform: rotate(-24deg);
+}
+
+.inner-3 {
+  top: 42px;
+  right: 28px;
+  transform: rotate(24deg);
+}
+
+.inner-4 {
+  top: 50px;
+  left: 40px;
+  transform: rotate(8deg);
+}
+
+.rose-heart {
+  position: absolute;
+  left: 50%;
+  top: 44px;
+  width: 26px;
+  height: 38px;
+  transform: translateX(-50%) rotate(-6deg);
+  z-index: 9;
+  border-radius: 46% 54% 58% 42% / 30% 30% 70% 70%;
+  background:
+    linear-gradient(180deg, #faf5ff 0%, #e9d5ff 28%, #c084fc 62%, #7e22ce 100%);
+  box-shadow:
+    inset -6px -8px 10px rgba(88, 28, 135, 0.34),
+    0 6px 12px rgba(88, 28, 135, 0.2);
+}
+
+.rose-heart::before,
+.rose-heart::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 30px;
+  top: 4px;
+  border-radius: 50% 50% 60% 40% / 26% 26% 74% 74%;
+  background: linear-gradient(180deg, rgba(250, 245, 255, 0.98), rgba(216, 180, 254, 0.88) 45%, rgba(126, 34, 206, 0.95));
+}
+
+.rose-heart::before {
+  left: -8px;
+  transform: rotate(-28deg);
+}
+
+.rose-heart::after {
+  right: -6px;
+  transform: rotate(26deg) scaleX(-1);
+}
+
+.flower-center .petal {
+  transform-origin: bottom center;
+}
+
+.flower-center .outer {
+  width: 68px;
+  height: 92px;
+}
+
+.flower-center .outer-1 {
+  left: 30px;
+}
+
+.flower-center .outer-2,
+.flower-center .outer-3 {
+  top: 24px;
+}
+
+.flower-center .outer-4,
+.flower-center .outer-5 {
+  top: 56px;
+}
+
+.flower-center .outer-6 {
+  top: 66px;
+  left: 29px;
+}
+
+.flower-center .mid {
+  width: 56px;
+  height: 76px;
+}
+
+.flower-center .mid-1 {
+  left: 35px;
+}
+
+.flower-center .mid-2,
+.flower-center .mid-3 {
+  top: 38px;
+}
+
+.flower-center .mid-4,
+.flower-center .mid-5 {
+  top: 60px;
+}
+
+.flower-center .inner {
+  width: 38px;
+  height: 58px;
+}
+
+.flower-center .inner-1 {
+  top: 38px;
+  left: 44px;
+}
+
+.flower-center .inner-2 {
+  top: 47px;
+  left: 30px;
+}
+
+.flower-center .inner-3 {
+  top: 47px;
+  right: 30px;
+}
+
+.flower-center .inner-4 {
+  top: 56px;
+  left: 44px;
+}
+
+.flower-center .rose-heart {
+  top: 52px;
+  width: 32px;
+  height: 46px;
+}
+
+@media (max-width: 640px) {
+  .rose-bouquet {
+    width: 320px;
+    height: 290px;
+    margin-top: -2px;
+    margin-bottom: 12px;
+  }
+
+  .bouquet-halo {
+    width: 320px;
+    height: 230px;
+  }
+
+  .rose-flower {
+    transform: scale(0.82);
+    transform-origin: center bottom;
+  }
+
+  .flower-center {
+    transform: scale(0.9);
+  }
+}
+
+/* ─── Jardin del footer inspirado en la guia ───────────────── */
+@keyframes garden-sway-left {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(-6deg);
+  }
+}
+
+@keyframes garden-sway-center {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes garden-sway-right {
+  0%, 100% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes garden-light-float {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(-34px) scale(1.25);
+    opacity: 0;
+  }
+}
+
+.footer-garden {
+  position: relative;
+  width: 520px;
+  max-width: 92vw;
+  height: 410px;
+  margin: 0 auto 20px;
+}
+
+.footer-garden__halo {
+  position: absolute;
+  inset: 20px 10px 86px;
+  background:
+    radial-gradient(circle at 50% 36%, rgba(236, 72, 153, 0.18), transparent 32%),
+    radial-gradient(circle at 50% 34%, rgba(168, 85, 247, 0.26), transparent 44%),
+    radial-gradient(circle at 28% 56%, rgba(34, 211, 238, 0.14), transparent 34%),
+    radial-gradient(circle at 72% 56%, rgba(244, 114, 182, 0.16), transparent 34%);
+  filter: blur(26px);
+}
+
+.footer-garden__lights {
+  position: absolute;
+  inset: 60px 70px 120px;
+  pointer-events: none;
+}
+
+.garden-light {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f5d0fe 0, #c084fc 45%, transparent 75%);
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.45);
+  animation: garden-light-float 3.8s linear infinite;
+}
+
+.light-1 { left: 18%; top: 58%; animation-delay: 0.2s; }
+.light-2 { left: 34%; top: 40%; animation-delay: 1s; }
+.light-3 { left: 48%; top: 20%; animation-delay: 1.8s; }
+.light-4 { right: 30%; top: 42%; animation-delay: 0.8s; }
+.light-5 { right: 18%; top: 56%; animation-delay: 1.5s; }
+.light-6 { left: 56%; top: 52%; animation-delay: 2.2s; }
+
+.garden-flower {
+  position: absolute;
+  bottom: 30px;
+  width: 148px;
+  height: 340px;
+  transform-origin: bottom center;
+}
+
+.garden-flower--left {
+  left: 56px;
+  animation: garden-sway-left 4.2s ease-in-out infinite;
+}
+
+.garden-flower--center {
+  left: 50%;
+  transform: translateX(-50%);
+  animation: garden-sway-center 4s ease-in-out infinite;
+}
+
+.garden-flower--right {
+  right: 56px;
+  animation: garden-sway-right 4.2s ease-in-out infinite;
+}
+
+.garden-flower__stem {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 6px;
+  height: 218px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background-image:
+    linear-gradient(to left, rgba(0, 0, 0, 0.22), transparent, rgba(255, 255, 255, 0.16)),
+    linear-gradient(180deg, #14532d, #0f766e 46%, #34d399 100%);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.garden-flower__leaf {
+  position: absolute;
+  width: 26px;
+  height: 98px;
+  background-image: linear-gradient(180deg, rgba(236, 72, 153, 0.14), #5eead4 20%, #22c55e 58%, #f472b6 100%);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.18);
+  opacity: 0.96;
+}
+
+.garden-flower__leaf.leaf-a {
+  left: 72px;
+  bottom: 98px;
+  border-top-right-radius: 104px;
+  border-bottom-left-radius: 104px;
+  transform: rotate(66deg) rotateY(24deg);
+}
+
+.garden-flower__leaf.leaf-b {
+  left: 52px;
+  bottom: 146px;
+  border-top-left-radius: 104px;
+  border-bottom-right-radius: 104px;
+  transform: rotate(-66deg) rotateY(24deg);
+}
+
+.garden-flower__head {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 136px;
+  height: 136px;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 16px 22px rgba(91, 33, 182, 0.24));
+}
+
+.garden-flower__head::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 52px;
+  height: 36px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #16a34a, #0f766e);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  z-index: 0;
+}
+
+.garden-flower__petal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 78px;
+  border-radius: 52% 48% 58% 42% / 36% 36% 64% 64%;
+  background:
+    radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.75), transparent 22%),
+    linear-gradient(180deg, #fff7fb 0%, #f5d0fe 14%, #e9d5ff 36%, #c084fc 62%, #a855f7 82%, #6b21a8 100%);
+  box-shadow:
+    inset 0 -8px 10px rgba(88, 28, 135, 0.34),
+    inset 5px 0 10px rgba(255, 255, 255, 0.12),
+    0 8px 16px rgba(88, 28, 135, 0.18);
+  transform-origin: bottom center;
+}
+
+.garden-flower__petal::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  width: 2px;
+  height: 34px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(88, 28, 135, 0.22));
+  opacity: 0.5;
+}
+
+.petal-a {
+  transform: translate(-50%, -72%) rotate(-76deg);
+}
+
+.petal-b {
+  transform: translate(-50%, -84%) rotate(-42deg);
+}
+
+.petal-c {
+  transform: translate(-50%, -90%) rotate(-10deg);
+}
+
+.petal-d {
+  transform: translate(-50%, -90%) rotate(12deg);
+}
+
+.petal-e {
+  transform: translate(-50%, -84%) rotate(44deg);
+}
+
+.petal-f {
+  transform: translate(-50%, -72%) rotate(78deg);
+}
+
+.petal-g {
+  width: 60px;
+  height: 68px;
+  transform: translate(-50%, -54%) rotate(0deg);
+  border-radius: 48% 52% 60% 40% / 44% 44% 56% 56%;
+  z-index: 3;
+}
+
+.garden-flower__center {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 52px;
+  height: 42px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 42%, #f5f3ff 0%, #e9d5ff 24%, #c084fc 46%, #7e22ce 100%);
+  box-shadow:
+    0 0 14px rgba(192, 132, 252, 0.34),
+    inset 0 -6px 8px rgba(88, 28, 135, 0.28);
+  z-index: 4;
+}
+
+.garden-flower__center::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  width: 20px;
+  height: 34px;
+  transform: translate(-50%, -50%);
+  border-radius: 48% 52% 58% 42% / 26% 26% 74% 74%;
+  background: linear-gradient(180deg, #fff 0%, #f3e8ff 22%, #c084fc 72%, #7e22ce 100%);
+  box-shadow: inset -4px -5px 6px rgba(88, 28, 135, 0.24);
+}
+
+.garden-flower__center::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 38px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(216, 180, 254, 0.4) 62%, transparent 76%);
+  filter: blur(1px);
+}
+
+.footer-garden__grass {
+  position: absolute;
+  bottom: 8px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.footer-garden__grass span {
+  width: 6px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, #14532d, #0f766e 42%, #22c55e 72%, #f472b6 100%);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.14);
+}
+
+.footer-garden__grass span:nth-child(1) {
+  height: 64px;
+  transform: rotate(-18deg);
+}
+
+.footer-garden__grass span:nth-child(2) {
+  height: 94px;
+}
+
+.footer-garden__grass span:nth-child(3) {
+  height: 58px;
+  transform: rotate(16deg);
+}
+
+.footer-garden__grass span:nth-child(4) {
+  height: 76px;
+  transform: rotate(20deg);
+}
+
+.grass-left {
+  left: 18px;
+}
+
+.grass-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.grass-right {
+  right: 18px;
+}
+
+.garden-flower--center .garden-flower__stem {
+  height: 242px;
+}
+
+.garden-flower--center .garden-flower__leaf.leaf-a {
+  left: 76px;
+  bottom: 112px;
+}
+
+.garden-flower--center .garden-flower__leaf.leaf-b {
+  left: 54px;
+  bottom: 160px;
+}
+
+.garden-flower--center .garden-flower__head {
+  width: 152px;
+  height: 152px;
+}
+
+.garden-flower--center .garden-flower__petal {
+  width: 56px;
+  height: 88px;
+}
+
+.garden-flower--center .petal-g {
+  width: 68px;
+  height: 76px;
+}
+
+.garden-flower--center .garden-flower__center {
+  width: 58px;
+  height: 48px;
+}
+
+.garden-bloom {
+  position: absolute;
+  bottom: 26px;
+  width: 76px;
+  height: 240px;
+  transform-origin: bottom center;
+}
+
+.garden-bloom--left {
+  left: 18px;
+  animation: garden-sway-left 4.6s ease-in-out infinite;
+}
+
+.garden-bloom--right {
+  right: 18px;
+  animation: garden-sway-right 4.6s ease-in-out infinite;
+}
+
+.garden-bloom__stem {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 4px;
+  height: 158px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #14532d, #0f766e 52%, #34d399 100%);
+}
+
+.garden-bloom__leaf {
+  position: absolute;
+  width: 16px;
+  height: 56px;
+  background: linear-gradient(180deg, rgba(244, 114, 182, 0.15), #5eead4 22%, #22c55e 70%, #f472b6 100%);
+}
+
+.garden-bloom__leaf.bloom-leaf-a {
+  left: 40px;
+  bottom: 62px;
+  border-top-right-radius: 80px;
+  border-bottom-left-radius: 80px;
+  transform: rotate(64deg);
+}
+
+.garden-bloom__leaf.bloom-leaf-b {
+  left: 22px;
+  bottom: 96px;
+  border-top-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  transform: rotate(-58deg);
+}
+
+.garden-bloom__head {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  width: 66px;
+  height: 66px;
+  transform: translateX(-50%) rotate(-8deg);
+}
+
+.garden-bloom--right .garden-bloom__head {
+  transform: translateX(-50%) rotate(8deg);
+}
+
+.garden-bloom__petal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24px;
+  height: 38px;
+  transform-origin: bottom center;
+  border-radius: 50% 50% 60% 40% / 30% 30% 70% 70%;
+  background: linear-gradient(180deg, #fff7fb 0%, #f5d0fe 22%, #c084fc 60%, #a855f7 100%);
+  box-shadow: inset 0 -5px 8px rgba(88, 28, 135, 0.28);
+}
+
+.garden-bloom__petal:nth-child(1) { transform: translate(-50%, -88%) rotate(-54deg); }
+.garden-bloom__petal:nth-child(2) { transform: translate(-50%, -96%) rotate(-16deg); }
+.garden-bloom__petal:nth-child(3) { transform: translate(-50%, -96%) rotate(20deg); }
+.garden-bloom__petal:nth-child(4) { transform: translate(-50%, -88%) rotate(58deg); }
+
+.garden-bloom__center {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 24px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: radial-gradient(circle, #fdf2f8 0%, #e9d5ff 34%, #c084fc 72%, #9333ea 100%);
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.26);
+}
+
+@media (max-width: 640px) {
+  .footer-garden {
+    width: 340px;
+    height: 330px;
+    margin-bottom: 8px;
+  }
+
+  .garden-flower {
+    width: 106px;
+    height: 270px;
+  }
+
+  .garden-flower--left {
+    left: 28px;
+  }
+
+  .garden-flower--right {
+    right: 28px;
+  }
+
+  .garden-flower__stem {
+    height: 176px;
+  }
+
+  .garden-flower--center .garden-flower__stem {
+    height: 194px;
+  }
+
+  .garden-flower__head {
+    width: 96px;
+    height: 96px;
+  }
+
+  .garden-flower--center .garden-flower__head {
+    width: 106px;
+    height: 106px;
+  }
+
+  .garden-flower__petal {
+    width: 36px;
+    height: 58px;
+  }
+
+  .garden-flower--center .garden-flower__petal {
+    width: 40px;
+    height: 64px;
+  }
+
+  .garden-flower__leaf {
+    width: 18px;
+    height: 62px;
+  }
+
+  .garden-flower__leaf.leaf-a {
+    left: 48px;
+    bottom: 82px;
+  }
+
+  .garden-flower__leaf.leaf-b {
+    left: 32px;
+    bottom: 112px;
+  }
+
+  .footer-garden__grass span {
+    width: 5px;
+  }
+
+  .garden-bloom {
+    width: 58px;
+    height: 198px;
+  }
+
+  .garden-bloom--left {
+    left: 0;
+  }
+
+  .garden-bloom--right {
+    right: 0;
+  }
 }

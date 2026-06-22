@@ -19,13 +19,17 @@ Gracias por existir, gracias por quedarte a mi lado. Te amo infinitamente.`,
   fechaInicio: "2026-04-18", 
 };
 
+const playlistPhoto = "/images/record/image.png";
+
 // Canciones: 3AM - Sirena
 const canciones = [
   {
     titulo:  "Sirena",
     artista: "3AM",
     src:     "/music/sirena_3am.mp3",
-    cover:   "", // Opcional: pon una imagen de portada si quieres
+    cover:   playlistPhoto,
+    album:   "Nuestra playlist infinita",
+    spotifyUrl: "https://open.spotify.com/search/Sirena%203AM",
     letras: [
       { t: 0,   texto: "..." },
       { t: 5,   texto: "🎶 Disfruta la canción... 🎶" }
@@ -35,6 +39,98 @@ const canciones = [
 
 // Fotos: coloca los archivos en /public/fotos/
 const fotos: string[] = [];
+
+const hitosCamino = [
+  {
+    fecha: "18 de abril de 2026",
+    titulo: "El inicio de lo nuestro",
+    desc: "La fecha que siempre va a tener un brillo especial porque ahi comenzo esta historia tan bonita entre nosotros."
+  },
+  {
+    fecha: "14 de junio de 2026",
+    titulo: "Primer detalle",
+    desc: "Ese gesto que se quedo guardado en mi corazon y me hizo sonreir como si el tiempo se hubiera detenido."
+  },
+  {
+    fecha: "15 de junio de 2026",
+    titulo: "Primera tarde juntos",
+    desc: "Una tarde para recordar despacito, de esas que se quedan pegadas al alma por lo bonita que fue."
+  },
+  {
+    fecha: "Lo que sigue",
+    titulo: "Mas capitulos contigo",
+    desc: "Todo esto apenas empieza y todavia nos faltan mil historias, salidas, abrazos y locuras por vivir."
+  }
+];
+
+const recuerdos = [
+  { codigo: "7.0", titulo: "Primera mirada", fecha: "", desc: "Ese segundo en el que todo cambio y aparecio esa chispa que ya no se fue.", imagen: "/images/record/image copy.png" },
+  { codigo: "7.1", titulo: "Primer abrazo", fecha: "", desc: "El momento exacto en que tus brazos se sintieron como mi lugar favorito.", imagen: "/images/record/image copy 2.png" },
+  { codigo: "7.2", titulo: "Primera salida", fecha: "", desc: "Nuestra primera aventura juntos, con nervios bonitos y sonrisas que lo dijeron todo.", imagen: "/images/record/image copy 3.png" },
+  { codigo: "7.3", titulo: "Primer beso", fecha: "", desc: "El beso que hizo que el mundo se quedara callado por un instante solo para nosotros.", imagen: "/images/record/image copy 4.png" },
+  { codigo: "7.4", titulo: "Primera cena", fecha: "", desc: "Compartir la mesa contigo hizo que hasta lo mas simple se sintiera especial.", imagen: "/images/record/image copy.png" },
+  { codigo: "7.5", titulo: "Primera matcha juntos", fecha: "", desc: "Una escena que me encanta recordar porque tu amor por el matcha tambien se volvio parte de mis recuerdos favoritos.", imagen: "/images/record/image copy 2.png" },
+  { codigo: "7.6", titulo: "Primera pelea", fecha: "48 horas sin dormir", desc: "Hasta los momentos dificiles me enseñan cuanto vales para mi y cuanto quiero aprender a cuidarnos mejor.", imagen: "/images/record/image copy 3.png" },
+  { codigo: "7.7", titulo: "Primera noche con un Four Loko", fecha: "", desc: "Una historia caotica, divertida y tan nuestra que siempre me sacara una sonrisa.", imagen: "/images/record/image copy 4.png" },
+  { codigo: "7.8", titulo: "Primer detalle", fecha: "14/06/2026", desc: "Ese detalle quedo marcado como una prueba bonita de todo lo que estamos construyendo.", imagen: "/images/record/image copy.png" },
+  { codigo: "7.9", titulo: "Primera tarde juntos", fecha: "15/06/2026", desc: "Una tarde completa contigo que guardo como un tesoro porque se sintio suave, bonita y muy nuestra.", imagen: "/images/record/image copy 2.png" }
+];
+
+const locuras = [
+  {
+    titulo: "Ir juntos a la playa",
+    nota: "Aun no hemos ido juntos a la playa",
+    desc: "Quiero verte con el viento en el cabello, caminar contigo por la orilla y quedarnos hasta que caiga la tarde."
+  },
+  {
+    titulo: "Ir juntos a un karaoke",
+    nota: "Ella ama el karaoke",
+    desc: "Todavia no hemos ido, asi que nos debemos una noche cantando fuerte, riendonos y robandonos el microfono."
+  },
+  {
+    titulo: "Llevarte a Rustica Barranco",
+    nota: "Una noche cerquita a la playa",
+    desc: "Ese plan pendiente tiene toda la vibra de una salida larga, rica y con vista a una noche que no queramos terminar."
+  },
+  {
+    titulo: "Cena en el Museo Larco Herrera",
+    nota: "Una cita pendiente y preciosa",
+    desc: "Una cena contigo en un lugar asi de bonito suena a recuerdo importante desde antes de vivirlo."
+  }
+];
+
+const razones = [
+  {
+    titulo: "Tu sonrisa",
+    desc: "Porque cada vez que sonries haces que todo alrededor se sienta un poquito mas bonito.",
+    color: "fuchsia"
+  },
+  {
+    titulo: "Tu mirada",
+    desc: "Porque cuando me miras asi, siento que no necesito nada mas para estar bien.",
+    color: "purple"
+  },
+  {
+    titulo: "Tus abrazos",
+    desc: "Porque en tus abrazos encuentro calma, hogar y una paz que no se parece a ninguna otra.",
+    color: "rose"
+  },
+  {
+    titulo: "Tu amor por el karaoke",
+    desc: "Porque imaginarte cantando feliz me da ganas de acompañarte siempre en todas tus canciones.",
+    color: "emerald"
+  },
+  {
+    titulo: "Tu lado matcha",
+    desc: "Porque hasta tus gustos mas pequenos, como ese amor por el matcha, me parecen adorables y tan tuyos.",
+    color: "amber"
+  },
+  {
+    titulo: "Tu manera de querer",
+    desc: "Porque amas con intensidad, con verdad y con ese corazon enorme que me enamora cada dia mas.",
+    color: "pink"
+  }
+];
 ---
 
 <Layout title={`Para ${dedicatoria.para}`} description="Una dedicatoria especial con amor">
@@ -43,24 +139,31 @@ const fotos: string[] = [];
   <div id="flotantes" class="fixed inset-0 overflow-hidden pointer-events-none z-0"></div>
 
   <!-- ══ HERO ══ -->
-  <section class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center">
-    <p class="text-purple-400 text-sm font-light tracking-[0.4em] uppercase mb-6 flex items-center gap-2 justify-center">
+  <section class="relative z-10 flex min-h-[78vh] flex-col items-center justify-center px-6 pt-20 pb-12 text-center md:min-h-[88vh]">
+    <p class="text-purple-400 text-[11px] font-light tracking-[0.38em] uppercase mb-4 flex items-center gap-2 justify-center">
       <svg class="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>
       Un rinconcito de amor solo para ti
       <svg class="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>
     </p>
-    <h1 class="glow-text font-black leading-tight mb-4 flex flex-col items-center justify-center">
-      <span class="text-white text-5xl md:text-7xl mb-2">Para ti, mi amor</span>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400 text-7xl md:text-[10rem] leading-none">
+    <h1 class="glow-text font-black leading-[0.95] mb-4 flex flex-col items-center justify-center">
+      <span class="text-white text-4xl md:text-6xl mb-2">Para ti, mi amor</span>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400 text-6xl md:text-[8rem] leading-none">
         {dedicatoria.para}
       </span>
     </h1>
-    <div class="flex items-center gap-3 justify-center mt-4">
-      <p class="text-gray-400 text-xl tracking-widest">{dedicatoria.de}</p>
-      <svg class="w-5 h-5 text-purple-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <p class="max-w-2xl text-sm md:text-base text-gray-300 leading-relaxed">
+      Ordene este espacio para que cada parte de nosotros se sienta mas cerquita: la carta, la melodia, nuestros recuerdos y todo lo que todavia nos falta vivir.
+    </p>
+    <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+      <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.25em] text-gray-200">
+        {dedicatoria.de}
+      </span>
+      <span class="rounded-full border border-fuchsia-500/20 bg-fuchsia-500/10 px-4 py-2 text-xs uppercase tracking-[0.25em] text-fuchsia-200">
+        Desde el {hitosCamino[0].fecha}
+      </span>
     </div>
 
-    <div class="mt-16 flex flex-col items-center gap-2 text-gray-500 text-sm animate-bounce">
+    <div class="mt-12 flex flex-col items-center gap-2 text-gray-500 text-sm animate-bounce">
       <span>Desliza hacia abajo pliss</span>
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -69,14 +172,14 @@ const fotos: string[] = [];
   </section>
 
   <!-- ══ MENSAJE CON SOBRE INTERACTIVO ══ -->
-  <section class="relative z-10 py-28 px-6">
-    <div class="max-w-2xl mx-auto flex flex-col items-center">
+  <section class="relative z-10 py-20 px-6">
+    <div class="max-w-4xl mx-auto flex flex-col items-center">
       
-      <p class="text-purple-400 text-sm font-semibold tracking-widest uppercase mb-12 text-center">
+      <p class="text-purple-400 text-sm font-semibold tracking-widest uppercase mb-8 text-center">
         Tengo una cartita guardada para ti... ¿la abres, pliss? ✨
       </p>
 
-      <div class="envelope-container w-full flex justify-center pb-[28rem] pt-[10rem]">
+      <div class="envelope-container w-full flex justify-center pb-[18rem] md:pb-[20rem] pt-8 md:pt-12">
         <div id="sobre" class="envelope flex items-center justify-center">
           
           <!-- Flap (tapa) del sobre -->
@@ -93,12 +196,23 @@ const fotos: string[] = [];
           </div>
 
           <!-- Carta que desliza hacia arriba -->
-          <div class="envelope-letter flex flex-col items-center justify-center text-center">
-            <span class="text-purple-400 text-2xl mb-4 font-serif">❝</span>
-            <p class="text-gray-200 text-base md:text-lg leading-relaxed whitespace-pre-line italic font-serif">
-              {dedicatoria.mensaje}
-            </p>
-            <span class="text-purple-400 text-2xl mt-4 font-serif">❞</span>
+          <div class="envelope-letter">
+            <div class="grid gap-5 md:grid-cols-[170px_1fr] md:items-start">
+              <div class="overflow-hidden rounded-[24px] border border-white/10 bg-black/30 shadow-lg">
+                <img src="/images/carta-recuerdo.svg" alt="Recuerdo decorativo de la carta" class="h-44 w-full object-cover" loading="lazy" />
+                <div class="px-4 py-3 text-left">
+                  <p class="text-[10px] uppercase tracking-[0.28em] text-purple-300">Nuestra carta</p>
+                  <p class="mt-2 text-sm text-gray-200 leading-relaxed">Una imagen chiquita para guardar este pedacito de nosotros dentro de la carta.</p>
+                </div>
+              </div>
+              <div class="text-left">
+                <span class="text-purple-400 text-2xl mb-3 block font-serif">❝</span>
+                <p class="text-gray-200 text-sm md:text-base leading-relaxed whitespace-pre-line italic font-serif">
+                  {dedicatoria.mensaje}
+                </p>
+                <span class="text-purple-400 text-2xl mt-3 block font-serif">❞</span>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -108,76 +222,75 @@ const fotos: string[] = [];
   </section>
 
   <!-- ══ LÍNEA DEL TIEMPO DE NUESTROS MOMENTOS ══ -->
-  <section class="relative z-10 py-16 px-6">
-    <div class="max-w-xl mx-auto">
-      <h2 class="text-3xl font-bold text-white text-center mb-16 flex items-center justify-center gap-3">
+  <section class="relative z-10 py-10 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
         <!-- SVG History icon -->
         <svg class="w-7 h-7 text-fuchsia-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
         </svg>
         El camino que estamos dibujando...
       </h2>
-      
-      <div class="relative border-l-2 border-purple-500/30 pl-8 ml-4 space-y-12">
-        <!-- Hito 1 -->
-        <div class="relative">
-          <span class="absolute -left-[41px] top-1.5 bg-purple-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#c084fc]"></span>
-          <time class="text-xs text-purple-400 font-semibold uppercase tracking-widest">18 de Abril de 2026</time>
-          <h3 class="text-white text-lg font-bold mt-1 font-sans">El día que todo cambió</h3>
-          <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-            El día más bonito de todos. Cuando empezamos a compartir sonrisas y decidimos tomarnos de la mano para no soltarnos jamás.
-          </p>
-        </div>
-        
-        <!-- Hito 2 (Primer mes) -->
-        <div class="relative">
-          <span class="absolute -left-[41px] top-1.5 bg-rose-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#f43f5e] animate-pulse"></span>
-          <time class="text-xs text-rose-400 font-semibold uppercase tracking-widest">18 de Mayo de 2026</time>
-          <h3 class="text-white text-lg font-bold mt-1 font-sans">Nuestro Primer Mes</h3>
-          <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-            30 días increíbles desde que empezamos esta aventura. Cada día a tu lado me hace confirmar que eres mi casualidad más hermosa.
-          </p>
-        </div>
-
-        <!-- Hito 3 -->
-        <div class="relative">
-          <span class="absolute -left-[41px] top-1.5 bg-fuchsia-500 w-5 h-5 rounded-full border-4 border-gray-950 shadow-[0_0_10px_#e879f9]"></span>
-          <time class="text-xs text-fuchsia-400 font-semibold uppercase tracking-widest">Lo que viene...</time>
-          <h3 class="text-white text-lg font-bold mt-1 font-sans">Mil aventuras más</h3>
-          <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-            Este es solo el inicio de un viaje hermoso. Aún nos quedan millones de páginas por escribir y risas por compartir juntos.
-          </p>
-        </div>
+      <p class="text-gray-400 text-center mb-10 text-sm max-w-2xl mx-auto">
+        Lo compacte para que el recorrido se lea mas rapido y con una jerarquia mas clara entre fecha, recuerdo y lo que sentimos en cada etapa.
+      </p>
+      <div class="grid gap-3 md:grid-cols-2">
+        {hitosCamino.map((hito, index) => (
+          <article class="rounded-[24px] border border-white/10 bg-white/5 p-4 md:p-5 backdrop-blur-xl shadow-xl">
+            <div class="mb-3 flex items-center justify-between gap-3">
+              <span class:list={[
+                "inline-flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold",
+                index === 0 && "bg-purple-500/20 text-purple-200",
+                index === 1 && "bg-rose-500/20 text-rose-200",
+                index === 2 && "bg-fuchsia-500/20 text-fuchsia-200",
+                index === 3 && "bg-indigo-500/20 text-indigo-200"
+              ]}>
+                0{index + 1}
+              </span>
+              <time class="text-[10px] uppercase tracking-[0.22em] text-gray-400">{hito.fecha}</time>
+            </div>
+            <h3 class="text-white text-lg font-bold leading-tight">{hito.titulo}</h3>
+            <p class="text-gray-300 text-[13px] mt-2 leading-relaxed">{hito.desc}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- ══ CONTADOR DE TIEMPO PREMIUM ══ -->
-  <section class="relative z-10 py-12 px-6">
-    <div class="max-w-xl mx-auto">
-      <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-center shadow-2xl">
-        <h3 class="text-purple-400 text-sm font-semibold tracking-widest uppercase mb-6 flex items-center justify-center gap-2">
-          <svg class="w-4 h-4 animate-spin-slow text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          El tiempo vuela cuando soy feliz a tu lado...
-        </h3>
-        <div class="grid grid-cols-4 gap-3 text-center">
-          <div class="bg-black/30 border border-white/5 rounded-2xl p-3">
-            <span id="c-dias" class="text-3xl md:text-4xl font-extrabold text-white glow-text">00</span>
+  <section class="relative z-10 py-10 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[26px] p-3 md:p-4 shadow-2xl">
+        <div class="flex flex-col gap-3 md:flex-row md:items-stretch">
+          <div class="md:w-48 rounded-[20px] border border-white/10 bg-black/30 p-4 flex items-center gap-3 md:flex-col md:items-start md:justify-between">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/15 text-purple-300">
+              <svg class="w-6 h-6 animate-spin-slow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div class="text-left">
+              <p class="text-[10px] uppercase tracking-[0.3em] text-purple-300">Tiempo</p>
+              <h3 class="mt-1.5 text-white text-base font-bold">Lo que ya vivimos juntitos</h3>
+              <p class="mt-1.5 text-[13px] text-gray-400 leading-relaxed">Ahora esta mas compacto y con el reloj acomodado al costado izquierdo.</p>
+            </div>
+          </div>
+          <div class="grid flex-1 grid-cols-2 md:grid-cols-4 gap-2.5 text-center">
+          <div class="bg-black/30 border border-white/5 rounded-[18px] p-2.5">
+            <span id="c-dias" class="text-[1.7rem] md:text-[2.2rem] font-extrabold text-white glow-text">00</span>
             <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Días</p>
           </div>
-          <div class="bg-black/30 border border-white/5 rounded-2xl p-3">
-            <span id="c-horas" class="text-3xl md:text-4xl font-extrabold text-white glow-text">00</span>
+          <div class="bg-black/30 border border-white/5 rounded-[18px] p-2.5">
+            <span id="c-horas" class="text-[1.7rem] md:text-[2.2rem] font-extrabold text-white glow-text">00</span>
             <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Horas</p>
           </div>
-          <div class="bg-black/30 border border-white/5 rounded-2xl p-3">
-            <span id="c-mins" class="text-3xl md:text-4xl font-extrabold text-white glow-text">00</span>
+          <div class="bg-black/30 border border-white/5 rounded-[18px] p-2.5">
+            <span id="c-mins" class="text-[1.7rem] md:text-[2.2rem] font-extrabold text-white glow-text">00</span>
             <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Min</p>
           </div>
-          <div class="bg-black/30 border border-white/5 rounded-2xl p-3">
-            <span id="c-segs" class="text-3xl md:text-4xl font-extrabold text-white glow-text">00</span>
+          <div class="bg-black/30 border border-white/5 rounded-[18px] p-2.5">
+            <span id="c-segs" class="text-[1.7rem] md:text-[2.2rem] font-extrabold text-white glow-text">00</span>
             <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Seg</p>
+          </div>
           </div>
         </div>
       </div>
@@ -186,51 +299,113 @@ const fotos: string[] = [];
 
   <!-- ══ REPRODUCTOR ══ -->
   <section class="relative z-10 py-20 px-6">
-    <div class="max-w-lg mx-auto">
-      <h2 class="text-3xl font-bold text-white text-center mb-12 flex items-center justify-center gap-3">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
         <!-- SVG Note Icon -->
         <svg class="w-8 h-8 text-fuchsia-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/>
         </svg>
         Nuestra melodía favorita
       </h2>
+      <p class="text-gray-400 text-center mb-10 text-sm max-w-2xl mx-auto">
+        Cambie esta parte a una vibra mas cercana a Spotify, con portada, mini album, enlace directo y una imagen especial junto a Lesi.
+      </p>
 
-      <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
-
-        <!-- Portada -->
-        <div id="album-art"
-          class="w-44 h-44 mx-auto rounded-2xl mb-7 shadow-2xl flex items-center justify-center overflow-hidden
-                 bg-gradient-to-br from-purple-600 via-fuchsia-500 to-pink-600 relative transition-transform duration-500">
-          <!-- SVG Music Icon inside Album -->
-          <svg id="album-svg" class="w-16 h-16 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
+      <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#08130d]/95 p-4 md:p-6 shadow-2xl backdrop-blur-xl">
+        <div class="relative z-10">
+        <div class="mb-4 flex flex-col gap-3 rounded-[24px] border border-white/10 bg-white/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
+          <div class="flex items-center gap-3">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[#1ed760]/16 text-[#1ed760]">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 1.5C6.201 1.5 1.5 6.201 1.5 12S6.201 22.5 12 22.5 22.5 17.799 22.5 12 17.799 1.5 12 1.5Zm4.818 15.104a.748.748 0 0 1-1.03.247c-2.821-1.724-6.372-2.114-10.556-1.159a.75.75 0 0 1-.334-1.462c4.58-1.046 8.503-.604 11.673 1.333a.75.75 0 0 1 .247 1.041Zm1.471-3.272a.936.936 0 0 1-1.287.309c-3.229-1.985-8.148-2.562-11.968-1.404a.938.938 0 0 1-.543-1.795c4.368-1.326 9.795-.69 13.493 1.584a.938.938 0 0 1 .305 1.306Zm.126-3.408c-3.873-2.301-10.269-2.513-13.966-1.39a1.125 1.125 0 1 1-.652-2.153c4.249-1.287 11.314-1.037 15.767 1.607a1.125 1.125 0 1 1-1.149 1.936Z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.3em] text-[#1ed760]">Spotify mode</p>
+              <p class="text-white text-sm md:text-base font-semibold">Nuestra cancion con una portada hecha para nosotros</p>
+            </div>
+          </div>
+          <a
+            id="song-spotify-link"
+            href={canciones[0].spotifyUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-[#1ed760] px-4 py-2.5 text-sm font-bold text-[#07130a] transition-transform hover:scale-[1.02]"
+          >
+            Abrir en Spotify
+          </a>
         </div>
 
-        <!-- Info -->
-        <div class="text-center mb-6">
-          <p class="text-white text-xl font-bold font-sans" id="song-title">Cargando...</p>
-          <p class="text-gray-400 text-sm mt-1"   id="song-artist"></p>
-        </div>
+        <div class="grid gap-4 md:grid-cols-[210px_1fr] md:items-start">
+          <div class="overflow-hidden rounded-[24px] border border-white/10 bg-black/30 shadow-xl">
+            <img src="/images/melodia-juntos.svg" alt="Ilustración romántica para la melodía favorita" class="h-full w-full object-cover" loading="lazy" />
+          </div>
 
-        <!-- Barra progreso -->
-        <div class="mb-5">
-          <div class="flex justify-between text-gray-500 text-xs mb-1">
+          <div
+            class="relative overflow-hidden rounded-[24px] border border-white/10 bg-[#0a1510]/80 p-4 md:p-5 shadow-xl"
+            style={`background-image: linear-gradient(140deg, rgba(6, 12, 10, 0.92), rgba(10, 21, 16, 0.86) 40%, rgba(6, 12, 10, 0.94)), url('${playlistPhoto}'); background-size: cover; background-position: center;`}
+          >
+            <div class="absolute inset-0 bg-gradient-to-br from-black/44 via-[#08130d]/18 to-black/68 pointer-events-none"></div>
+            <div class="absolute inset-0 backdrop-blur-[1.5px] pointer-events-none"></div>
+            <div class="relative z-10 mb-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div id="album-art"
+                  class="w-28 h-28 md:w-32 md:h-32 rounded-[22px] shadow-2xl flex items-center justify-center overflow-hidden
+                        bg-gradient-to-br from-emerald-500 via-green-500 to-lime-400 relative transition-transform duration-500 shrink-0">
+                  <!-- SVG Music Icon inside Album -->
+                  <svg id="album-svg" class="w-16 h-16 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+
+                <div class="text-left">
+                  <p class="text-[11px] uppercase tracking-[0.3em] text-[#1ed760]">Playlist de nosotros</p>
+                  <p class="text-white text-xl md:text-2xl font-bold font-sans mt-1.5" id="song-title">Cargando...</p>
+                  <p class="text-gray-300 text-sm mt-1" id="song-artist"></p>
+                  <p class="text-gray-500 text-sm mt-1.5" id="song-album">{canciones[0].album}</p>
+                  <p class="text-gray-300/90 text-[13px] mt-3 leading-relaxed max-w-xl">
+                    Esta seccion ahora lleva la foto de ustedes dentro de la playlist, como si fuera una mini portada especial conectada a su cancion.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative overflow-hidden rounded-[22px] border border-white/12 bg-black/30 shadow-2xl min-h-[220px]">
+                <img
+                  src={playlistPhoto}
+                  alt="Foto especial de ustedes dentro de la playlist"
+                  loading="lazy"
+                  class="h-full w-full object-cover"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+                />
+                <div class="absolute inset-0 hidden place-items-center bg-[linear-gradient(160deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-4 text-center">
+                  <span class="rounded-full border border-white/12 bg-black/40 px-3 py-2 text-[10px] uppercase tracking-[0.24em] text-white/78">
+                    Coloca la foto en {playlistPhoto}
+                  </span>
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/78 via-black/18 to-transparent p-3">
+                  <p class="text-[10px] uppercase tracking-[0.24em] text-white/72">Dentro de nuestra playlist</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Barra progreso -->
+            <div class="relative z-10 mb-4">
+              <div class="flex justify-between text-gray-500 text-xs mb-1">
             <span id="t-actual">0:00</span>
             <span id="t-total">0:00</span>
           </div>
           <div id="barra-prog"
             class="w-full h-2 bg-white/10 rounded-full cursor-pointer group relative">
             <div id="barra-fill"
-              class="h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 transition-all duration-200"
+              class="h-2 rounded-full bg-gradient-to-r from-[#1ed760] via-emerald-400 to-teal-300 transition-all duration-200"
               style="width:0%"></div>
           </div>
-        </div>
+            </div>
 
-        <!-- Controles -->
-        <div class="flex items-center justify-center gap-8 mb-8">
+            <!-- Controles -->
+            <div class="relative z-10 flex items-center justify-center gap-6 mb-6">
           <button id="btn-prev"
-            class="text-gray-400 hover:text-fuchsia-400 transition-colors flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 cursor-pointer select-none">
+            class="text-gray-400 hover:text-[#1ed760] transition-colors flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 cursor-pointer select-none">
             <!-- SVG Prev -->
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M6 19h2V5H6v14zm12-14l-8 7 8 7V5z"/>
@@ -238,7 +413,7 @@ const fotos: string[] = [];
           </button>
 
           <button id="btn-play"
-            class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-600
+            class="w-14 h-14 rounded-full bg-gradient-to-r from-[#1ed760] to-emerald-500
                    flex items-center justify-center shadow-lg shadow-pink-500/30
                    hover:scale-110 active:scale-95 transition-transform cursor-pointer select-none">
             <!-- SVG Play initially -->
@@ -250,28 +425,35 @@ const fotos: string[] = [];
           </button>
 
           <button id="btn-next"
-            class="text-gray-400 hover:text-fuchsia-400 transition-colors flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 cursor-pointer select-none">
+            class="text-gray-400 hover:text-[#1ed760] transition-colors flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 cursor-pointer select-none">
             <!-- SVG Next -->
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M16 5v14h2V5h-2zm-12 14l8-7-8-7v14z"/>
             </svg>
           </button>
-        </div>
+            </div>
 
-        <!-- Letras de la canción -->
-        <div class="bg-black/40 border border-white/5 rounded-2xl p-5 min-h-[90px] flex items-center justify-center">
-          <p id="lyric-display"
-            class="lyric-line text-center text-white text-base md:text-lg font-medium leading-relaxed px-2 font-serif">
-            Dale play y cantemos juntos...
-          </p>
+            <!-- Letras de la canción -->
+            <div class="relative z-10 bg-black/40 border border-white/5 rounded-[18px] p-4 min-h-[76px] flex items-center justify-center">
+              <p id="lyric-display"
+                class="lyric-line text-center text-white text-sm md:text-base font-medium leading-relaxed px-2 font-serif">
+                Dale play y cantemos juntos...
+              </p>
+            </div>
+            <div class="relative z-10 mt-4 flex items-center justify-between gap-3 text-[11px] uppercase tracking-[0.24em] text-white/52">
+              <span>Dentro de nuestra playlist</span>
+              <span>Recuerdo en fondo</span>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ PILA DE CARTAS 3D INTERACTIVAS (TINDER DE RECUERDOS - ULTRA-SUAVE Y FLUIDO) ══ -->
+  <!-- ══ MOMENTOS QUE GUARDO EN EL CORAZON ══ -->
   <section class="relative z-10 py-24 px-6 overflow-hidden">
-    <div class="max-w-4xl mx-auto flex flex-col items-center">
+    <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
         <!-- SVG Sparkles / Flower Icon -->
         <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -279,33 +461,106 @@ const fotos: string[] = [];
         </svg>
         Momentos que guardo en el corazón
       </h2>
-      <p class="text-gray-400 text-center mb-16 text-sm max-w-md mx-auto">
-        Una cajita de recuerdos mágicos. Toca la carta de adelante para leer lo que te escribí, o usa los botones para ir al siguiente recuerdo.
+      <p class="text-gray-400 text-center mb-14 text-sm max-w-2xl mx-auto">
+        En vez de dejarlo en cartas sueltas, ahora cada recuerdo tiene su lugar: ordenado, claro y con el detalle que me pediste.
       </p>
-      
-      <!-- Contenedor del Deck 3D -->
-      <div id="galeria-stack" class="stack-container mb-12">
-        <!-- Rellenado dinámicamente con JS -->
+
+      <div class="mb-5 flex items-center justify-between gap-4">
+        <div class="text-left">
+          <p class="text-[10px] uppercase tracking-[0.3em] text-fuchsia-300">Scroll lateral</p>
+          <p class="text-sm text-gray-400 mt-1">Diez recuerdos en banners pequeños para ir deslizandolos de lado a lado.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span id="recuerdos-counter" class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold tracking-[0.28em] text-white">
+            01 / {recuerdos.length.toString().padStart(2, '0')}
+          </span>
+          <div class="hidden md:flex items-center gap-2">
+            <button id="btn-recuerdos-prev" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:scale-105 hover:border-fuchsia-400/40 hover:bg-white/10">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+              </svg>
+            </button>
+            <button id="btn-recuerdos-next" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:scale-105 hover:border-fuchsia-400/40 hover:bg-white/10">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <!-- Controles del Deck -->
-      <div class="flex items-center gap-6 mt-4">
-        <button id="btn-stack-prev"
-          class="w-12 h-12 rounded-full border border-white/10 hover:border-pink-500/50 bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-lg">
-          <!-- SVG Arrow Left -->
-          <svg class="w-5 h-5 text-gray-300 hover:text-fuchsia-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
-          </svg>
-        </button>
+      <div class="relative">
+        <div id="recuerdos-carrusel" class="flex gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4" style="scroll-behavior: smooth;">
+          {recuerdos.map((recuerdo, index) => (
+            <article
+              class:list={[
+                "memory-banner relative snap-start shrink-0 w-[86vw] sm:w-[420px] lg:w-[520px] min-h-[280px] overflow-hidden rounded-[26px] border border-white/10 p-5 md:p-6 shadow-2xl transition-transform duration-300 hover:-translate-y-1",
+                index % 5 === 0 && "bg-gradient-to-br from-[#12061a] via-[#22113b] to-[#4a154b]",
+                index % 5 === 1 && "bg-gradient-to-br from-[#0d1522] via-[#1a2740] to-[#3f1a53]",
+                index % 5 === 2 && "bg-gradient-to-br from-[#1a0d22] via-[#35133c] to-[#5b1b3b]",
+                index % 5 === 3 && "bg-gradient-to-br from-[#12131f] via-[#231c3d] to-[#283d63]",
+                index % 5 === 4 && "bg-gradient-to-br from-[#181115] via-[#2d1632] to-[#5a1d63]"
+              ]}
+            >
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(244,114,182,0.12),transparent_34%)]"></div>
+              <div class="absolute right-4 top-3 text-[4.2rem] font-black leading-none text-white/8 select-none">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              <div class="relative z-10 grid h-full gap-5 md:grid-cols-[minmax(0,1fr)_182px]">
+                <div class="flex h-full flex-col justify-between">
+                  <div class="flex items-start justify-between gap-3">
+                    <span class="inline-flex rounded-full border border-fuchsia-300/20 bg-white/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-fuchsia-100">
+                      {recuerdo.codigo}
+                    </span>
+                    {recuerdo.fecha && (
+                      <span class="text-[10px] uppercase tracking-[0.24em] text-white/55">{recuerdo.fecha}</span>
+                    )}
+                  </div>
+                  <div class="mt-6 max-w-[18rem]">
+                    <h3 class="text-2xl md:text-[1.7rem] font-black leading-[1.02] text-white">
+                      {recuerdo.titulo}
+                    </h3>
+                    <p class="mt-3 text-sm leading-relaxed text-white/72">
+                      {recuerdo.desc}
+                    </p>
+                  </div>
+                  <div class="mt-6 flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/8 text-fuchsia-200">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+                      </svg>
+                    </div>
+                    <span class="text-[11px] uppercase tracking-[0.28em] text-white/46">Scroll para seguir</span>
+                  </div>
+                </div>
 
-        <button id="btn-stack-next"
-          class="px-6 h-12 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 text-white font-semibold flex items-center gap-2 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-pink-500/20 cursor-pointer">
-          <span>Siguiente Recuerdo</span>
-          <!-- SVG Arrow Right -->
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
-          </svg>
-        </button>
+                <div class="relative overflow-hidden rounded-[22px] border border-white/12 bg-black/25 min-h-[210px]">
+                  <img
+                    src={recuerdo.imagen}
+                    alt={`Recuerdo de ${recuerdo.titulo}`}
+                    loading="lazy"
+                    class="h-full w-full object-cover"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+                  />
+                  <div class="absolute inset-0 hidden place-items-center bg-[linear-gradient(160deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-4 text-center">
+                    <span class="rounded-full border border-white/12 bg-black/35 px-3 py-2 text-[10px] uppercase tracking-[0.24em] text-white/78">
+                      Coloca la foto en {recuerdo.imagen}
+                    </span>
+                  </div>
+                  <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/78 via-black/18 to-transparent p-3">
+                    <p class="text-[10px] uppercase tracking-[0.24em] text-white/72">Foto del recuerdo</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-8 rounded-[22px] border border-white/10 bg-white/5 px-5 py-4 text-center backdrop-blur-md">
+        <p class="text-[13px] text-purple-100 leading-relaxed">
+          Y lo mas bonito es que esta lista no se va a quedar en diez. Vamos a seguir llenandola con primeras veces que se vuelvan inolvidables.
+        </p>
       </div>
     </div>
   </section>
@@ -320,7 +575,7 @@ const fotos: string[] = [];
         </svg>
         Nuestras próximas locuras juntos
       </h2>
-      <p class="text-gray-400 text-center mb-20 text-sm max-w-md mx-auto">
+      <p class="text-gray-400 text-center mb-16 text-sm max-w-md mx-auto">
         Un mapa interactivo con todo lo que prometo que haremos juntos. Cuando cumplamos uno, ¡toca la tarjeta para tacharlo!
       </p>
 
@@ -328,314 +583,57 @@ const fotos: string[] = [];
       <div class="adventure-path-container">
         <!-- Línea discontinua que conecta todos los hitos del mapa -->
         <div class="adventure-trail-line"></div>
-
-        <!-- Parada 1: Viaje Soñado -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">1</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
+        {locuras.map((locura, index) => (
+          <div class="adventure-path-row">
+            <div class="adventure-path-node">{index + 1}</div>
+            <div class="adventure-card group" onclick="toggleAdventure(this)">
+              <div class="heart-checkbox">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+                </svg>
+              </div>
+              <span class="adventure-badge">Pendiente bonito ✦</span>
+              <div class="adventure-icon">
+                {index === 0 && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75c4.5-5.25 15-5.25 19.5 0M4.5 15c3.75-4.5 11.25-4.5 15 0M7.5 11.25c2.25-2.25 6.75-2.25 9 0"/>
+                  </svg>
+                )}
+                {index === 1 && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3v9M9 9v8.25m0-8.25L3.75 10.5v7.5M9 17.25a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0Zm10.5-2.25a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0Z"/>
+                  </svg>
+                )}
+                {index === 2 && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 18.75h18M4.5 18.75V9.375l7.5-3.375 7.5 3.375v9.375M9 18.75v-4.5h6v4.5"/>
+                  </svg>
+                )}
+                {index === 3 && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 6.75v10.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 17.25V6.75m15 0A2.25 2.25 0 0017.25 4.5H6.75A2.25 2.25 0 004.5 6.75m15 0L12 12 4.5 6.75"/>
+                  </svg>
+                )}
+              </div>
+              <p class="text-[11px] uppercase tracking-[0.26em] text-gray-400 mb-3">{locura.nota}</p>
+              <h4 class="adventure-title">{locura.titulo}</h4>
+              <p class="adventure-desc">{locura.desc}</p>
             </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Airplane SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Viaje Soñado</h4>
-            <p class="adventure-desc">Ese viaje lejano del que tanto hablamos. Una maleta, dos boletos y todo el mundo por descubrir de tu mano.</p>
           </div>
-        </div>
-
-        <!-- Parada 2: Tarde de Cocina -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">2</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Chef/Book SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Tarde de Cocina</h4>
-            <p class="adventure-desc">Intentar preparar una receta compleja juntos. Riendo, ensuciando la cocina y descubriendo quién cocina mejor.</p>
-          </div>
-        </div>
-
-        <!-- Parada 3: Noche de Estrellas -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">3</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Moon SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Noche de Estrellas</h4>
-            <p class="adventure-desc">Un picnic nocturno al aire libre bajo el manto estelar, acurrucados con una manta abrigadora y contando constelaciones.</p>
-          </div>
-        </div>
-
-        <!-- Parada 4: Cantar a Todo Pulmón -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">4</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Music SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Cantar a Todo Pulmón</h4>
-            <p class="adventure-desc">Ir al concierto de ese artista que nos encanta y cantar todas las canciones abrazados y sin voz al final de la noche.</p>
-          </div>
-        </div>
-
-        <!-- Parada 5: Maratón de Cine -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">5</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Film SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Maratón de Cine</h4>
-            <p class="adventure-desc">Un día entero en pijama, mucha comida deliciosa y ver todas las películas o series favoritas acurrucados en la cama.</p>
-          </div>
-        </div>
-
-        <!-- Parada 6: Aventura Sorpresa -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">6</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Gift / Sparkles SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l-.813-5.096L3.096 15.187 8.192 14.37 9 9.278l.808 5.093 5.096.817-5.091.816zM19.813 6.904L19 12l-.813-5.096-5.091-.717 5.091-.817.813-5.096.808 5.093 5.096.817-5.091.816z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Aventura Sorpresa</h4>
-            <p class="adventure-desc">Un plan misterioso que yo planificaré por completo y del cual tú solo sabrás los detalles en el último segundo.</p>
-          </div>
-        </div>
-
-        <!-- Parada 7: Ataque de Besos -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">7</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Heart SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Ataque de Besos</h4>
-            <p class="adventure-desc">Un plan infalible para llenarte de mil besitos y recordarte lo hermosa que eres para mí.</p>
-          </div>
-        </div>
-
-        <!-- Parada 8: Noche de Juegos -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">8</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Puzzle / Game SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a1.5 1.5 0 01-1.5 1.5H6a2.25 2.25 0 00-2.25 2.25v3.386c0 .355.186.676.401.959.221.29.349.634.349 1.003 0 1.036-1.007 1.875-2.25 1.875s-2.25-.84-2.25-1.875c0-.369.128-.713.349-1.003.215-.283.401-.604.401-.959v0a1.5 1.5 0 01-1.5-1.5H18a2.25 2.25 0 002.25-2.25V8.25A2.25 2.25 0 0018 6h-2.25a1.5 1.5 0 01-1.5-1.5v0z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Noche de Juegos</h4>
-            <p class="adventure-desc">Una competencia súper seria para ver quién gana... aunque al final siempre te dejaré ganar para ver tu sonrisa.</p>
-          </div>
-        </div>
-
-        <!-- Parada 9: Construir Nuestro Refugio -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">9</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Home/Castle SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Construir Nuestro Refugio</h4>
-            <p class="adventure-desc">Soñar y planear cada detalle de nuestro propio lugarcito en el mundo, donde solo existamos tú y yo.</p>
-          </div>
-        </div>
-
-        <!-- Parada 10: Nuestra Promesa Eterna -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">10</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Lock SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Nuestra Promesa Eterna</h4>
-            <p class="adventure-desc">Poner un candado con nuestros nombres en un lugar especial y botar la llave, como símbolo de que somos para siempre.</p>
-          </div>
-        </div>
-
-        <!-- Parada 11: Bailar Bajo la Lluvia -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">11</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Cloud/Rain SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Bailar Bajo la Lluvia</h4>
-            <p class="adventure-desc">Olvidarnos de todo, mojarnos sin importar nada y reírnos a carcajadas mientras bailamos sin música.</p>
-          </div>
-        </div>
-
-        <!-- Parada 12: Adoptar a un Peludito -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">12</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Paw/Pet SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Adoptar a un Peludito</h4>
-            <p class="adventure-desc">Agrandar nuestra pequeña familia y darle amor a un perrito o gatito que llene la casa de alegría.</p>
-          </div>
-        </div>
-
-        <!-- Parada 13: Perdernos en la Ciudad -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">13</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Map SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.61c-.38.19-.622.58-.622 1.006v11.162c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Perdernos Juntos</h4>
-            <p class="adventure-desc">Caminar por calles que no conocemos sin rumbo fijo, descubriendo lugares nuevos mientras nos tomamos de la mano.</p>
-          </div>
-        </div>
-
-        <!-- Parada 14: Ver el Amanecer -->
-        <div class="adventure-path-row">
-          <div class="adventure-path-node">14</div>
-          <div class="adventure-card group" onclick="toggleAdventure(this)">
-            <div class="heart-checkbox">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-              </svg>
-            </div>
-            <span class="adventure-badge">Por vivir juntos ✦</span>
-            <div class="adventure-icon">
-              <!-- Sunrise SVG -->
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
-              </svg>
-            </div>
-            <h4 class="adventure-title">Ver el Amanecer</h4>
-            <p class="adventure-desc">Despertar súper temprano, prepararnos un café y ver cómo sale el sol sentados abrazaditos.</p>
-          </div>
-        </div>
+        ))}
 
         <!-- End of map glowing message -->
-        <div class="mt-20 flex flex-col items-center justify-center text-center px-4 relative">
+        <div class="mt-14 flex flex-col items-center justify-center text-center px-4 relative">
           <!-- Decorative path continuation -->
           <div class="absolute -top-12 left-1/2 w-0.5 h-12 bg-gradient-to-b from-rose-500/30 to-transparent dashed-line"></div>
-          <div class="w-16 h-16 rounded-full bg-purple-500/20 flex items-center justify-center mb-6 animate-pulse shadow-[0_0_20px_#f472b6]">
-            <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <div class="w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center mb-4 animate-pulse shadow-[0_0_20px_#f472b6]">
+            <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
             </svg>
           </div>
-          <h4 class="text-xl font-bold text-white mb-3">Y el mapa sigue...</h4>
-          <p class="text-purple-200/90 text-sm md:text-base max-w-md italic font-serif leading-relaxed">
-            Día tras día iré agregando nuestras nuevas aventuras y mil cosas más. Porque contigo el camino es infinito y quiero engreír siempre a mi celosita hermosa.
+          <h4 class="text-lg font-bold text-white mb-2">Y el mapa sigue...</h4>
+          <p class="text-purple-200/90 text-[13px] md:text-sm max-w-md italic font-serif leading-relaxed">
+            Cada plan que salga de esta lista va a dejar espacio para el siguiente. Contigo siempre habra una locura nueva para tachar juntos.
           </p>
         </div>
 
@@ -657,62 +655,44 @@ const fotos: string[] = [];
         </svg>
         Mil y un cosas que amo de ti
       </h2>
-      <p class="text-gray-400 text-center mb-16 text-sm max-w-md mx-auto">
+      <p class="text-gray-400 text-center mb-12 text-sm max-w-md mx-auto">
         Si tuviera que escribir todas las cosas que me gustan de ti, me faltaría internet. Aquí te dejo solo algunas...
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Razón 1 -->
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(244,114,182,0.15)] group">
-          <h4 class="text-fuchsia-400 font-bold text-lg mb-3 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-fuchsia-500/20 flex items-center justify-center text-fuchsia-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
-            </div>
-            Por tu sonrisa
-          </h4>
-          <p class="text-gray-300 text-sm leading-relaxed pl-13">
-            Porque cuando sonríes, parece que el mundo entero se detiene solo para admirarte. Eres mi luz en los días más grises.
-          </p>
-        </div>
-        
-        <!-- Razón 2 -->
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] group">
-          <h4 class="text-purple-400 font-bold text-lg mb-3 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/></svg>
-            </div>
-            Por tu ternura (y tus celos)
-          </h4>
-          <p class="text-gray-300 text-sm leading-relaxed pl-13">
-            Porque hasta cuando te pones modo "celosita" y me miras con esa carita tan tierna, me derrites el corazón y solo me dan ganas de abrazarte fuerte.
-          </p>
-        </div>
-
-        <!-- Razón 3 -->
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(251,113,133,0.15)] group">
-          <h4 class="text-purple-400 font-bold text-lg mb-3 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
-            </div>
-            Por tu fuerza
-          </h4>
-          <p class="text-gray-300 text-sm leading-relaxed pl-13">
-            Admiro la forma en la que luchas por lo que quieres. Me inspiras a ser mejor persona todos los días solo con verte intentarlo.
-          </p>
-        </div>
-
-        <!-- Razón 4 -->
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(251,191,36,0.15)] group">
-          <h4 class="text-amber-400 font-bold text-lg mb-3 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            </div>
-            Porque eres tú
-          </h4>
-          <p class="text-gray-300 text-sm leading-relaxed pl-13">
-            No necesito una razón complicada. Simplemente te quiero porque eres tú, la casualidad más hermosa y preciosa de mi vida.
-          </p>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {razones.map((razon, index) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[20px] p-4 md:p-5 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(244,114,182,0.15)] group">
+            <h4 class:list={[
+              "font-bold text-base md:text-lg mb-2.5 flex items-center gap-2.5",
+              razon.color === "fuchsia" && "text-fuchsia-400",
+              razon.color === "purple" && "text-purple-400",
+              razon.color === "rose" && "text-rose-400",
+              razon.color === "emerald" && "text-emerald-400",
+              razon.color === "amber" && "text-amber-400",
+              razon.color === "pink" && "text-pink-400"
+            ]}>
+              <div class:list={[
+                "w-10 h-10 rounded-full flex items-center justify-center",
+                razon.color === "fuchsia" && "bg-fuchsia-500/20 text-fuchsia-400",
+                razon.color === "purple" && "bg-purple-500/20 text-purple-400",
+                razon.color === "rose" && "bg-rose-500/20 text-rose-400",
+                razon.color === "emerald" && "bg-emerald-500/20 text-emerald-400",
+              razon.color === "amber" && "bg-amber-500/20 text-amber-400",
+              razon.color === "pink" && "bg-pink-500/20 text-pink-400"
+            ]}>
+                {index % 2 === 0 ? (
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                ) : (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+                )}
+              </div>
+              {razon.titulo}
+            </h4>
+            <p class="text-gray-300 text-[13px] leading-relaxed">
+              {razon.desc}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -925,44 +905,104 @@ const fotos: string[] = [];
     </div>
   </section>
 
-  <!-- ══ MODAL DE POEMAS ══ -->
-  <div id="modal-poema" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md bg-black/70">
-    <div class="relative bg-gray-900 border border-white/10 rounded-3xl p-8 md:p-10 max-w-lg w-full text-center shadow-2xl transform scale-95 transition-transform duration-300">
-      
-      <!-- Botón cerrar -->
-      <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-white cursor-pointer transition-colors p-2 rounded-full hover:bg-white/5">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-
-      <!-- Icono decorativo dinámico -->
-      <div id="modal-icon" class="text-fuchsia-400 flex justify-center mb-6">
-        <!-- Se inyecta el SVG del cuadro correspondiente -->
+  <!-- ══ FOOTER ══ -->
+  <footer class="relative z-10 pt-28 pb-16 text-center text-gray-600 text-sm overflow-hidden">
+    <div class="footer-garden" aria-hidden="true">
+      <div class="footer-garden__halo"></div>
+      <div class="footer-garden__lights">
+        <span class="garden-light light-1"></span>
+        <span class="garden-light light-2"></span>
+        <span class="garden-light light-3"></span>
+        <span class="garden-light light-4"></span>
+        <span class="garden-light light-5"></span>
+        <span class="garden-light light-6"></span>
       </div>
 
-      <!-- Contenido del Poema -->
-      <p id="modal-poema-texto" class="text-purple-100 italic leading-relaxed text-lg whitespace-pre-line mb-6 font-serif">
-        Poema...
-      </p>
-      
-      <!-- Línea divisoria decorativa -->
-      <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-rose-500 to-transparent mx-auto mb-6"></div>
+      <div class="garden-flower garden-flower--left">
+        <div class="garden-flower__head">
+          <span class="garden-flower__petal petal-a"></span>
+          <span class="garden-flower__petal petal-b"></span>
+          <span class="garden-flower__petal petal-c"></span>
+          <span class="garden-flower__petal petal-d"></span>
+          <span class="garden-flower__petal petal-e"></span>
+          <span class="garden-flower__petal petal-f"></span>
+          <span class="garden-flower__petal petal-g"></span>
+          <span class="garden-flower__center"></span>
+        </div>
+        <div class="garden-flower__stem"></div>
+        <div class="garden-flower__leaf leaf-a"></div>
+        <div class="garden-flower__leaf leaf-b"></div>
+      </div>
 
-      <!-- Dedicatoria -->
-      <p id="modal-dedicatoria" class="text-purple-400 font-semibold tracking-wide text-base">
-        Dedicatoria...
-      </p>
-      
-      <!-- Autor -->
-      <p id="modal-autor" class="text-gray-400 text-sm mt-2 font-light">
-        — Autor
-      </p>
+      <div class="garden-flower garden-flower--center">
+        <div class="garden-flower__head">
+          <span class="garden-flower__petal petal-a"></span>
+          <span class="garden-flower__petal petal-b"></span>
+          <span class="garden-flower__petal petal-c"></span>
+          <span class="garden-flower__petal petal-d"></span>
+          <span class="garden-flower__petal petal-e"></span>
+          <span class="garden-flower__petal petal-f"></span>
+          <span class="garden-flower__petal petal-g"></span>
+          <span class="garden-flower__center"></span>
+        </div>
+        <div class="garden-flower__stem"></div>
+        <div class="garden-flower__leaf leaf-a"></div>
+        <div class="garden-flower__leaf leaf-b"></div>
+      </div>
+
+      <div class="garden-flower garden-flower--right">
+        <div class="garden-flower__head">
+          <span class="garden-flower__petal petal-a"></span>
+          <span class="garden-flower__petal petal-b"></span>
+          <span class="garden-flower__petal petal-c"></span>
+          <span class="garden-flower__petal petal-d"></span>
+          <span class="garden-flower__petal petal-e"></span>
+          <span class="garden-flower__petal petal-f"></span>
+          <span class="garden-flower__petal petal-g"></span>
+          <span class="garden-flower__center"></span>
+        </div>
+        <div class="garden-flower__stem"></div>
+        <div class="garden-flower__leaf leaf-a"></div>
+        <div class="garden-flower__leaf leaf-b"></div>
+      </div>
+
+      <div class="garden-bloom garden-bloom--left">
+        <div class="garden-bloom__stem"></div>
+        <div class="garden-bloom__leaf bloom-leaf-a"></div>
+        <div class="garden-bloom__leaf bloom-leaf-b"></div>
+        <div class="garden-bloom__head">
+          <span class="garden-bloom__petal"></span>
+          <span class="garden-bloom__petal"></span>
+          <span class="garden-bloom__petal"></span>
+          <span class="garden-bloom__petal"></span>
+          <span class="garden-bloom__center"></span>
+        </div>
+      </div>
+
+      <div class="garden-bloom garden-bloom--right">
+        <div class="garden-bloom__stem"></div>
+        <div class="garden-bloom__leaf bloom-leaf-a"></div>
+        <div class="garden-bloom__leaf bloom-leaf-b"></div>
+        <div class="garden-bloom__head">
+          <span class="garden-bloom__petal"></span>
+          <span class="garden-bloom__petal"></span>
+          <span class="garden-bloom__petal"></span>
+          <span class="garden-bloom__petal"></span>
+          <span class="garden-bloom__center"></span>
+        </div>
+      </div>
+
+      <div class="footer-garden__grass grass-left">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="footer-garden__grass grass-center">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="footer-garden__grass grass-right">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-  </div>
 
-  <!-- ══ FOOTER ══ -->
-  <footer class="relative z-10 py-16 text-center text-gray-600 text-sm">
     <!-- SVG pulsing Heart instead of Emoji -->
     <svg class="w-6 h-6 text-purple-500 mx-auto mb-3 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -980,100 +1020,6 @@ const fotos: string[] = [];
      JAVASCRIPT
 ═══════════════════════════════════════════ -->
 <script define:vars={{ canciones, fotos, dedicatoria }}>
-
-  // ───────────────────────────────────────────
-  // BASE DE DATOS DE POEMAS Y DEDICATORIAS PARA LESLI
-  // ───────────────────────────────────────────
-  const POEMAS = [
-    {
-      poema: `Quiero hacer contigo
-lo que la primavera hace con los cerezos.`,
-      dedicatoria: `Para Lesli, el motivo de mi primavera eterna.`,
-      autor: "Pablo Neruda"
-    },
-    {
-      poema: `¿Qué es poesía? dices mientras clavas
-en mi pupila tu pupila azul.
-¿Qué es poesía? ¿Y tú me lo preguntas?
-Poesía... eres tú.`,
-      dedicatoria: `Lesli, eres mi poema preferido y mi inspiración diaria.`,
-      autor: "Gustavo Adolfo Bécquer"
-    },
-    {
-      poema: `Mi táctica es mirarte
-aprender cómo sos
-quererte como sos.
-
-Mi estrategia es que un día cualquiera
-no sé cómo ni sé con qué pretexto
-por fin me necesites.`,
-      dedicatoria: `Para Lesli, construyendo a tu lado nuestro lugar en el mundo.`,
-      autor: "Mario Benedetti"
-    },
-    {
-      poema: `Amor de mis entrañas, viva muerte,
-en vano espero tu palabra escrita
-y pienso, con la flor que se marchita,
-que si vivo sin mí quiero perderte.`,
-      dedicatoria: `Lesli, cada palabra tuya llena de luz mi vida entera.`,
-      autor: "Federico García Lorca"
-    },
-    {
-      poema: `Tus ojos son la patria del relámpago y de la lágrima,
-silencio que habla,
-tempestades sin viento, mar sin olas,
-pájaros presos, doradas fieras adormecidas...`,
-      dedicatoria: `Lesli, en tu mirada encuentro el refugio más dulce del mundo.`,
-      autor: "Octavio Paz"
-    },
-    {
-      poema: `Tu alma es el color del tiempo de otoño;
-tus ojos brillan como la estrella del atardecer;
-en tu sonrisa habita el suspiro de la mañana.`,
-      dedicatoria: `Para mi estrella más brillante y hermosa, Lesli.`,
-      autor: "Antonio Machado"
-    },
-    {
-      poema: `Para amar es necesario un alma libre,
-que vuele alto y dibuje en el viento
-las notas más bellas de nuestra canción.`,
-      dedicatoria: `Lesli, tu libertad, tu sonrisa y tu luz me enamoran cada día más.`,
-      autor: "Emily Dickinson"
-    },
-    {
-      poema: `Te quiero a las diez de la mañana, y a las once,
-y a las doce del día.
-Te quiero con toda mi alma y con todo mi cuerpo...`,
-      dedicatoria: `Lesli, te elijo y te quiero en cada segundo de mis días.`,
-      autor: "Jaime Sabines"
-    },
-    {
-      poema: `Una tarde la princesa
-vio una estrella aparecer;
-la princesa era traviesa
-y la quiso ir a coger...`,
-      dedicatoria: `Lesli, mi pequeña princesa que hace todo mi mundo mágico.`,
-      autor: "Rubén Darío"
-    },
-    {
-      poema: `Hay besos que pronuncian por sí solos
-la sentencia de amor condenatoria,
-hay besos que se dan con la mirada,
-hay besos que se dan con la memoria...`,
-      dedicatoria: `Cada beso y cada recuerdo junto a ti es un tesoro eterno, Lesli.`,
-      autor: "Gabriela Mistral"
-    }
-  ];
-
-  // Titles and short descriptions for our 3D Deck of Cards
-  const DETALLES_CARTAS = [
-    { titulo: "Primer Beso", desc: "El instante en que el tiempo se detuvo." },
-    { titulo: "Tu Sonrisa", desc: "La luz que ilumina mis días más grises." },
-    { titulo: "Caminos", desc: "Andar de tu mano es mi rumbo favorito." },
-    { titulo: "Tu Voz", desc: "Mi sintonía y melodía preferida." },
-    { titulo: "Miradas", desc: "Donde no hacen falta las palabras." },
-    { titulo: "Abrazos", desc: "El único lugar donde me siento a salvo." }
-  ];
 
   // ───────────────────────────────────────────
   // DIBUJAR ROSAS, FLORES Y CORAZONES FLOTANTES CON LETRAS (EXCLUYE LA COMBI XO/OX)
@@ -1185,6 +1131,8 @@ hay besos que se dan con la memoria...`,
   const albumSvg     = document.getElementById('album-svg');
   const songTitle    = document.getElementById('song-title');
   const songArtist   = document.getElementById('song-artist');
+  const songAlbum    = document.getElementById('song-album');
+  const songSpotifyLink = document.getElementById('song-spotify-link');
   const playIconWrapper = document.getElementById('play-icon-wrapper');
 
   let idx     = 0;
@@ -1206,10 +1154,13 @@ hay besos que se dan con la memoria...`,
     audio.src   = c.src;
     songTitle.textContent  = c.titulo;
     songArtist.textContent = c.artista;
+    if (songAlbum) songAlbum.textContent = c.album || '';
+    if (songSpotifyLink && c.spotifyUrl) songSpotifyLink.href = c.spotifyUrl;
 
     if (c.cover) {
       albumArt.style.backgroundImage = `url(${c.cover})`;
       albumArt.style.backgroundSize  = 'cover';
+      albumArt.style.backgroundPosition = 'center';
       albumSvg.style.display = 'none';
     } else {
       albumArt.style.backgroundImage = '';
@@ -1357,167 +1308,6 @@ hay besos que se dan con la memoria...`,
 
   actualizarContador();
   setInterval(actualizarContador, 1000);
-
-
-  // ───────────────────────────────────────────
-  // MODAL E INTERACCIÓN DE POEMAS
-  // ───────────────────────────────────────────
-  const modal          = document.getElementById('modal-poema');
-  const modalClose     = document.getElementById('modal-close');
-  const modalIcon      = document.getElementById('modal-icon');
-  const modalTexto     = document.getElementById('modal-poema-texto');
-  const modalDedic     = document.getElementById('modal-dedicatoria');
-  const modalAutor     = document.getElementById('modal-autor');
-
-  function abrirPoema(i, svgHtml) {
-    const data = POEMAS[i % POEMAS.length];
-    modalIcon.innerHTML     = svgHtml;
-    modalTexto.textContent  = data.poema;
-    modalDedic.textContent  = data.dedicatoria;
-    modalAutor.textContent  = `— ${data.autor}`;
-    
-    // Abrir con animación
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.querySelector('div').classList.remove('scale-95');
-    modal.querySelector('div').classList.add('scale-100');
-  }
-
-  function cerrarModal() {
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    modal.querySelector('div').classList.remove('scale-100');
-    modal.querySelector('div').classList.add('scale-95');
-  }
-
-  modalClose.addEventListener('click', cerrarModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) cerrarModal();
-  });
-
-
-  // ───────────────────────────────────────────
-  // 3D STACK CAROUSEL DE CARTAS ROMÁNTICAS
-  // ───────────────────────────────────────────
-  const galeriaStack = document.getElementById('galeria-stack');
-
-  // 6 SVGs premium para las cartas del Stack 3D
-  const SVG_STACK = [
-    // 1. Heart
-    `<svg class="w-12 h-12 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`,
-    // 2. Star
-    `<svg class="w-12 h-12 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`,
-    // 3. Sparkles
-    `<svg class="w-12 h-12 text-fuchsia-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>`,
-    // 4. Music
-    `<svg class="w-12 h-12 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
-    // 5. Camera
-    `<svg class="w-12 h-12 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>`,
-    // 6. Gift
-    `<svg class="w-12 h-12 text-fuchsia-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V6a2 2 0 10-2 2h2zm0 0H4v13a2 2 0 002 2h12a2 2 0 002-2V8H12z"/></svg>`
-  ];
-
-  const gradients = [
-    'from-pink-500/10 to-purple-500/10 hover:from-pink-500/15 hover:to-purple-500/15',
-    'from-rose-500/10 to-pink-500/10 hover:from-rose-500/15 hover:to-pink-500/15',
-    'from-purple-500/10 to-indigo-500/10 hover:from-purple-500/15 hover:to-indigo-500/15',
-    'from-indigo-500/10 to-blue-500/10 hover:from-indigo-500/15 hover:to-blue-500/15',
-    'from-amber-500/10 to-rose-500/10 hover:from-amber-500/15 hover:to-rose-500/15',
-    'from-fuchsia-500/10 to-pink-500/10 hover:from-fuchsia-500/15 hover:to-pink-500/15'
-  ];
-
-  // Instanciar las tarjetas en el DOM
-  SVG_STACK.forEach((svgContent, i) => {
-    const cardData = DETALLES_CARTAS[i % DETALLES_CARTAS.length];
-    
-    const div = document.createElement('div');
-    div.className = `stack-card bg-gradient-to-br ${gradients[i % gradients.length]}`;
-    div.dataset.index = i;
-    
-    div.innerHTML = `
-      <div class="flex flex-col items-center gap-1 w-full">
-        <span class="text-xs text-purple-400/50 uppercase tracking-widest font-semibold">Recuerdo ${i + 1} de ${SVG_STACK.length}</span>
-        <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center border border-white/5 shadow-inner mt-4">
-          ${svgContent}
-        </div>
-      </div>
-      
-      <div class="flex flex-col items-center mb-4">
-        <h4 class="stack-card-title font-sans">${cardData.titulo}</h4>
-        <p class="stack-card-desc font-sans">${cardData.desc}</p>
-      </div>
-
-      <!-- Icono decorativo de corazón -->
-      <svg class="w-6 h-6 text-white/10" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-      </svg>
-    `;
-
-    // Al hacer clic en la de enfrente, abre el poema.
-    div.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (div.classList.contains('state-0')) {
-        abrirPoema(i, svgContent);
-      }
-    });
-
-    galeriaStack.appendChild(div);
-  });
-
-  // ───────────────────────────────────────────
-  // MANEJADOR DE ESTADOS DEL STACK 3D (TINDER CAROUSEL)
-  // ───────────────────────────────────────────
-  let stackIndex = 0;
-  const totalCards = SVG_STACK.length;
-
-  function renderStack() {
-    const cards = document.querySelectorAll('.stack-card');
-    cards.forEach((card) => {
-      const idx = parseInt(card.dataset.index);
-      
-      // Limpiar clases de animación y estados
-      card.classList.remove('state-0', 'state-1', 'state-2', 'state-4', 'state-5', 'state-hidden');
-
-      // Calcular la posición relativa en la pila circular
-      let relativePos = (idx - stackIndex) % totalCards;
-      if (relativePos < 0) relativePos += totalCards;
-
-      if (relativePos === 0) {
-        card.classList.add('state-0');
-      } else if (relativePos === 1) {
-        card.classList.add('state-1');
-      } else if (relativePos === 2) {
-        card.classList.add('state-2');
-      } else if (relativePos === 5) {
-        card.classList.add('state-5');
-      } else if (relativePos === 4) {
-        card.classList.add('state-4');
-      } else {
-        card.classList.add('state-hidden');
-      }
-    });
-  }
-
-  function nextCard() {
-    stackIndex = (stackIndex + 1) % totalCards;
-    renderStack();
-  }
-
-  function prevCard() {
-    stackIndex = (stackIndex - 1 + totalCards) % totalCards;
-    renderStack();
-  }
-
-  document.getElementById('btn-stack-next').addEventListener('click', (e) => {
-    e.stopPropagation();
-    nextCard();
-  });
-
-  document.getElementById('btn-stack-prev').addEventListener('click', (e) => {
-    e.stopPropagation();
-    prevCard();
-  });
-
-  // Renderizar la pila por primera vez
-  renderStack();
 </script>
 
 <script is:inline>
@@ -1568,7 +1358,7 @@ hay besos que se dan con la memoria...`,
         setTimeout(() => heart.remove(), 1500);
       }
     } else {
-      badge.textContent = "Por vivir juntos ✦";
+      badge.textContent = "Pendiente bonito ✦";
       if (row) {
         row.classList.remove('checked-row');
       }
@@ -1579,6 +1369,44 @@ hay besos que se dan con la memoria...`,
   const carrusel = document.getElementById('foto-carrusel');
   const btnCarruselPrev = document.getElementById('btn-carrusel-prev');
   const btnCarruselNext = document.getElementById('btn-carrusel-next');
+  const recuerdosCarrusel = document.getElementById('recuerdos-carrusel');
+  const btnRecuerdosPrev = document.getElementById('btn-recuerdos-prev');
+  const btnRecuerdosNext = document.getElementById('btn-recuerdos-next');
+  const recuerdosCounter = document.getElementById('recuerdos-counter');
+
+  if (recuerdosCarrusel && btnRecuerdosPrev && btnRecuerdosNext && recuerdosCounter) {
+    const cards = Array.from(recuerdosCarrusel.querySelectorAll('.memory-banner'));
+
+    const getCardStep = () => {
+      const firstCard = cards[0];
+      if (!firstCard) return 320;
+      const styles = window.getComputedStyle(recuerdosCarrusel);
+      const gap = parseFloat(styles.columnGap || styles.gap || '16');
+      return firstCard.getBoundingClientRect().width + gap;
+    };
+
+    const updateRecuerdosState = () => {
+      const step = getCardStep();
+      const index = Math.max(0, Math.min(cards.length - 1, Math.round(recuerdosCarrusel.scrollLeft / step)));
+      recuerdosCounter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+      btnRecuerdosPrev.disabled = index === 0;
+      btnRecuerdosNext.disabled = index >= cards.length - 1;
+      btnRecuerdosPrev.style.opacity = btnRecuerdosPrev.disabled ? '0.45' : '1';
+      btnRecuerdosNext.style.opacity = btnRecuerdosNext.disabled ? '0.45' : '1';
+    };
+
+    btnRecuerdosPrev.addEventListener('click', () => {
+      recuerdosCarrusel.scrollBy({ left: -getCardStep(), behavior: 'smooth' });
+    });
+
+    btnRecuerdosNext.addEventListener('click', () => {
+      recuerdosCarrusel.scrollBy({ left: getCardStep(), behavior: 'smooth' });
+    });
+
+    recuerdosCarrusel.addEventListener('scroll', updateRecuerdosState);
+    window.addEventListener('resize', updateRecuerdosState);
+    setTimeout(updateRecuerdosState, 120);
+  }
 
   if (carrusel && btnCarruselPrev && btnCarruselNext) {
     const scrollAmount = 320; // Aproximadamente el ancho de una tarjeta
