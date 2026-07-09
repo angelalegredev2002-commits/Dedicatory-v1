@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Outfit:wght@300;400;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  --font-sans: "Caveat", cursive;
+  --font-serif: "Caveat", cursive;
+  --font-handwritten: "Caveat", cursive;
+}
+
+html {
+  font-size: 112%;
 }
 
 /* ─── Scrollbar ────────────────────────────── */
@@ -196,9 +203,19 @@
   z-index: 4;
   opacity: 1;
   height: auto;
-  max-height: min(70vh, 560px);
+  max-height: min(55vh, 420px);
   pointer-events: auto;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(244, 114, 182, 0.1);
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.5s ease, height 0.5s ease, width 0.5s ease, left 0.5s ease;
+}
+
+@media (min-width: 768px) {
+  .envelope.open .envelope-letter {
+    width: 95vw;
+    max-width: 1350px;
+    left: 50%;
+    transform: translate(-50%, -220px) scale(1.03);
+  }
 }
 
 /* ─── Album beat pulse ─────────────────────── */

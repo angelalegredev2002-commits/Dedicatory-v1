@@ -9,7 +9,7 @@ interface Props {
 const { title = 'Dedic', description = 'Bienvenido a Dedic' } = Astro.props;
 ---
 
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -18,6 +18,7 @@ const { title = 'Dedic', description = 'Bienvenido a Dedic' } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <style>html { scroll-padding-top: 72px; }</style>
   </head>
   <body class="min-h-screen bg-gray-950 text-white antialiased">
     <slot />

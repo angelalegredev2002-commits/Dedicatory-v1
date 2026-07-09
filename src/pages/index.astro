@@ -19,7 +19,7 @@ Gracias por existir, gracias por quedarte a mi lado. Te amo infinitamente.`,
   fechaInicio: "2026-04-18", 
 };
 
-const playlistPhoto = "/images/record/image.png";
+const playlistPhoto = "/images/record/image_copy_4.png";
 
 // Canciones: 3AM - Sirena
 const canciones = [
@@ -38,7 +38,23 @@ const canciones = [
 ];
 
 // Fotos: coloca los archivos en /public/fotos/
-const fotos: string[] = [];
+const fotos: string[] = [
+  "/images/record/image.png",
+  "/images/record/image_copy.png",
+  "/images/record/image_copy_2.png",
+  "/images/record/image_copy_3.png",
+  "/images/record/image_copy_4.png",
+  "/images/record/image_copy_5.png",
+  "/images/record/image_copy_6.png",
+  "/images/record/image_copy_7.png",
+  "/images/record/image_copy_8.png",
+  "/images/record/image_copy_9.png",
+  "/images/record/image_copy_10.png",
+  "/images/record/image_copy_11.png",
+  "/images/record/image_copy_12.png",
+  "/images/record/image_copy_13.png",
+  "/images/record/image_copy_14.png"
+];
 
 const hitosCamino = [
   {
@@ -64,16 +80,16 @@ const hitosCamino = [
 ];
 
 const recuerdos = [
-  { codigo: "7.0", titulo: "Primera mirada", fecha: "", desc: "Ese segundo en el que todo cambio y aparecio esa chispa que ya no se fue.", imagen: "/images/record/image copy.png" },
-  { codigo: "7.1", titulo: "Primer abrazo", fecha: "", desc: "El momento exacto en que tus brazos se sintieron como mi lugar favorito.", imagen: "/images/record/image copy 2.png" },
-  { codigo: "7.2", titulo: "Primera salida", fecha: "", desc: "Nuestra primera aventura juntos, con nervios bonitos y sonrisas que lo dijeron todo.", imagen: "/images/record/image copy 3.png" },
-  { codigo: "7.3", titulo: "Primer beso", fecha: "", desc: "El beso que hizo que el mundo se quedara callado por un instante solo para nosotros.", imagen: "/images/record/image copy 4.png" },
-  { codigo: "7.4", titulo: "Primera cena", fecha: "", desc: "Compartir la mesa contigo hizo que hasta lo mas simple se sintiera especial.", imagen: "/images/record/image copy.png" },
-  { codigo: "7.5", titulo: "Primera matcha juntos", fecha: "", desc: "Una escena que me encanta recordar porque tu amor por el matcha tambien se volvio parte de mis recuerdos favoritos.", imagen: "/images/record/image copy 2.png" },
-  { codigo: "7.6", titulo: "Primera pelea", fecha: "48 horas sin dormir", desc: "Hasta los momentos dificiles me enseñan cuanto vales para mi y cuanto quiero aprender a cuidarnos mejor.", imagen: "/images/record/image copy 3.png" },
-  { codigo: "7.7", titulo: "Primera noche con un Four Loko", fecha: "", desc: "Una historia caotica, divertida y tan nuestra que siempre me sacara una sonrisa.", imagen: "/images/record/image copy 4.png" },
-  { codigo: "7.8", titulo: "Primer detalle", fecha: "14/06/2026", desc: "Ese detalle quedo marcado como una prueba bonita de todo lo que estamos construyendo.", imagen: "/images/record/image copy.png" },
-  { codigo: "7.9", titulo: "Primera tarde juntos", fecha: "15/06/2026", desc: "Una tarde completa contigo que guardo como un tesoro porque se sintio suave, bonita y muy nuestra.", imagen: "/images/record/image copy 2.png" }
+  { codigo: "7.0", titulo: "Primera mirada", fecha: "", desc: "Ese segundo en el que todo cambio y aparecio esa chispa que ya no se fue.", imagen: "/images/record/image_copy_8.png" },
+  { codigo: "7.1", titulo: "Primer abrazo", fecha: "", desc: "El momento exacto en que tus brazos se sintieron como mi lugar favorito.", imagen: "/images/record/image_copy_4.png" },
+  { codigo: "7.2", titulo: "Primera salida", fecha: "", desc: "Nuestra primera aventura juntos, con nervios bonitos y sonrisas que lo dijeron todo.", imagen: "/images/record/image_copy_9.png" },
+  { codigo: "7.3", titulo: "Primer beso", fecha: "", desc: "El beso que hizo que el mundo se quedara callado por un instante solo para nosotros.", imagen: "/images/record/image_copy_14.png" },
+  { codigo: "7.4", titulo: "Primera cena", fecha: "", desc: "Compartir la mesa contigo hizo que hasta lo mas simple se sintiera especial.", imagen: "/images/record/image_copy_2.png" },
+  { codigo: "7.5", titulo: "Primera matcha juntos", fecha: "", desc: "Una escena que me encanta recordar porque tu amor por el matcha tambien se volvio parte de mis recuerdos favoritos.", imagen: "/images/record/image_copy_11.png" },
+  { codigo: "7.6", titulo: "Primera pelea", fecha: "48 horas sin dormir", desc: "Hasta los momentos dificiles me enseñan cuanto vales para mi y cuanto quiero aprender a cuidarnos mejor.", imagen: "/images/record/image_copy_6.png" },
+  { codigo: "7.7", titulo: "Primera noche con un Four Loko", fecha: "", desc: "Una historia caotica, divertida y tan nuestra que siempre me sacara una sonrisa.", imagen: "/images/record/image_copy_12.png" },
+  { codigo: "7.8", titulo: "Primer detalle", fecha: "14/06/2026", desc: "Ese detalle quedo marcado como una prueba bonita de todo lo que estamos construyendo.", imagen: "/images/record/image_copy.png" },
+  { codigo: "7.9", titulo: "Primera tarde juntos", fecha: "15/06/2026", desc: "Una tarde completa contigo que guardo como un tesoro porque se sintio suave, bonita y muy nuestra.", imagen: "/images/record/image_copy_3.png" }
 ];
 
 const locuras = [
@@ -135,6 +151,21 @@ const razones = [
 
 <Layout title={`Para ${dedicatoria.para}`} description="Una dedicatoria especial con amor">
 
+  <!-- ══ HEADER DINÁMICO ══ -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-500 translate-y-0">
+    <div class="mx-auto max-w-5xl flex items-center justify-between px-6 py-4">
+      <!-- Navegación -->
+      <nav class="hidden md:flex items-center gap-6 text-[11px] uppercase tracking-[0.2em] text-white/60 font-medium">
+        <a href="#carta" class="hover:text-white transition-colors">Carta</a>
+        <a href="#melodia" class="hover:text-white transition-colors">Melodía</a>
+        <a href="#recuerdos" class="hover:text-white transition-colors">Recuerdos</a>
+        <a href="#fotos" class="hover:text-white transition-colors">Fotos</a>
+      </nav>
+      <!-- Fecha -->
+      <span class="text-[10px] uppercase tracking-[0.2em] text-rose-400/70 hidden sm:block">24 · jun · 2026</span>
+    </div>
+  </header>
+
   <!-- ══ FONDO: Letras flotantes ══ -->
   <div id="flotantes" class="fixed inset-0 overflow-hidden pointer-events-none z-0"></div>
 
@@ -171,15 +202,42 @@ const razones = [
     </div>
   </section>
 
+  <!-- ══ BANNER PRINCIPAL ══ -->
+  <section class="relative z-10 w-full px-4 md:px-8 -mt-4 mb-12">
+    <div class="max-w-6xl mx-auto relative rounded-3xl overflow-hidden shadow-2xl shadow-purple-900/30 border border-white/10">
+      <!-- Imagen grande -->
+      <img
+        src="/images/record/image_copy_13.png"
+        alt="Nuestra historia juntos"
+        class="w-full h-[320px] md:h-[480px] lg:h-[560px] object-cover"
+        loading="eager"
+      />
+      <!-- Overlay degradado con texto -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col items-center justify-end pb-8 md:pb-12 px-6">
+        <p class="text-white/90 text-sm md:text-lg font-light tracking-wide text-center max-w-2xl leading-relaxed mb-3">
+          Con todo mi corazón
+        </p>
+        <p class="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-300 to-pink-300 text-xs md:text-sm uppercase tracking-[0.3em] font-semibold">
+          Día de novios • 24 de junio de 2026
+        </p>
+        <div class="mt-4 flex items-center gap-2">
+          <span class="w-8 h-[1px] bg-gradient-to-r from-transparent to-fuchsia-400"></span>
+          <svg class="w-4 h-4 text-fuchsia-400 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span class="w-8 h-[1px] bg-gradient-to-l from-transparent to-fuchsia-400"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ MENSAJE CON SOBRE INTERACTIVO ══ -->
-  <section class="relative z-10 py-20 px-6">
+  <section id="carta" class="relative z-10 py-20 px-6">
     <div class="max-w-4xl mx-auto flex flex-col items-center">
       
       <p class="text-purple-400 text-sm font-semibold tracking-widest uppercase mb-8 text-center">
         Tengo una cartita guardada para ti... ¿la abres, pliss? ✨
       </p>
 
-      <div class="envelope-container w-full flex justify-center pb-[18rem] md:pb-[20rem] pt-8 md:pt-12">
+      <div class="envelope-container w-full flex justify-center pb-8 md:pb-16 pt-8 md:pt-12">
         <div id="sobre" class="envelope flex items-center justify-center">
           
           <!-- Flap (tapa) del sobre -->
@@ -197,9 +255,9 @@ const razones = [
 
           <!-- Carta que desliza hacia arriba -->
           <div class="envelope-letter">
-            <div class="grid gap-5 md:grid-cols-[170px_1fr] md:items-start">
+            <div class="grid gap-6 md:grid-cols-[260px_1fr] md:items-start">
               <div class="overflow-hidden rounded-[24px] border border-white/10 bg-black/30 shadow-lg">
-                <img src="/images/carta-recuerdo.svg" alt="Recuerdo decorativo de la carta" class="h-44 w-full object-cover" loading="lazy" />
+                <img src="/images/record/image_copy_13.png" alt="Recuerdo decorativo de la carta" class="h-44 w-full object-cover" loading="lazy" />
                 <div class="px-4 py-3 text-left">
                   <p class="text-[10px] uppercase tracking-[0.28em] text-purple-300">Nuestra carta</p>
                   <p class="mt-2 text-sm text-gray-200 leading-relaxed">Una imagen chiquita para guardar este pedacito de nosotros dentro de la carta.</p>
@@ -222,7 +280,7 @@ const razones = [
   </section>
 
   <!-- ══ LÍNEA DEL TIEMPO DE NUESTROS MOMENTOS ══ -->
-  <section class="relative z-10 py-10 px-6">
+  <section id="recuerdos" class="relative z-10 py-20 px-6">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
         <!-- SVG History icon -->
@@ -231,74 +289,85 @@ const razones = [
         </svg>
         El camino que estamos dibujando...
       </h2>
-      <p class="text-gray-400 text-center mb-10 text-sm max-w-2xl mx-auto">
-        Lo compacte para que el recorrido se lea mas rapido y con una jerarquia mas clara entre fecha, recuerdo y lo que sentimos en cada etapa.
+      <p class="text-gray-400 text-center mb-16 text-sm max-w-md mx-auto">
+        Cada paso importante, cada risa y cada fecha especial que ha marcado esta hermosa historia de amor.
       </p>
-      <div class="grid gap-3 md:grid-cols-2">
-        {hitosCamino.map((hito, index) => (
-          <article class="rounded-[24px] border border-white/10 bg-white/5 p-4 md:p-5 backdrop-blur-xl shadow-xl">
-            <div class="mb-3 flex items-center justify-between gap-3">
-              <span class:list={[
-                "inline-flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold",
-                index === 0 && "bg-purple-500/20 text-purple-200",
-                index === 1 && "bg-rose-500/20 text-rose-200",
-                index === 2 && "bg-fuchsia-500/20 text-fuchsia-200",
-                index === 3 && "bg-indigo-500/20 text-indigo-200"
-              ]}>
-                0{index + 1}
-              </span>
-              <time class="text-[10px] uppercase tracking-[0.22em] text-gray-400">{hito.fecha}</time>
-            </div>
-            <h3 class="text-white text-lg font-bold leading-tight">{hito.titulo}</h3>
-            <p class="text-gray-300 text-[13px] mt-2 leading-relaxed">{hito.desc}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
 
-  <!-- ══ CONTADOR DE TIEMPO PREMIUM ══ -->
-  <section class="relative z-10 py-10 px-6">
-    <div class="max-w-4xl mx-auto">
-      <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[26px] p-3 md:p-4 shadow-2xl">
-        <div class="flex flex-col gap-3 md:flex-row md:items-stretch">
-          <div class="md:w-48 rounded-[20px] border border-white/10 bg-black/30 p-4 flex items-center gap-3 md:flex-col md:items-start md:justify-between">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/15 text-purple-300">
-              <svg class="w-6 h-6 animate-spin-slow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
+      <!-- Ruta Horizontal Ordenada -->
+      <div class="relative mt-8">
+        <!-- Línea horizontal conectora (Solo Desktop) -->
+        <div class="absolute left-6 right-6 top-6 h-[1px] bg-gradient-to-r from-purple-500/40 via-fuchsia-500/40 to-indigo-500/10 hidden md:block"></div>
+
+        <div class="grid gap-8 grid-cols-1 md:grid-cols-4 relative z-10">
+          {hitosCamino.map((hito, index) => (
+            <div class="flex flex-col items-center md:items-start text-center md:text-left group">
+              <!-- Círculo / Número -->
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20 border border-white/10 flex items-center justify-center text-white font-bold mb-5 group-hover:border-fuchsia-500/40 group-hover:shadow-[0_0_15px_rgba(244,114,182,0.3)] transition-all duration-300 relative z-10 bg-[#05020f]">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-fuchsia-300 font-mono text-sm">
+                  0{index + 1}
+                </span>
+              </div>
+
+              <!-- Fecha -->
+              <time class="text-[10px] font-bold uppercase tracking-[0.2em] text-fuchsia-400 mb-1.5">
+                {hito.fecha}
+              </time>
+
+              <!-- Título -->
+              <h3 class="text-white text-base font-bold mb-2 group-hover:text-fuchsia-300 transition-colors duration-300">
+                {hito.titulo}
+              </h3>
+
+              <!-- Descripción -->
+              <p class="text-gray-400 text-xs leading-relaxed max-w-xs md:max-w-none">
+                {hito.desc}
+              </p>
             </div>
-            <div class="text-left">
-              <p class="text-[10px] uppercase tracking-[0.3em] text-purple-300">Tiempo</p>
-              <h3 class="mt-1.5 text-white text-base font-bold">Lo que ya vivimos juntitos</h3>
-              <p class="mt-1.5 text-[13px] text-gray-400 leading-relaxed">Ahora esta mas compacto y con el reloj acomodado al costado izquierdo.</p>
-            </div>
-          </div>
-          <div class="grid flex-1 grid-cols-2 md:grid-cols-4 gap-2.5 text-center">
-          <div class="bg-black/30 border border-white/5 rounded-[18px] p-2.5">
-            <span id="c-dias" class="text-[1.7rem] md:text-[2.2rem] font-extrabold text-white glow-text">00</span>
-            <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Días</p>
-          </div>
-          <div class="bg-black/30 border border-white/5 rounded-[18px] p-2.5">
-            <span id="c-horas" class="text-[1.7rem] md:text-[2.2rem] font-extrabold text-white glow-text">00</span>
-            <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Horas</p>
-          </div>
-          <div class="bg-black/30 border border-white/5 rounded-[18px] p-2.5">
-            <span id="c-mins" class="text-[1.7rem] md:text-[2.2rem] font-extrabold text-white glow-text">00</span>
-            <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Min</p>
-          </div>
-          <div class="bg-black/30 border border-white/5 rounded-[18px] p-2.5">
-            <span id="c-segs" class="text-[1.7rem] md:text-[2.2rem] font-extrabold text-white glow-text">00</span>
-            <p class="text-gray-400 text-[10px] mt-1 uppercase tracking-wider font-light">Seg</p>
-          </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
+
+
+  <!-- ══ CONTADOR DE TIEMPO PREMIUM ══ -->
+  <section class="relative z-10 py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-rose-400 mb-3 font-mono">Tiempo Juntos</h3>
+      <h2 class="text-4xl md:text-5xl font-normal text-rose-300 mb-8 font-handwritten tracking-wide">Lo que ya hemos vivido juntitos</h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8">
+        <!-- Días -->
+        <div class="bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-2xl p-5 md:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/20 hover:bg-white/[0.05] group">
+          <span id="c-dias" class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-fuchsia-400 glow-text">00</span>
+          <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-2 font-medium">Días</p>
+        </div>
+        <!-- Horas -->
+        <div class="bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-2xl p-5 md:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/20 hover:bg-white/[0.05] group">
+          <span id="c-horas" class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-fuchsia-400 glow-text">00</span>
+          <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-2 font-medium">Horas</p>
+        </div>
+        <!-- Minutos -->
+        <div class="bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-2xl p-5 md:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/20 hover:bg-white/[0.05] group">
+          <span id="c-mins" class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-fuchsia-400 glow-text">00</span>
+          <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-2 font-medium">Minutos</p>
+        </div>
+        <!-- Segundos -->
+        <div class="bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-2xl p-5 md:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/20 hover:bg-white/[0.05] group">
+          <span id="c-segs" class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-fuchsia-400 glow-text">00</span>
+          <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-2 font-medium">Segundos</p>
+        </div>
+      </div>
+
+      <p class="text-gray-400 text-xs md:text-sm italic font-serif leading-relaxed max-w-md mx-auto">
+        "Cada día, hora y segundo es un hermoso recordatorio de la suerte que tengo de tenerte en mi vida."
+      </p>
+    </div>
+  </section>
+
   <!-- ══ REPRODUCTOR ══ -->
-  <section class="relative z-10 py-20 px-6">
+  <section id="melodia" class="relative z-10 py-20 px-6">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
         <!-- SVG Note Icon -->
@@ -336,17 +405,17 @@ const razones = [
           </a>
         </div>
 
-        <div class="grid gap-4 md:grid-cols-[210px_1fr] md:items-start">
-          <div class="overflow-hidden rounded-[24px] border border-white/10 bg-black/30 shadow-xl">
-            <img src="/images/melodia-juntos.svg" alt="Ilustración romántica para la melodía favorita" class="h-full w-full object-cover" loading="lazy" />
+        <div class="grid gap-4 md:grid-cols-[260px_1fr] md:items-start">
+          <div class="overflow-hidden rounded-[24px] border border-white/10 bg-black/30 shadow-xl h-full">
+            <video src="/images/record/les1.mp4" autoplay loop muted playsinline class="h-full w-full object-cover"></video>
           </div>
 
           <div
-            class="relative overflow-hidden rounded-[24px] border border-white/10 bg-[#0a1510]/80 p-4 md:p-5 shadow-xl"
-            style={`background-image: linear-gradient(140deg, rgba(6, 12, 10, 0.92), rgba(10, 21, 16, 0.86) 40%, rgba(6, 12, 10, 0.94)), url('${playlistPhoto}'); background-size: cover; background-position: center;`}
+            class="relative overflow-hidden rounded-[24px] border border-white/10 bg-[#0a1510]/40 p-4 md:p-5 shadow-xl"
+            style={`background-image: linear-gradient(140deg, rgba(6, 12, 10, 0.6), rgba(10, 21, 16, 0.4) 40%, rgba(6, 12, 10, 0.6)), url('${playlistPhoto}'); background-size: cover; background-position: center;`}
           >
-            <div class="absolute inset-0 bg-gradient-to-br from-black/44 via-[#08130d]/18 to-black/68 pointer-events-none"></div>
-            <div class="absolute inset-0 backdrop-blur-[1.5px] pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/40 pointer-events-none"></div>
+            <div class="absolute inset-0 backdrop-blur-[3px] pointer-events-none"></div>
             <div class="relative z-10 mb-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start">
               <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <div id="album-art"
@@ -452,7 +521,7 @@ const razones = [
   </section>
 
   <!-- ══ MOMENTOS QUE GUARDO EN EL CORAZON ══ -->
-  <section class="relative z-10 py-24 px-6 overflow-hidden">
+  <section id="recuerdos" class="relative z-10 py-24 px-6 overflow-hidden">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
         <!-- SVG Sparkles / Flower Icon -->
@@ -698,7 +767,7 @@ const razones = [
   </section>
 
   <!-- ══ GALERÍA DE FOTOS (CARRUSEL) ══ -->
-  <section class="relative z-10 py-24 px-6 overflow-hidden">
+  <section id="fotos" class="relative z-10 py-24 px-6 overflow-hidden">
     <!-- Decorative background blobs -->
     <div class="absolute top-1/2 right-1/4 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl -z-10 mix-blend-screen pointer-events-none"></div>
     <div class="max-w-6xl mx-auto">
@@ -738,7 +807,7 @@ const razones = [
           ) : (
             fotos.map((foto, index) => (
               <div class="snap-center shrink-0 w-72 h-96 sm:w-80 sm:h-[400px] rounded-3xl bg-gray-900 border border-white/10 relative overflow-hidden group/card hover:-translate-y-2 transition-transform duration-300 shadow-xl">
-                <img src={`/fotos/${foto}`} alt={`Recuerdo ${index + 1}`} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" loading="lazy" />
+                <img src={foto} alt={`Recuerdo ${index + 1}`} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-100 transition-opacity duration-300"></div>
                 <div class="absolute bottom-6 left-6 right-6 z-20">
                   <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-3 group-hover/card:bg-fuchsia-500/50 transition-colors">
@@ -863,43 +932,32 @@ const razones = [
     </div>
   </section>
 
-  <!-- ══ LA PROPUESTA (INTERACTIVA) ══ -->
-  <section class="relative z-10 py-32 px-6 flex flex-col items-center justify-center min-h-[70vh]">
-    <div id="propuesta-container" class="max-w-xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 md:p-14 text-center shadow-2xl relative overflow-hidden transition-all duration-700">
+  <!-- ══ CELEBRACIÓN ══ -->
+  <section class="relative z-10 py-20 px-6 flex flex-col items-center justify-center min-h-[50vh]">
+    <div id="propuesta-container" class="max-w-md mx-auto p-8 md:p-10 text-center">
       
-      <!-- Fondo decorativo -->
-      <div class="absolute inset-0 bg-gradient-to-br from-rose-500/10 via-transparent to-purple-500/10 opacity-50"></div>
-      
-      <div id="propuesta-content" class="relative z-10">
-        <svg class="w-16 h-16 text-rose-500 mx-auto mb-6 animate-bounce" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        <h2 class="text-3xl md:text-5xl font-black text-white mb-4 glow-text font-serif">
-          Lesli, mi amor...
+      <div class="flex flex-col items-center justify-center">
+        <!-- Badge de Estado -->
+        <span class="px-4 py-1 rounded-full text-rose-400 text-[9px] font-bold tracking-[0.2em] uppercase mb-6 animate-pulse">
+          Nuestra Promesa Realizada ♥
+        </span>
+
+        <!-- Icono corazón -->
+        <svg class="w-8 h-8 text-rose-500 mb-5 pulsing-beat" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+
+        <h2 class="text-2xl md:text-3xl font-black text-white mb-4 glow-text font-serif leading-tight">
+          ¡Gracias por ser mi novia, <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-fuchsia-400">{dedicatoria.para}</span>!
         </h2>
-        <p class="text-xl text-purple-200 mb-10 italic">
-          Después de todo lo que hemos vivido y de un mes increíble a tu lado, solo hay una cosa más que quiero pedirte hoy...<br><br>
-          <span class="font-bold text-2xl text-white block mt-4 drop-shadow-md">¿Quieres ser mi novia?</span>
+        
+        <p class="text-sm md:text-base text-rose-100/90 font-light leading-relaxed max-w-sm font-serif italic mb-6">
+          "Me haces el hombre más feliz del mundo. Prometo cuidarte, amarte y hacer que cada día juntos sea mágico. ¡Te amo infinitamente!"
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative min-h-[60px] w-full">
-          <button id="btn-si" class="px-8 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-xl rounded-full shadow-[0_0_20px_rgba(244,63,94,0.5)] hover:scale-110 active:scale-95 transition-transform z-20 cursor-pointer flex items-center justify-center gap-2">
-            ¡Sí, acepto! 
-            <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          </button>
-          <button id="btn-no" class="px-8 py-3 bg-white/10 text-gray-300 font-bold text-xl rounded-full hover:bg-white/20 transition-all absolute sm:relative z-10 cursor-pointer border border-white/5 flex items-center justify-center gap-2">
-            No 
-            <svg class="w-6 h-6 fill-current text-gray-400" viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5c0-3.08-2.42-5.5-5.5-5.5zm-5.5 13L10 13l2-3-3-4 3-2 1.5 3-1.5 3 2 3-3 3z"/></svg>
-          </button>
-        </div>
-      </div>
-      
-      <!-- Mensaje de Éxito (Oculto inicialmente) -->
-      <div id="propuesta-success" class="relative z-10 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-1000">
-        <svg class="w-24 h-24 text-rose-500 mx-auto mb-6 pulsing-beat" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        <h2 class="text-4xl font-black text-white mb-4 glow-text font-serif">
-          ¡Sabía que dirías que sí!
-        </h2>
-        <p class="text-xl text-purple-200 font-light">
-          Me haces el hombre más feliz del mundo. Prometo cuidarte, amarte y hacer que cada día juntos sea mágico. ¡Te amo, celosita!
+        <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-rose-500/20 to-transparent my-1"></div>
+        <p class="text-[9px] text-rose-400/50 uppercase tracking-[0.25em] mt-3">
+          Oficialmente juntos desde el {hitosCamino[0].fecha}
         </p>
       </div>
     </div>
@@ -1549,4 +1607,37 @@ const razones = [
       }
     });
   }
+
+  // --- Header dinámico: ocultar al bajar, mostrar al subir, blur al hacer scroll ---
+  const header = document.getElementById('site-header');
+  let lastScrollY = window.scrollY;
+
+  const updateHeader = () => {
+    const currentScrollY = window.scrollY;
+    const scrolledDown = currentScrollY > lastScrollY;
+    const pastThreshold = currentScrollY > 60;
+
+    // Fondo blur/sólido cuando no está en el top
+    if (pastThreshold) {
+      header.style.background = 'rgba(5,2,15,0.75)';
+      header.style.backdropFilter = 'blur(16px)';
+      header.style.boxShadow = '0 1px 0 rgba(255,255,255,0.05)';
+    } else {
+      header.style.background = 'transparent';
+      header.style.backdropFilter = 'none';
+      header.style.boxShadow = 'none';
+    }
+
+    // Ocultar al bajar, mostrar al subir
+    if (scrolledDown && pastThreshold) {
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      header.style.transform = 'translateY(0)';
+    }
+
+    lastScrollY = currentScrollY;
+  };
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
 </script>
