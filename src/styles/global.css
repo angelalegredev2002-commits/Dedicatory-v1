@@ -115,20 +115,20 @@ html {
 
 /* ─── Envelope Animation ──────────────────── */
 .envelope-container {
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
 .envelope {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 500px;
   height: 290px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   cursor: pointer;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
   transform-style: preserve-3d;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -139,7 +139,7 @@ html {
 }
 
 .envelope.open {
-  transform: rotateX(10deg) translateY(48px);
+  transform: translateY(20px);
 }
 
 .envelope-flap {
@@ -180,15 +180,16 @@ html {
   top: 8%;
   left: 4.5%;
   width: 91%;
-  height: 82%;
-  background: rgba(17, 24, 39, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  padding: 20px;
-  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.5s ease, height 0.5s ease;
+  height: 84%;
+  background: rgba(15, 10, 26, 0.96);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(244, 114, 182, 0.3);
+  border-radius: 20px;
+  padding: 24px;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, left 0.6s ease, width 0.6s ease, max-height 0.5s ease;
   z-index: 1;
   opacity: 0;
-  transform: translateY(0) scale(0.95);
+  transform: translateX(0) scale(0.95);
   overflow: auto;
   scrollbar-width: none;
   pointer-events: none;
@@ -198,23 +199,65 @@ html {
   display: none;
 }
 
+/* Despliegue lateral de la carta */
 .envelope.open .envelope-letter {
-  transform: translateY(-220px) scale(1.03);
-  z-index: 4;
+  position: absolute;
+  z-index: 10;
   opacity: 1;
-  height: auto;
-  max-height: min(55vh, 420px);
   pointer-events: auto;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(244, 114, 182, 0.1);
-  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.5s ease, height 0.5s ease, width 0.5s ease, left 0.5s ease;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(244, 114, 182, 0.25);
+  border: 1px solid rgba(244, 114, 182, 0.4);
 }
 
-@media (min-width: 768px) {
+/* Escritorio: El sobre se desplaza a la izquierda y la carta sale deslizando hacia la derecha de forma lateral */
+@media (min-width: 900px) {
+  .envelope.open {
+    transform: translateX(-240px) translateY(10px) rotateY(-4deg);
+  }
+
   .envelope.open .envelope-letter {
-    width: 95vw;
-    max-width: 1350px;
-    left: 50%;
-    transform: translate(-50%, -220px) scale(1.03);
+    left: 105%;
+    top: -30px;
+    width: 580px;
+    max-height: 520px;
+    transform: translateX(20px) scale(1);
+    animation: slideOutRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+/* Pantallas medianas y móviles: Salida lateral animada desde la derecha */
+@media (max-width: 899px) {
+  .envelope.open .envelope-letter {
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    width: 90vw;
+    max-width: 540px;
+    max-height: 80vh;
+    transform: translate(0, -50%);
+    animation: slideInLateralMobile 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(20px) scale(1);
+  }
+}
+
+@keyframes slideInLateralMobile {
+  0% {
+    opacity: 0;
+    transform: translate(60px, -50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%);
   }
 }
 
@@ -368,245 +411,35 @@ html {
 }
 
 
-/* ─── Nuestro Mapa de Aventuras (Bucket List Timeline Path) ─── */
-.adventure-path-container {
+/* ─── Bucket List de Locuras — Filas scroll-reveal ─── */
+.locura-row {
   position: relative;
-  width: 100%;
-  padding: 20px 0;
 }
 
-/* Winding Connector Trail Line */
-.adventure-trail-line {
-  position: absolute;
-  top: 40px;
-  bottom: 40px;
-  left: 16px;
-  width: 2px;
-  background: repeating-linear-gradient(to bottom, transparent, transparent 5px, rgba(244, 114, 182, 0.3) 5px, rgba(244, 114, 182, 0.3) 15px);
-  z-index: 0;
-}
-
-@media (min-width: 768px) {
-  .adventure-trail-line {
-    left: 50%;
-    transform: translateX(-50%);
-    background: repeating-linear-gradient(to bottom, transparent, transparent 6px, rgba(244, 114, 182, 0.35) 6px, rgba(244, 114, 182, 0.35) 18px);
-  }
-}
-
-/* Map Path Node */
-.adventure-path-node {
-  position: absolute;
-  left: 16px;
-  top: 40px;
-  transform: translate(-50%, -50%);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #030712;
-  border: 3px solid #f472b6;
-  box-shadow: 0 0 12px rgba(244, 114, 182, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.78rem;
-  font-weight: 800;
-  color: #f472b6;
-  z-index: 10;
-  transition: all 0.4s ease;
-}
-
-.adventure-path-row.checked-row .adventure-path-node {
-  border-color: #4ade80;
-  color: #4ade80;
-  box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
-  background: rgba(34, 197, 94, 0.1);
-}
-
-@media (min-width: 768px) {
-  .adventure-path-node {
-    left: 50%;
-    top: 50%;
-  }
-}
-
-.adventure-path-row {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 38px;
-  padding-left: 42px;
-}
-
-.adventure-path-row:last-child {
-  margin-bottom: 0;
-}
-
-@media (min-width: 768px) {
-  .adventure-path-row {
-    flex-direction: row;
-    padding-left: 0;
-    margin-bottom: 50px;
-  }
-}
-
-.adventure-card {
-  position: relative;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-  backdrop-filter: blur(12px);
-  padding: 18px;
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  cursor: pointer;
-  overflow: hidden;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .adventure-card {
-    width: 44%;
-  }
-  
-  /* Alternate left/right positioning */
-  .adventure-path-row:nth-child(odd) .adventure-card {
-    margin-right: auto;
-  }
-  
-  .adventure-path-row:nth-child(even) .adventure-card {
-    margin-left: auto;
-  }
-}
-
-.adventure-card::before {
+.locura-row::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 20px;
-  padding: 1px;
-  background: linear-gradient(to right, rgba(244, 114, 182, 0) 20%, rgba(244, 114, 182, 0.15) 50%, rgba(168, 85, 247, 0) 80%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  background: radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.04) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
   pointer-events: none;
-  transition: opacity 0.4s ease;
-  opacity: 0.5;
 }
 
-.adventure-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(244, 114, 182, 0.3);
-  background: linear-gradient(135deg, rgba(244, 114, 182, 0.05) 0%, rgba(168, 85, 247, 0.02) 100%);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 25px rgba(244, 114, 182, 0.1);
-}
-
-.adventure-card:hover::before {
+.locura-row:hover::after {
   opacity: 1;
-  background: linear-gradient(to right, rgba(244, 114, 182, 0.2) 0%, rgba(168, 85, 247, 0.3) 50%, rgba(244, 114, 182, 0.2) 100%);
 }
 
-.adventure-badge {
-  font-size: 0.62rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 4px 9px;
-  border-radius: 99px;
-  background: rgba(244, 114, 182, 0.1);
-  color: #f472b6;
-  border: 1px solid rgba(244, 114, 182, 0.2);
-  display: inline-block;
-  margin-bottom: 12px;
-  transition: all 0.3s ease;
+/* Estado cumplida */
+.locura-row.locura-done {
+  opacity: 0.6;
 }
 
-.adventure-card.checked .adventure-badge {
-  background: rgba(34, 197, 94, 0.1);
-  color: #4ade80;
-  border-color: rgba(34, 197, 94, 0.2);
-  box-shadow: 0 0 10px rgba(74, 222, 128, 0.1);
+.locura-row.locura-done .locura-title-row {
+  text-decoration: line-through;
+  opacity: 0.45;
 }
 
-.adventure-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease;
-  margin-bottom: 14px;
-}
-
-.adventure-card:hover .adventure-icon {
-  background: rgba(244, 114, 182, 0.1);
-  border-color: rgba(244, 114, 182, 0.2);
-  color: #f472b6;
-  transform: scale(1.08);
-}
-
-.adventure-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 6px;
-  transition: color 0.3s ease;
-}
-
-.adventure-card:hover .adventure-title {
-  color: #f472b6;
-}
-
-.adventure-desc {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.45;
-  transition: color 0.3s ease;
-}
-
-.adventure-card:hover .adventure-desc {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-/* Checkbox de Corazón interactivo */
-.heart-checkbox {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.heart-checkbox:hover {
-  background: rgba(244, 114, 182, 0.1);
-  border-color: rgba(244, 114, 182, 0.3);
-  color: #f472b6;
-  transform: scale(1.1);
-}
-
-.adventure-card.checked .heart-checkbox {
-  background: rgba(244, 114, 182, 0.2);
-  border-color: rgba(244, 114, 182, 0.4);
-  color: #f472b6;
-  box-shadow: 0 0 15px rgba(244, 114, 182, 0.3);
-}
-
-.adventure-card.checked .heart-checkbox svg {
-  fill: currentColor;
-}
 
 /* ─── Ramo de rosas CSS en el footer ───────────────────── */
 @keyframes bouquet-sway {

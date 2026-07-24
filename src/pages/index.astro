@@ -31,10 +31,31 @@ const canciones = [
     album:   "Nuestra playlist infinita",
     spotifyUrl: "https://open.spotify.com/search/Sirena%203AM",
     letras: [
-      { t: 0,   texto: "..." },
-      { t: 5,   texto: "🎶 Disfruta la canción... 🎶" }
+      { t: 0,   texto: "🎶 Disfruta la canción... 🎶" }
     ],
   },
+  {
+    titulo:  "Carita Linda",
+    artista: "DEKKO",
+    src:     "/music/DEKKO - Carita Linda (LETRA).mp3",
+    cover:   playlistPhoto,
+    album:   "Nuestra playlist infinita",
+    spotifyUrl: "https://open.spotify.com/search/DEKKO%20Carita%20Linda",
+    letras: [
+      { t: 0,   texto: "🎶 Disfruta la canción... 🎶" }
+    ],
+  },
+  {
+    titulo:  "Madonna",
+    artista: "Natanael Cano, Oscar Maydon",
+    src:     "/music/Natanael Cano, Oscar Maydon - Madonna (Lyric Video) _ CantoYo [yah9Th-Fyl4].mp3",
+    cover:   playlistPhoto,
+    album:   "Nuestra playlist infinita",
+    spotifyUrl: "https://open.spotify.com/search/Madonna%20Natanael%20Cano",
+    letras: [
+      { t: 0,   texto: "🎶 Disfruta la canción... 🎶" }
+    ],
+  }
 ];
 
 // Fotos: coloca los archivos en /public/fotos/
@@ -147,6 +168,33 @@ const razones = [
     color: "pink"
   }
 ];
+
+const vales = [
+  {
+    tipo: "Válido 1 Uso",
+    titulo: "Masaje Relajante",
+    desc: "Válido por un masaje completo después de un día cansado, sin derecho a quejas de mi parte.",
+    color: "purple"
+  },
+  {
+    tipo: "Válido 1 Uso",
+    titulo: "Cine en Casa",
+    desc: "Válido por una noche donde tú eliges la peli (aunque ya la hayamos visto) y yo pongo los snacks.",
+    color: "fuchsia"
+  },
+  {
+    tipo: "Comodín",
+    titulo: "Tener la Razón",
+    desc: "Úsalo en cualquier momento. Automáticamente me rindo y admito que tú tienes la absoluta razón.",
+    color: "rose"
+  },
+  {
+    tipo: "Infinito",
+    titulo: "Ataque de Besos",
+    desc: "Válido por mil besos sin parar. Úsalo cuando necesites extra cariño o cuando estés celosita.",
+    color: "emerald"
+  }
+];
 ---
 
 <Layout title={`Para ${dedicatoria.para}`} description="Una dedicatoria especial con amor">
@@ -155,14 +203,34 @@ const razones = [
   <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-500 translate-y-0">
     <div class="mx-auto max-w-5xl flex items-center justify-between px-6 py-4">
       <!-- Navegación -->
-      <nav class="hidden md:flex items-center gap-6 text-[11px] uppercase tracking-[0.2em] text-white/60 font-medium">
-        <a href="#carta" class="hover:text-white transition-colors">Carta</a>
-        <a href="#melodia" class="hover:text-white transition-colors">Melodía</a>
-        <a href="#recuerdos" class="hover:text-white transition-colors">Recuerdos</a>
-        <a href="#fotos" class="hover:text-white transition-colors">Fotos</a>
+      <nav class="flex items-center gap-4 sm:gap-6 text-[11px] uppercase tracking-[0.2em] text-white/60 font-medium">
+        <button id="btn-nav-carta" class="hover:text-rose-400 text-rose-300 flex items-center gap-1.5 transition-colors cursor-pointer bg-transparent border-0 p-0 text-[11px] uppercase tracking-[0.2em]">
+          <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+          </svg>
+          <span>Carta</span>
+        </button>
+        <a href="#unmes" class="hover:text-rose-400 transition-colors text-rose-400/70 hidden sm:inline-block">1 Mes ♥</a>
+        <a href="#melodia" class="hover:text-white transition-colors hidden md:inline-block">Melodía</a>
+        <a href="#recuerdos" class="hover:text-white transition-colors hidden md:inline-block">Recuerdos</a>
+        <a href="#fotos" class="hover:text-white transition-colors hidden md:inline-block">Fotos</a>
       </nav>
-      <!-- Fecha -->
-      <span class="text-[10px] uppercase tracking-[0.2em] text-rose-400/70 hidden sm:block">24 · jun · 2026</span>
+
+      <!-- Botón Icono Carta del Lateral en Header -->
+      <div class="flex items-center gap-3">
+        <button
+          id="btn-abrir-carta-header"
+          class="group inline-flex items-center gap-2 rounded-full border border-rose-400/40 bg-gradient-to-r from-rose-500/20 to-fuchsia-500/20 px-3.5 py-1.5 text-xs font-semibold text-white hover:from-rose-500/40 hover:to-fuchsia-500/40 hover:border-rose-400/70 transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(244,114,182,0.25)] cursor-pointer"
+        >
+          <span class="w-5 h-5 rounded-full bg-rose-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <svg class="w-3 h-3 text-rose-200" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </span>
+          <span class="tracking-wide">Abrir Cartita</span>
+        </button>
+        <span class="text-[10px] uppercase tracking-[0.2em] text-rose-400/70 hidden lg:block">24 · jun · 2026</span>
+      </div>
     </div>
   </header>
 
@@ -192,6 +260,23 @@ const razones = [
       <span class="rounded-full border border-fuchsia-500/20 bg-fuchsia-500/10 px-4 py-2 text-xs uppercase tracking-[0.25em] text-fuchsia-200">
         Desde el {hitosCamino[0].fecha}
       </span>
+    </div>
+
+    <!-- Botón Video Especial al Inicio -->
+    <div class="mt-8">
+      <button
+        class="btn-abrir-video group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-rose-500/20 via-fuchsia-500/20 to-purple-500/20 border border-rose-400/40 px-6 py-3.5 text-sm text-white font-semibold tracking-wide hover:from-rose-500/40 hover:via-fuchsia-500/40 hover:to-purple-500/40 hover:border-rose-400/70 transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(244,114,182,0.3)] cursor-pointer"
+      >
+        <span class="w-8 h-8 rounded-full bg-rose-500/30 border border-rose-400/50 flex items-center justify-center group-hover:bg-rose-500/60 transition-colors shadow-inner">
+          <svg class="w-4 h-4 text-rose-200 translate-x-[1px]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </span>
+        <span>Ver nuestro video especial</span>
+        <svg class="w-4 h-4 text-rose-300 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/>
+        </svg>
+      </button>
     </div>
 
     <div class="mt-12 flex flex-col items-center gap-2 text-gray-500 text-sm animate-bounce">
@@ -229,55 +314,62 @@ const razones = [
     </div>
   </section>
 
-  <!-- ══ MENSAJE CON SOBRE INTERACTIVO ══ -->
-  <section id="carta" class="relative z-10 py-20 px-6">
-    <div class="max-w-4xl mx-auto flex flex-col items-center">
-      
-      <p class="text-purple-400 text-sm font-semibold tracking-widest uppercase mb-8 text-center">
-        Tengo una cartita guardada para ti... ¿la abres, pliss? ✨
-      </p>
+  <!-- ══ DRAWER / PANEL LATERAL DE LA CARTA ══ -->
+  <div id="carta-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[200] opacity-0 pointer-events-none transition-opacity duration-500"></div>
 
-      <div class="envelope-container w-full flex justify-center pb-8 md:pb-16 pt-8 md:pt-12">
-        <div id="sobre" class="envelope flex items-center justify-center">
-          
-          <!-- Flap (tapa) del sobre -->
-          <div class="envelope-flap"></div>
-          
-          <!-- Pocket (bolsillo frontal) del sobre -->
-          <div class="envelope-pocket"></div>
-          
-          <!-- Sello lacrado del sobre (Corazón SVG en el centro) -->
-          <div id="sello" class="absolute z-10 transition-all duration-500 flex items-center justify-center bg-gray-900 border border-white/20 w-14 h-14 rounded-full shadow-lg">
-            <svg class="w-7 h-7 text-purple-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+  <aside id="carta-drawer" class="fixed top-0 right-0 z-[210] h-full w-full max-w-md md:max-w-lg bg-[#090314]/98 border-l border-rose-400/25 backdrop-blur-2xl shadow-2xl p-6 md:p-8 translate-x-full transition-transform duration-500 ease-out flex flex-col justify-between overflow-y-auto">
+    <div>
+      <!-- Header del Drawer -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-rose-500/20 border border-rose-400/40 flex items-center justify-center text-rose-300">
+            <svg class="w-4.5 h-4.5 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
             </svg>
           </div>
-
-          <!-- Carta que desliza hacia arriba -->
-          <div class="envelope-letter">
-            <div class="grid gap-6 md:grid-cols-[260px_1fr] md:items-start">
-              <div class="overflow-hidden rounded-[24px] border border-white/10 bg-black/30 shadow-lg">
-                <img src="/images/record/image_copy_13.png" alt="Recuerdo decorativo de la carta" class="h-44 w-full object-cover" loading="lazy" />
-                <div class="px-4 py-3 text-left">
-                  <p class="text-[10px] uppercase tracking-[0.28em] text-purple-300">Nuestra carta</p>
-                  <p class="mt-2 text-sm text-gray-200 leading-relaxed">Una imagen chiquita para guardar este pedacito de nosotros dentro de la carta.</p>
-                </div>
-              </div>
-              <div class="text-left">
-                <span class="text-purple-400 text-2xl mb-3 block font-serif">❝</span>
-                <p class="text-gray-200 text-sm md:text-base leading-relaxed whitespace-pre-line italic font-serif">
-                  {dedicatoria.mensaje}
-                </p>
-                <span class="text-purple-400 text-2xl mt-3 block font-serif">❞</span>
-              </div>
-            </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-rose-400 font-semibold">Cartita Especial</p>
+            <h3 class="text-white font-bold text-base md:text-lg">Para ti, mi amor {dedicatoria.para} 🌹</h3>
           </div>
-
         </div>
+
+        <button id="btn-cerrar-carta-drawer" class="w-9 h-9 rounded-full bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-rose-500/30 hover:border-rose-400/40 transition-all cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
 
+      <!-- Contenido de la carta -->
+      <div class="space-y-5">
+        <!-- Imagen destacada -->
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl">
+          <img src="/images/record/image_copy_13.png" alt="Nuestra carta" class="w-full h-44 object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-3 left-4">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-purple-300">Con todo mi corazón</span>
+          </div>
+        </div>
+
+        <!-- Mensaje escrito -->
+        <div class="relative bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 backdrop-blur-md">
+          <span class="text-rose-400 text-3xl font-serif block -mb-1">❝</span>
+          <p class="text-gray-200 text-sm md:text-base leading-relaxed whitespace-pre-line font-serif italic">
+            {dedicatoria.mensaje}
+          </p>
+          <span class="text-rose-400 text-3xl font-serif block text-right -mt-1">❞</span>
+        </div>
+      </div>
     </div>
-  </section>
+
+    <!-- Footer del Drawer -->
+    <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+      <span class="uppercase tracking-[0.2em]">{dedicatoria.de}</span>
+      <button id="btn-cerrar-carta-drawer-foot" class="px-4 py-2 rounded-full bg-white/10 hover:bg-rose-500/30 text-white text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer">
+        Cerrar cartita
+      </button>
+    </div>
+  </aside>
 
   <!-- ══ LÍNEA DEL TIEMPO DE NUESTROS MOMENTOS ══ -->
   <section id="recuerdos" class="relative z-10 py-20 px-6">
@@ -332,35 +424,40 @@ const razones = [
 
 
   <!-- ══ CONTADOR DE TIEMPO PREMIUM ══ -->
-  <section class="relative z-10 py-16 px-6">
+  <section class="relative z-10 py-20 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-rose-400 mb-3 font-mono">Tiempo Juntos</h3>
-      <h2 class="text-4xl md:text-5xl font-normal text-rose-300 mb-8 font-handwritten tracking-wide">Lo que ya hemos vivido juntitos</h2>
+      <p class="text-[10px] uppercase tracking-[0.38em] text-rose-400 mb-3 font-semibold">Tiempo Juntos</p>
+      <h2 class="text-4xl md:text-5xl font-normal text-rose-300 mb-14 font-handwritten tracking-wide">Lo que ya hemos vivido juntitos</h2>
       
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8">
+      <!-- Contador tipográfico sin tarjetas -->
+      <div class="flex items-end justify-center gap-0 md:gap-2 mb-12">
         <!-- Días -->
-        <div class="bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-2xl p-5 md:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/20 hover:bg-white/[0.05] group">
-          <span id="c-dias" class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-fuchsia-400 glow-text">00</span>
-          <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-2 font-medium">Días</p>
+        <div class="flex flex-col items-center px-5 md:px-8">
+          <span id="c-dias" class="text-[4rem] md:text-[6rem] font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-rose-300 to-fuchsia-400 tabular-nums">00</span>
+          <p class="text-gray-500 text-[9px] uppercase tracking-[0.3em] mt-2 font-semibold">Días</p>
         </div>
+        <span class="text-rose-400/30 text-[3rem] md:text-[5rem] font-thin mb-8 leading-none select-none">·</span>
         <!-- Horas -->
-        <div class="bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-2xl p-5 md:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/20 hover:bg-white/[0.05] group">
-          <span id="c-horas" class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-fuchsia-400 glow-text">00</span>
-          <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-2 font-medium">Horas</p>
+        <div class="flex flex-col items-center px-5 md:px-8">
+          <span id="c-horas" class="text-[4rem] md:text-[6rem] font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-rose-300 to-fuchsia-400 tabular-nums">00</span>
+          <p class="text-gray-500 text-[9px] uppercase tracking-[0.3em] mt-2 font-semibold">Horas</p>
         </div>
+        <span class="text-rose-400/30 text-[3rem] md:text-[5rem] font-thin mb-8 leading-none select-none">·</span>
         <!-- Minutos -->
-        <div class="bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-2xl p-5 md:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/20 hover:bg-white/[0.05] group">
-          <span id="c-mins" class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-fuchsia-400 glow-text">00</span>
-          <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-2 font-medium">Minutos</p>
+        <div class="flex flex-col items-center px-5 md:px-8">
+          <span id="c-mins" class="text-[4rem] md:text-[6rem] font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-rose-300 to-fuchsia-400 tabular-nums">00</span>
+          <p class="text-gray-500 text-[9px] uppercase tracking-[0.3em] mt-2 font-semibold">Minutos</p>
         </div>
+        <span class="text-rose-400/30 text-[3rem] md:text-[5rem] font-thin mb-8 leading-none select-none">·</span>
         <!-- Segundos -->
-        <div class="bg-white/[0.03] backdrop-blur-xl border border-white/5 rounded-2xl p-5 md:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/20 hover:bg-white/[0.05] group">
-          <span id="c-segs" class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-fuchsia-400 glow-text">00</span>
-          <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-2 font-medium">Segundos</p>
+        <div class="flex flex-col items-center px-5 md:px-8">
+          <span id="c-segs" class="text-[4rem] md:text-[6rem] font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-rose-300 to-fuchsia-400 tabular-nums">00</span>
+          <p class="text-gray-500 text-[9px] uppercase tracking-[0.3em] mt-2 font-semibold">Segundos</p>
         </div>
       </div>
 
-      <p class="text-gray-400 text-xs md:text-sm italic font-serif leading-relaxed max-w-md mx-auto">
+      <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-rose-500/40 to-transparent mx-auto mb-6"></div>
+      <p class="text-gray-500 text-xs md:text-sm italic font-serif leading-relaxed max-w-md mx-auto">
         "Cada día, hora y segundo es un hermoso recordatorio de la suerte que tengo de tenerte en mi vida."
       </p>
     </div>
@@ -380,9 +477,9 @@ const razones = [
         Cambie esta parte a una vibra mas cercana a Spotify, con portada, mini album, enlace directo y una imagen especial junto a Lesi.
       </p>
 
-      <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#08130d]/95 p-4 md:p-6 shadow-2xl backdrop-blur-xl">
+      <div class="relative overflow-hidden rounded-[28px] bg-black/60 p-4 md:p-6 shadow-2xl backdrop-blur-xl">
         <div class="relative z-10">
-        <div class="mb-4 flex flex-col gap-3 rounded-[24px] border border-white/10 bg-white/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
+        <div class="mb-4 flex flex-col gap-3 rounded-[24px] bg-white/5 px-4 py-3 md:flex-row md:items-center md:justify-between">
           <div class="flex items-center gap-3">
             <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[#1ed760]/16 text-[#1ed760]">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -405,120 +502,102 @@ const razones = [
           </a>
         </div>
 
-        <div class="grid gap-4 md:grid-cols-[260px_1fr] md:items-start">
-          <div class="overflow-hidden rounded-[24px] border border-white/10 bg-black/30 shadow-xl h-full">
+        <!-- layout: video | [player + playlist] -->
+        <div class="grid gap-4 md:grid-cols-[220px_1fr] items-start">
+          <div class="overflow-hidden rounded-[24px] bg-black/30 shadow-xl h-full">
             <video src="/images/record/les1.mp4" autoplay loop muted playsinline class="h-full w-full object-cover"></video>
           </div>
 
+          <!-- player + playlist side by side -->
+          <div class="flex gap-3 items-start min-w-0">
+
+          <!-- Player compacto -->
           <div
-            class="relative overflow-hidden rounded-[24px] border border-white/10 bg-[#0a1510]/40 p-4 md:p-5 shadow-xl"
-            style={`background-image: linear-gradient(140deg, rgba(6, 12, 10, 0.6), rgba(10, 21, 16, 0.4) 40%, rgba(6, 12, 10, 0.6)), url('${playlistPhoto}'); background-size: cover; background-position: center;`}
+            class="relative overflow-hidden rounded-[24px] bg-black/40 p-5 shadow-xl flex-1 min-w-0"
+            style={`background-image: linear-gradient(160deg, rgba(10,10,10,0.85) 60%, rgba(20,20,20,0.5)), url('${playlistPhoto}'); background-size: cover; background-position: center;`}
           >
-            <div class="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/40 pointer-events-none"></div>
-            <div class="absolute inset-0 backdrop-blur-[3px] pointer-events-none"></div>
-            <div class="relative z-10 mb-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start">
-              <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <div id="album-art"
-                  class="w-28 h-28 md:w-32 md:h-32 rounded-[22px] shadow-2xl flex items-center justify-center overflow-hidden
-                        bg-gradient-to-br from-emerald-500 via-green-500 to-lime-400 relative transition-transform duration-500 shrink-0">
-                  <!-- SVG Music Icon inside Album -->
-                  <svg id="album-svg" class="w-16 h-16 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/>
-                  </svg>
-                </div>
+            <div class="absolute inset-0 backdrop-blur-[4px] pointer-events-none"></div>
 
-                <div class="text-left">
-                  <p class="text-[11px] uppercase tracking-[0.3em] text-[#1ed760]">Playlist de nosotros</p>
-                  <p class="text-white text-xl md:text-2xl font-bold font-sans mt-1.5" id="song-title">Cargando...</p>
-                  <p class="text-gray-300 text-sm mt-1" id="song-artist"></p>
-                  <p class="text-gray-500 text-sm mt-1.5" id="song-album">{canciones[0].album}</p>
-                  <p class="text-gray-300/90 text-[13px] mt-3 leading-relaxed max-w-xl">
-                    Esta seccion ahora lleva la foto de ustedes dentro de la playlist, como si fuera una mini portada especial conectada a su cancion.
-                  </p>
-                </div>
+            <!-- Info canción -->
+            <div class="relative z-10 flex items-center gap-4 mb-5">
+              <div id="album-art"
+                class="w-20 h-20 rounded-[16px] shadow-2xl flex items-center justify-center overflow-hidden
+                       bg-gradient-to-br from-gray-800 via-gray-700 to-gray-600 relative shrink-0 transition-transform duration-500">
+                <svg id="album-svg" class="w-10 h-10 text-white/60" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14a3 3 0 11-6 0 3 3 0 016 0zm12 2a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
               </div>
-
-              <div class="relative overflow-hidden rounded-[22px] border border-white/12 bg-black/30 shadow-2xl min-h-[220px]">
-                <img
-                  src={playlistPhoto}
-                  alt="Foto especial de ustedes dentro de la playlist"
-                  loading="lazy"
-                  class="h-full w-full object-cover"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-                />
-                <div class="absolute inset-0 hidden place-items-center bg-[linear-gradient(160deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-4 text-center">
-                  <span class="rounded-full border border-white/12 bg-black/40 px-3 py-2 text-[10px] uppercase tracking-[0.24em] text-white/78">
-                    Coloca la foto en {playlistPhoto}
-                  </span>
-                </div>
-                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/78 via-black/18 to-transparent p-3">
-                  <p class="text-[10px] uppercase tracking-[0.24em] text-white/72">Dentro de nuestra playlist</p>
-                </div>
+              <div class="min-w-0">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-1">Playlist de nosotros</p>
+                <p class="text-white text-lg font-bold font-sans truncate" id="song-title">Cargando...</p>
+                <p class="text-gray-400 text-sm truncate mt-0.5" id="song-artist"></p>
+                <p class="text-gray-600 text-xs mt-0.5" id="song-album">{canciones[0].album}</p>
               </div>
             </div>
 
             <!-- Barra progreso -->
             <div class="relative z-10 mb-4">
-              <div class="flex justify-between text-gray-500 text-xs mb-1">
-            <span id="t-actual">0:00</span>
-            <span id="t-total">0:00</span>
-          </div>
-          <div id="barra-prog"
-            class="w-full h-2 bg-white/10 rounded-full cursor-pointer group relative">
-            <div id="barra-fill"
-              class="h-2 rounded-full bg-gradient-to-r from-[#1ed760] via-emerald-400 to-teal-300 transition-all duration-200"
-              style="width:0%"></div>
-          </div>
+              <div class="flex justify-between text-gray-500 text-xs mb-1.5">
+                <span id="t-actual">0:00</span>
+                <span id="t-total">0:00</span>
+              </div>
+              <div id="barra-prog" class="w-full h-1.5 bg-white/10 rounded-full cursor-pointer">
+                <div id="barra-fill" class="h-1.5 rounded-full bg-white/70 transition-all duration-200" style="width:0%"></div>
+              </div>
             </div>
 
             <!-- Controles -->
-            <div class="relative z-10 flex items-center justify-center gap-6 mb-6">
-          <button id="btn-prev"
-            class="text-gray-400 hover:text-[#1ed760] transition-colors flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 cursor-pointer select-none">
-            <!-- SVG Prev -->
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6 19h2V5H6v14zm12-14l-8 7 8 7V5z"/>
-            </svg>
-          </button>
-
-          <button id="btn-play"
-            class="w-14 h-14 rounded-full bg-gradient-to-r from-[#1ed760] to-emerald-500
-                   flex items-center justify-center shadow-lg shadow-pink-500/30
-                   hover:scale-110 active:scale-95 transition-transform cursor-pointer select-none">
-            <!-- SVG Play initially -->
-            <span id="play-icon-wrapper" class="flex items-center justify-center">
-              <svg class="w-6 h-6 text-white translate-x-[2px]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </span>
-          </button>
-
-          <button id="btn-next"
-            class="text-gray-400 hover:text-[#1ed760] transition-colors flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 cursor-pointer select-none">
-            <!-- SVG Next -->
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M16 5v14h2V5h-2zm-12 14l8-7-8-7v14z"/>
-            </svg>
-          </button>
+            <div class="relative z-10 flex items-center justify-center gap-5 mb-4">
+              <button id="btn-prev" class="text-gray-400 hover:text-white transition-colors w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/5 cursor-pointer select-none">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h2V5H6v14zm12-14l-8 7 8 7V5z"/></svg>
+              </button>
+              <button id="btn-play" class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg hover:scale-110 hover:bg-white/30 active:scale-95 transition-all cursor-pointer select-none">
+                <span id="play-icon-wrapper" class="flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white translate-x-[2px]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+              </button>
+              <button id="btn-next" class="text-gray-400 hover:text-white transition-colors w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/5 cursor-pointer select-none">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 5v14h2V5h-2zm-12 14l8-7-8-7v14z"/></svg>
+              </button>
             </div>
 
-            <!-- Letras de la canción -->
-            <div class="relative z-10 bg-black/40 border border-white/5 rounded-[18px] p-4 min-h-[76px] flex items-center justify-center">
-              <p id="lyric-display"
-                class="lyric-line text-center text-white text-sm md:text-base font-medium leading-relaxed px-2 font-serif">
+            <!-- Letras -->
+            <div class="relative z-10 bg-black/30 rounded-[14px] p-3 min-h-[56px] flex items-center justify-center">
+              <p id="lyric-display" class="lyric-line text-center text-white/80 text-sm font-medium leading-relaxed px-2 font-serif">
                 Dale play y cantemos juntos...
               </p>
             </div>
-            <div class="relative z-10 mt-4 flex items-center justify-between gap-3 text-[11px] uppercase tracking-[0.24em] text-white/52">
-              <span>Dentro de nuestra playlist</span>
-              <span>Recuerdo en fondo</span>
+          </div>
+
+        <!-- Playlist Sidebar (YouTube style) — inside flex, beside player -->
+          <div class="flex flex-col gap-3 rounded-[24px] bg-black/20 p-4 shadow-xl w-[220px] shrink-0 max-h-[500px]">
+            <div class="flex items-center gap-2 mb-1 px-1">
+              <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+              <h3 class="text-white text-sm font-bold uppercase tracking-widest">A continuación</h3>
+            </div>
+            <div class="flex flex-col gap-2 overflow-y-auto pr-1">
+              {canciones.map((song, i) => (
+                <div class="group relative flex items-center gap-3 rounded-xl p-2 hover:bg-white/5 cursor-pointer transition-colors playlist-item" data-index={i}>
+                  <div class="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg shadow-md bg-black/50">
+                    <img src={song.cover} alt={song.titulo} loading="lazy" class="h-full w-full object-cover transition-transform group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/50 transition-colors"></div>
+                    <svg class="absolute inset-0 m-auto h-5 w-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-white text-[13px] font-bold truncate transition-colors playlist-item-title group-hover:text-white">{song.titulo}</p>
+                    <p class="text-gray-400 text-[11px] truncate mt-0.5">{song.artista}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-        </div>
+          </div><!-- end flex (player + sidebar) -->
+        </div><!-- end outer grid -->
       </div>
     </div>
   </section>
+
+
 
   <!-- ══ MOMENTOS QUE GUARDO EN EL CORAZON ══ -->
   <section id="recuerdos" class="relative z-10 py-24 px-6 overflow-hidden">
@@ -626,145 +705,528 @@ const razones = [
         </div>
       </div>
 
-      <div class="mt-8 rounded-[22px] border border-white/10 bg-white/5 px-5 py-4 text-center backdrop-blur-md">
-        <p class="text-[13px] text-purple-100 leading-relaxed">
+      <div class="mt-10 text-center">
+        <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-fuchsia-400/40 to-transparent mx-auto mb-4"></div>
+        <p class="text-[13px] text-purple-200/60 italic font-serif leading-relaxed max-w-md mx-auto">
           Y lo mas bonito es que esta lista no se va a quedar en diez. Vamos a seguir llenandola con primeras veces que se vuelvan inolvidables.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ══ NUESTRO MAPA DE AVENTURAS CON CAMINO DE RUTA INTERACTIVO ══ -->
-  <section class="relative z-10 py-24 px-6 overflow-hidden">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
-        <!-- SVG Map/Compass Icon -->
-        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.61c-.38.19-.622.58-.622 1.006v11.162c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
-        </svg>
-        Nuestras próximas locuras juntos
-      </h2>
-      <p class="text-gray-400 text-center mb-16 text-sm max-w-md mx-auto">
-        Un mapa interactivo con todo lo que prometo que haremos juntos. Cuando cumplamos uno, ¡toca la tarjeta para tacharlo!
-      </p>
+  <!-- ══ BUCKET LIST DE LOCURAS — HORIZONTAL SCROLL AL AVANZAR SCROLL ══ -->
+  <section id="locuras-section" class="relative z-10 h-[280vh]">
+    <div class="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between py-10 md:py-14 px-4 md:px-12">
 
-      <!-- Contenedor del Mapa con Lineamiento -->
-      <div class="adventure-path-container">
-        <!-- Línea discontinua que conecta todos los hitos del mapa -->
-        <div class="adventure-trail-line"></div>
-        {locuras.map((locura, index) => (
-          <div class="adventure-path-row">
-            <div class="adventure-path-node">{index + 1}</div>
-            <div class="adventure-card group" onclick="toggleAdventure(this)">
-              <div class="heart-checkbox">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-                </svg>
-              </div>
-              <span class="adventure-badge">Pendiente bonito ✦</span>
-              <div class="adventure-icon">
-                {index === 0 && (
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75c4.5-5.25 15-5.25 19.5 0M4.5 15c3.75-4.5 11.25-4.5 15 0M7.5 11.25c2.25-2.25 6.75-2.25 9 0"/>
-                  </svg>
-                )}
-                {index === 1 && (
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3v9M9 9v8.25m0-8.25L3.75 10.5v7.5M9 17.25a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0Zm10.5-2.25a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0Z"/>
-                  </svg>
-                )}
-                {index === 2 && (
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 18.75h18M4.5 18.75V9.375l7.5-3.375 7.5 3.375v9.375M9 18.75v-4.5h6v4.5"/>
-                  </svg>
-                )}
-                {index === 3 && (
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 6.75v10.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 17.25V6.75m15 0A2.25 2.25 0 0017.25 4.5H6.75A2.25 2.25 0 004.5 6.75m15 0L12 12 4.5 6.75"/>
-                  </svg>
-                )}
-              </div>
-              <p class="text-[11px] uppercase tracking-[0.26em] text-gray-400 mb-3">{locura.nota}</p>
-              <h4 class="adventure-title">{locura.titulo}</h4>
-              <p class="adventure-desc">{locura.desc}</p>
-            </div>
-          </div>
-        ))}
+      <!-- Texto marquee gigante de fondo que se desliza lateralmente con el scroll -->
+      <div id="locuras-bg-marquee" class="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap text-[13vw] font-black uppercase text-white/[0.025] select-none pointer-events-none tracking-tighter will-change-transform">
+        NUESTROS PLANES ✦ BUCKET LIST ✦ PRÓXIMAS LOCURAS JUNTOS ✦ CON TODO MI CORAZÓN ✦
+      </div>
 
-        <!-- End of map glowing message -->
-        <div class="mt-14 flex flex-col items-center justify-center text-center px-4 relative">
-          <!-- Decorative path continuation -->
-          <div class="absolute -top-12 left-1/2 w-0.5 h-12 bg-gradient-to-b from-rose-500/30 to-transparent dashed-line"></div>
-          <div class="w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center mb-4 animate-pulse shadow-[0_0_20px_#f472b6]">
-            <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
-            </svg>
-          </div>
-          <h4 class="text-lg font-bold text-white mb-2">Y el mapa sigue...</h4>
-          <p class="text-purple-200/90 text-[13px] md:text-sm max-w-md italic font-serif leading-relaxed">
-            Cada plan que salga de esta lista va a dejar espacio para el siguiente. Contigo siempre habra una locura nueva para tachar juntos.
-          </p>
+      <!-- Encabezado superior -->
+      <div class="relative z-20 max-w-6xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.38em] text-purple-400 font-semibold mb-1 text-center sm:text-left">Bucket List · Desliza abajo para avanzar</p>
+          <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight text-center sm:text-left">
+            Nuestras <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400">próximas locuras</span>
+          </h2>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ RAZONES POR LAS QUE ME ENAMORAS ══ -->
-  <section class="relative z-10 py-24 px-6 overflow-hidden">
-    <!-- Decorative background blobs -->
-    <div class="absolute top-1/2 left-1/4 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-3xl -z-10 mix-blend-screen pointer-events-none"></div>
-    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl -z-10 mix-blend-screen pointer-events-none"></div>
-
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
-        <!-- SVG Sparkle/Heart Icon -->
-        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-        </svg>
-        Mil y un cosas que amo de ti
-      </h2>
-      <p class="text-gray-400 text-center mb-12 text-sm max-w-md mx-auto">
-        Si tuviera que escribir todas las cosas que me gustan de ti, me faltaría internet. Aquí te dejo solo algunas...
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {razones.map((razon, index) => (
-          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[20px] p-4 md:p-5 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(244,114,182,0.15)] group">
-            <h4 class:list={[
-              "font-bold text-base md:text-lg mb-2.5 flex items-center gap-2.5",
-              razon.color === "fuchsia" && "text-fuchsia-400",
-              razon.color === "purple" && "text-purple-400",
-              razon.color === "rose" && "text-rose-400",
-              razon.color === "emerald" && "text-emerald-400",
-              razon.color === "amber" && "text-amber-400",
-              razon.color === "pink" && "text-pink-400"
-            ]}>
-              <div class:list={[
-                "w-10 h-10 rounded-full flex items-center justify-center",
-                razon.color === "fuchsia" && "bg-fuchsia-500/20 text-fuchsia-400",
-                razon.color === "purple" && "bg-purple-500/20 text-purple-400",
-                razon.color === "rose" && "bg-rose-500/20 text-rose-400",
-                razon.color === "emerald" && "bg-emerald-500/20 text-emerald-400",
-              razon.color === "amber" && "bg-amber-500/20 text-amber-400",
-              razon.color === "pink" && "bg-pink-500/20 text-pink-400"
-            ]}>
-                {index % 2 === 0 ? (
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                ) : (
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
-                )}
-              </div>
-              {razon.titulo}
-            </h4>
-            <p class="text-gray-300 text-[13px] leading-relaxed">
-              {razon.desc}
-            </p>
+        <!-- Contador de progreso -->
+        <div class="flex flex-col items-center sm:items-end gap-2 shrink-0">
+          <span id="locuras-count-label" class="text-[11px] font-bold uppercase tracking-[0.25em] text-rose-300">
+            0 / {locuras.length} locuras cumplidas
+          </span>
+          <div class="w-48 h-[3px] bg-white/10 rounded-full overflow-hidden">
+            <div id="locuras-bar-fill" class="h-full bg-gradient-to-r from-rose-400 via-fuchsia-400 to-emerald-400 rounded-full transition-all duration-500" style="width: 0%"></div>
           </div>
-        ))}
+        </div>
+      </div>
+
+      <!-- Carrusel Horizontal en Scroll Vertical (Sin Tarjetas, Tipográfico Elegante) -->
+      <div class="relative z-20 w-full overflow-hidden my-auto py-6">
+        <div id="locuras-track" class="flex gap-10 md:gap-14 items-stretch w-max will-change-transform">
+          
+          <!-- Slide de presentación (Sin tarjeta) -->
+          <div class="shrink-0 w-[85vw] sm:w-[380px] md:w-[420px] flex flex-col justify-between pr-8 md:pr-12 border-r border-white/10">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-purple-400 block mb-4">
+                Aventuras Pendientes ✦
+              </span>
+              <h3 class="text-3xl md:text-4xl font-black text-white leading-tight mb-4">
+                Todo lo que prometo que haremos
+              </h3>
+              <p class="text-gray-400 text-xs md:text-sm leading-relaxed">
+                A medida que vas bajando con el scroll, los planes van advancing de lado a lado. Toca cualquier plan para marcarlo como cumplido.
+              </p>
+            </div>
+            <div class="mt-8 flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-purple-300/80 font-semibold animate-pulse">
+              <span>Continúa scrolleando</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Slides de Locuras (Sin tarjeta, flotantes con divisor vertical) -->
+          {locuras.map((locura, index) => (
+            <div
+              class="locura-card group shrink-0 w-[85vw] sm:w-[400px] md:w-[460px] flex flex-col justify-between pr-8 md:pr-14 border-r border-white/[0.08] cursor-pointer relative"
+              data-index={index}
+              onclick="toggleLocuraCard(this)"
+            >
+              <!-- Top bar: Número e icono de check -->
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400/80 to-fuchsia-400/80 font-mono tracking-tight">
+                    0{index + 1}
+                  </span>
+                  
+                  <div class="locura-card-check w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:border-purple-400/40 group-hover:bg-white/10">
+                    <svg class="locura-check-empty w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="9"/>
+                    </svg>
+                    <svg class="locura-check-done w-4 h-4 text-emerald-400 hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <p class="text-[10px] uppercase tracking-[0.3em] text-purple-300/80 font-bold mb-2">
+                  {locura.nota}
+                </p>
+                
+                <h3 class="locura-card-title text-2xl md:text-3xl font-black text-white leading-tight mb-3 transition-colors duration-300 group-hover:text-fuchsia-300">
+                  {locura.titulo}
+                </h3>
+                
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">
+                  {locura.desc}
+                </p>
+              </div>
+
+              <!-- Prompt inferior -->
+              <div class="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-gray-500 group-hover:text-purple-300 transition-colors">
+                <span class="locura-prompt-text">Toca para tachar</span>
+                <svg class="w-3.5 h-3.5 text-purple-400/60 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                </svg>
+              </div>
+            </div>
+          ))}
+
+          <!-- Slide de Cierre (Sin tarjeta) -->
+          <div class="shrink-0 w-[85vw] sm:w-[380px] md:w-[440px] flex flex-col justify-center pr-6">
+            <span class="text-rose-400 text-4xl font-serif mb-2 block">❝</span>
+            <p class="text-rose-200/90 text-sm md:text-base italic font-serif leading-relaxed mb-4">
+              "Cada plan que vayamos tachando juntos nos dará el pretexto perfecto para inventar diez locuras más. Con nosotros, la lista nunca termina."
+            </p>
+            <span class="text-[10px] uppercase tracking-[0.3em] text-rose-400/60 font-semibold block">Siempre contigo ♥</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Indicador inferior -->
+      <div class="relative z-20 max-w-6xl mx-auto w-full flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-gray-500">
+        <span>Scrollea para avanzar lateralmente ➔</span>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+          <span class="text-purple-300">Scroll en vivo</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ RAZONES POR LAS QUE ME ENAMORAS — HORIZONTAL SCROLL EN SCROLL VERTICAL ══ -->
+  <section id="razones-section" class="relative z-10 h-[300vh]">
+    <div class="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between py-10 md:py-14 px-4 md:px-12">
+
+      <!-- Texto marquee gigante de fondo -->
+      <div id="razones-bg-marquee" class="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap text-[13vw] font-black uppercase text-white/[0.025] select-none pointer-events-none tracking-tighter will-change-transform">
+        MIL Y UN RAZONES ✦ LO QUE AMO DE TI ✦ ERES MI PERSONA FAVORITA ✦ TE AMO LESLI ✦
+      </div>
+
+      <!-- Encabezado superior -->
+      <div class="relative z-20 max-w-6xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.38em] text-fuchsia-400 font-semibold mb-1 text-center sm:text-left">Detalles de ti · Desliza abajo para avanzar</p>
+          <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight text-center sm:text-left">
+            Mil y un cosas <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-pink-400 to-rose-400">que amo de ti</span>
+          </h2>
+        </div>
+        <p class="text-gray-400 text-xs md:text-sm max-w-xs text-center sm:text-right">
+          Si tuviera que escribir todas las cosas que me gustan de ti, me faltaría internet...
+        </p>
+      </div>
+
+      <!-- Carrusel Horizontal en Scroll Vertical (Dirección Inversa: Izquierda a Derecha) -->
+      <div class="relative z-20 w-full overflow-hidden my-auto py-6">
+        <div id="razones-track" class="flex flex-row-reverse gap-10 md:gap-14 items-stretch w-max will-change-transform">
+
+          <!-- Intro slide -->
+          <div class="shrink-0 w-[85vw] sm:w-[360px] md:w-[400px] flex flex-col justify-between pr-8 md:pr-12 border-r border-white/10">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-fuchsia-400 block mb-4">
+                Razones infinitas ✦
+              </span>
+              <h3 class="text-3xl md:text-4xl font-black text-white leading-tight mb-4">
+                Cada detalle tuyo me enamora
+              </h3>
+              <p class="text-gray-400 text-xs md:text-sm leading-relaxed">
+                Aquí van solo algunas de las razones por las que mi corazón te eligió a ti y te volvería a elegir mil veces más.
+              </p>
+            </div>
+            <div class="mt-8 flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-fuchsia-300/80 font-semibold animate-pulse">
+              <span>Sigue scrolleando</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Slides de Razones -->
+          {razones.map((razon, index) => (
+            <div
+              class="group shrink-0 w-[85vw] sm:w-[380px] md:w-[440px] flex flex-col justify-between pr-8 md:pr-14 border-r border-white/[0.08] relative"
+            >
+              <div>
+                <!-- Número e indicador de color -->
+                <div class="flex items-center justify-between mb-4">
+                  <span class:list={[
+                    "text-4xl md:text-5xl font-black font-mono tracking-tight text-transparent bg-clip-text",
+                    razon.color === "fuchsia" && "bg-gradient-to-r from-fuchsia-400 to-pink-400",
+                    razon.color === "purple" && "bg-gradient-to-r from-purple-400 to-fuchsia-400",
+                    razon.color === "rose" && "bg-gradient-to-r from-rose-400 to-pink-400",
+                    razon.color === "emerald" && "bg-gradient-to-r from-emerald-400 to-teal-400",
+                    razon.color === "amber" && "bg-gradient-to-r from-amber-400 to-orange-400",
+                    razon.color === "pink" && "bg-gradient-to-r from-pink-400 to-rose-400"
+                  ]}>
+                    0{index + 1}
+                  </span>
+
+                  <!-- Icono de la razón -->
+                  <div class:list={[
+                    "w-9 h-9 rounded-full flex items-center justify-center border border-white/10 bg-white/5",
+                    razon.color === "fuchsia" && "text-fuchsia-400",
+                    razon.color === "purple" && "text-purple-400",
+                    razon.color === "rose" && "text-rose-400",
+                    razon.color === "emerald" && "text-emerald-400",
+                    razon.color === "amber" && "text-amber-400",
+                    razon.color === "pink" && "text-pink-400"
+                  ]}>
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Título -->
+                <h3 class:list={[
+                  "text-2xl md:text-3xl font-black leading-tight mb-3 transition-colors duration-300",
+                  razon.color === "fuchsia" && "text-white group-hover:text-fuchsia-300",
+                  razon.color === "purple" && "text-white group-hover:text-purple-300",
+                  razon.color === "rose" && "text-white group-hover:text-rose-300",
+                  razon.color === "emerald" && "text-white group-hover:text-emerald-300",
+                  razon.color === "amber" && "text-white group-hover:text-amber-300",
+                  razon.color === "pink" && "text-white group-hover:text-pink-300"
+                ]}>
+                  {razon.titulo}
+                </h3>
+
+                <!-- Descripción -->
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">
+                  {razon.desc}
+                </p>
+              </div>
+
+              <!-- Footer de la razón -->
+              <div class="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-gray-500">
+                <span class:list={[
+                  "w-1.5 h-1.5 rounded-full",
+                  razon.color === "fuchsia" && "bg-fuchsia-400",
+                  razon.color === "purple" && "bg-purple-400",
+                  razon.color === "rose" && "bg-rose-400",
+                  razon.color === "emerald" && "bg-emerald-400",
+                  razon.color === "amber" && "bg-amber-400",
+                  razon.color === "pink" && "bg-pink-400"
+                ]}></span>
+                <span>Razón 0{index + 1} de {razones.length}</span>
+              </div>
+            </div>
+          ))}
+
+          <!-- Slide de Cierre -->
+          <div class="shrink-0 w-[85vw] sm:w-[380px] md:w-[420px] flex flex-col justify-center pr-6">
+            <span class="text-fuchsia-400 text-4xl font-serif mb-2 block">❝</span>
+            <p class="text-fuchsia-100/90 text-sm md:text-base italic font-serif leading-relaxed mb-4">
+              "Y la razón más grande de todas: por ser exactamente tú, tal como eres. Te amo con toda mi alma."
+            </p>
+            <span class="text-[10px] uppercase tracking-[0.3em] text-fuchsia-400/60 font-semibold block">Con todo mi amor ♥</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Indicador inferior -->
+      <div class="relative z-20 max-w-6xl mx-auto w-full flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-gray-500">
+        <span>Avanza scrolleando ➔</span>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-fuchsia-400 animate-ping"></span>
+          <span class="text-fuchsia-300">Scroll activo</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ VALES EXCLUSIVOS PARA TI — HORIZONTAL SCROLL EN SCROLL VERTICAL ══ -->
+  <section id="vales-section" class="relative z-10 h-[260vh]">
+    <div class="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between py-10 md:py-14 px-4 md:px-12">
+
+      <!-- Texto marquee gigante de fondo -->
+      <div id="vales-bg-marquee" class="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap text-[13vw] font-black uppercase text-white/[0.025] select-none pointer-events-none tracking-tighter will-change-transform">
+        VALES EXCLUSIVOS ✦ TALONARIO ESPECIAL ✦ CANJEA CUANDO QUIERAS ✦ SOLO PARA TI ✦
+      </div>
+
+      <!-- Encabezado superior -->
+      <div class="relative z-20 max-w-6xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.38em] text-emerald-400 font-semibold mb-1 text-center sm:text-left">Talonario Especial · Desliza abajo para avanzar</p>
+          <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight text-center sm:text-left">
+            Vales Exclusivos <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">para ti</span>
+          </h2>
+        </div>
+
+        <!-- Contador de vales canjeados -->
+        <div class="flex flex-col items-center sm:items-end gap-2 shrink-0">
+          <span id="vales-count-label" class="text-[11px] font-bold uppercase tracking-[0.25em] text-emerald-300">
+            0 / {vales.length} vales canjeados
+          </span>
+          <div class="w-48 h-[3px] bg-white/10 rounded-full overflow-hidden">
+            <div id="vales-bar-fill" class="h-full bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carrusel Horizontal en Scroll Vertical (Izquierda a Derecha) -->
+      <div class="relative z-20 w-full overflow-hidden my-auto py-6">
+        <div id="vales-track" class="flex gap-10 md:gap-14 items-stretch w-max will-change-transform">
+          
+          <!-- Slide de presentación -->
+          <div class="shrink-0 w-[85vw] sm:w-[380px] md:w-[420px] flex flex-col justify-between pr-8 md:pr-12 border-r border-white/10">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-400 block mb-4">
+                Regalos ✦
+              </span>
+              <h3 class="text-3xl md:text-4xl font-black text-white leading-tight mb-4">
+                Un talonario especial que puedes canjear cuando tú quieras
+              </h3>
+              <p class="text-gray-400 text-xs md:text-sm leading-relaxed">
+                Toca cualquier vale para reclamarlo. ¡Úsalos sabiamente!
+              </p>
+            </div>
+            <div class="mt-8 flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-emerald-300/80 font-semibold animate-pulse">
+              <span>Continúa scrolleando</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Slides de Vales -->
+          {vales.map((vale, index) => (
+            <div
+              class="vale-card group shrink-0 w-[85vw] sm:w-[400px] md:w-[460px] flex flex-col justify-between pr-8 md:pr-14 border-r border-white/[0.08] cursor-pointer relative"
+              data-index={index}
+              onclick="toggleVale(this)"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400/80 to-teal-400/80 font-mono tracking-tight">
+                    {vale.tipo}
+                  </span>
+                  
+                  <!-- Sello / Icono de Canjeado -->
+                  <div class="vale-status-icon w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:border-emerald-400/40 group-hover:bg-white/10">
+                    <svg class="vale-icon-unclaimed w-5 h-5 text-white/40" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                    </svg>
+                    <svg class="vale-icon-claimed w-5 h-5 text-emerald-400 hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <h3 class="vale-card-title text-2xl md:text-4xl font-black text-white leading-tight mb-3 transition-colors duration-300 group-hover:text-emerald-300">
+                  {vale.titulo}
+                </h3>
+                
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">
+                  {vale.desc}
+                </p>
+              </div>
+
+              <!-- Prompt inferior -->
+              <div class="mt-8 flex items-center justify-between">
+                <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-gray-500 group-hover:text-emerald-300 transition-colors">
+                  <span class="vale-prompt-text">Canjear Vale</span>
+                  <svg class="vale-prompt-icon w-3.5 h-3.5 text-emerald-400/60 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+                  </svg>
+                </div>
+                <!-- Sello de "CANJEADO" superpuesto -->
+                <div class="vale-stamp absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 scale-150 opacity-0 transition-all duration-500 pointer-events-none">
+                  <span class="border-4 border-emerald-500 text-emerald-500 text-3xl font-black uppercase tracking-widest px-4 py-2 rounded-lg backdrop-blur-sm bg-black/20 block text-center">
+                    ¡CANJEADO!
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          <!-- Slide de Cierre -->
+          <div class="shrink-0 w-[85vw] sm:w-[380px] md:w-[440px] flex flex-col justify-center pr-6">
+            <span class="text-emerald-400 text-4xl font-serif mb-2 block">❝</span>
+            <p class="text-emerald-200/90 text-sm md:text-base italic font-serif leading-relaxed mb-4">
+              "No hay devoluciones, pero sí muchas ganas de hacer cada uno de estos vales realidad."
+            </p>
+            <span class="text-[10px] uppercase tracking-[0.3em] text-emerald-400/60 font-semibold block">Disfrútalos ♥</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Indicador inferior -->
+      <div class="relative z-20 max-w-6xl mx-auto w-full flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-gray-500">
+        <span>Scrollea para avanzar lateralmente ➔</span>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="text-emerald-300">Scroll en vivo</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ 1 MES CONTIGO — SECCIÓN ESPECIAL ══ -->
+  <section id="unmes" class="relative z-10 py-28 px-4 overflow-hidden">
+
+    <!-- Fondo decorativo glow -->
+    <div class="absolute inset-0 pointer-events-none -z-10">
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-rose-500/8 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-fuchsia-600/10 rounded-full blur-[80px]"></div>
+      <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-[80px]"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto">
+
+      <!-- Encabezado -->
+      <div class="text-center mb-20">
+        <p class="text-rose-400 text-[10px] uppercase tracking-[0.45em] font-semibold mb-4 flex items-center justify-center gap-2">
+          <span class="w-8 h-[1px] bg-rose-400/50"></span>
+          18 de abril — 18 de mayo de 2026
+          <span class="w-8 h-[1px] bg-rose-400/50"></span>
+        </p>
+        <h2 class="font-black leading-[0.92] mb-5">
+          <span class="block text-white text-4xl md:text-5xl mb-2">Un mes llenos de</span>
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-fuchsia-400 text-6xl md:text-[7rem] leading-none">momentos</span>
+        </h2>
+        <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+          Treinta días que se sintieron como una vida entera. Aquí están, uno por uno, los pedazos de ti que ya forman parte de mí.
+        </p>
+
+        <!-- Botón Video Especial -->
+        <button
+          class="btn-abrir-video group mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-rose-500/20 to-fuchsia-500/20 border border-rose-400/30 px-6 py-3 text-sm text-white font-semibold tracking-wide hover:from-rose-500/40 hover:to-fuchsia-500/40 hover:border-rose-400/60 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(244,63,94,0.3)] cursor-pointer"
+        >
+          <span class="w-10 h-10 rounded-full bg-rose-500/30 border border-rose-400/40 flex items-center justify-center group-hover:bg-rose-500/50 transition-colors">
+            <svg class="w-4 h-4 text-rose-300 translate-x-[1px]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </span>
+          <span>Ver nuestro video especial de 1 mes</span>
+          <svg class="w-4 h-4 text-rose-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Carrusel Cinematográfico -->
+      <div id="cine-carrusel" class="relative">
+        <div id="cine-track" class="space-y-6 md:space-y-8 min-h-[500px]">
+          <!-- Cards inyectadas por JS -->
+        </div>
+
+        <!-- Controles de navegación -->
+        <div class="flex items-center justify-center gap-5 mt-12">
+          <button id="cine-prev" class="w-12 h-12 rounded-full border border-white/10 bg-white/5 text-white flex items-center justify-center hover:bg-rose-500/20 hover:border-rose-400/40 transition-all hover:scale-110 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+            </svg>
+          </button>
+          <div id="cine-dots" class="flex items-center gap-2"></div>
+          <button id="cine-next" class="w-12 h-12 rounded-full border border-white/10 bg-white/5 text-white flex items-center justify-center hover:bg-rose-500/20 hover:border-rose-400/40 transition-all hover:scale-110 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Progreso autoplay -->
+        <div class="flex items-center justify-center gap-2 mt-5">
+          <div id="cine-progreso-bar" class="h-[2px] w-40 bg-white/10 rounded-full overflow-hidden">
+            <div id="cine-progreso-fill" class="h-full bg-gradient-to-r from-rose-400 to-fuchsia-400 rounded-full" style="width:0%"></div>
+          </div>
+          <span class="text-[10px] text-gray-500 uppercase tracking-[0.2em]">Auto</span>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ══ MODAL DE VIDEO ══ -->
+  <div id="modal-video" class="fixed inset-0 z-[200] hidden items-center justify-center p-4">
+    <div id="modal-backdrop" class="absolute inset-0 bg-black/95 backdrop-blur-2xl" onclick="cerrarVideoModal()"></div>
+    <div class="relative z-10 w-full max-w-3xl">
+      <div class="flex items-center justify-between mb-4 px-2">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-rose-500/20 border border-rose-400/30 flex items-center justify-center text-rose-300">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-rose-400 mb-0.5">Video especial · 1 mes</p>
+            <h3 class="text-white font-bold text-lg">Nuestro momento más especial</h3>
+          </div>
+        </div>
+        <button onclick="cerrarVideoModal()" class="w-10 h-10 rounded-full bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-rose-500/30 hover:border-rose-400/40 transition-all cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="rounded-[24px] overflow-hidden border border-white/10 shadow-2xl shadow-rose-900/30 bg-black">
+        <video
+          id="modal-video-player"
+          src="/images/1month/elladedicaunvideo.mp4"
+          controls
+          playsinline
+          class="w-full max-h-[70vh] object-contain"
+        ></video>
+      </div>
+      <div class="mt-4 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.25em] text-gray-500">
+        <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        Un mes que siempre voy a recordar
+        <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
 
   <!-- ══ GALERÍA DE FOTOS (CARRUSEL) ══ -->
   <section id="fotos" class="relative z-10 py-24 px-6 overflow-hidden">
@@ -831,106 +1293,6 @@ const razones = [
     </div>
   </section>
 
-  <!-- ══ VALES MÁGICOS (LOVE COUPONS) ══ -->
-  <section class="relative z-10 py-24 px-6 overflow-hidden">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold text-white text-center mb-4 flex items-center justify-center gap-3">
-        <!-- SVG Ticket Icon -->
-        <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"/>
-        </svg>
-        Vales Exclusivos para Ti
-      </h2>
-      <p class="text-gray-400 text-center mb-16 text-sm max-w-md mx-auto">
-        Un talonario especial que puedes canjear cuando tú quieras. (Toca un vale para reclamarlo)
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-        
-        <!-- Vale 1 -->
-        <div class="ticket-card group cursor-pointer" onclick="reclamarVale(this, '¡Vale por un masaje reclamado! Prepárate para relajarte.')">
-          <div class="ticket-cutout left"></div>
-          <div class="ticket-cutout right"></div>
-          <div class="relative w-full h-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-2xl p-6 flex items-center justify-between overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] group-hover:border-amber-500/50">
-            <!-- Punteado divisor -->
-            <div class="absolute top-0 bottom-0 left-[25%] border-l-2 border-dashed border-amber-500/30"></div>
-            
-            <div class="w-1/4 flex flex-col items-center justify-center z-10 pr-4">
-              <svg class="w-10 h-10 text-amber-400 mb-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/></svg>
-              <span class="text-amber-500/80 text-xs font-bold tracking-widest uppercase transform -rotate-90 origin-center whitespace-nowrap mt-6">Válido 1 Uso</span>
-            </div>
-            
-            <div class="w-3/4 pl-8 z-10">
-              <h4 class="text-xl font-bold text-white mb-2 font-serif group-hover:text-amber-300 transition-colors">Masaje Relajante</h4>
-              <p class="text-sm text-gray-400 leading-relaxed">Válido por un masaje completo después de un día cansado, sin derecho a quejas de mi parte.</p>
-              <button class="mt-4 px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider group-hover:bg-amber-500 group-hover:text-white transition-colors">Canjear Vale</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Vale 2 -->
-        <div class="ticket-card group cursor-pointer" onclick="reclamarVale(this, '¡Noche de pelis activada! Tú eliges qué vemos.')">
-          <div class="ticket-cutout left"></div>
-          <div class="ticket-cutout right"></div>
-          <div class="relative w-full h-full bg-gradient-to-r from-fuchsia-500/10 to-purple-500/10 border border-fuchsia-500/20 rounded-2xl p-6 flex items-center justify-between overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(217,70,239,0.2)] group-hover:border-fuchsia-500/50">
-            <div class="absolute top-0 bottom-0 left-[25%] border-l-2 border-dashed border-fuchsia-500/30"></div>
-            <div class="w-1/4 flex flex-col items-center justify-center z-10 pr-4">
-              <svg class="w-10 h-10 text-fuchsia-400 mb-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
-              <span class="text-fuchsia-500/80 text-xs font-bold tracking-widest uppercase transform -rotate-90 origin-center whitespace-nowrap mt-6">Válido 1 Uso</span>
-            </div>
-            <div class="w-3/4 pl-8 z-10">
-              <h4 class="text-xl font-bold text-white mb-2 font-serif group-hover:text-fuchsia-300 transition-colors">Cine en Casa</h4>
-              <p class="text-sm text-gray-400 leading-relaxed">Válido por una noche donde tú eliges la peli (aunque ya la hayamos visto) y yo pongo los snacks.</p>
-              <button class="mt-4 px-4 py-1.5 rounded-full bg-fuchsia-500/20 text-fuchsia-300 text-xs font-semibold uppercase tracking-wider group-hover:bg-fuchsia-500 group-hover:text-white transition-colors">Canjear Vale</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Vale 3 -->
-        <div class="ticket-card group cursor-pointer" onclick="reclamarVale(this, '¡Paz automática! Prometo darte la razón.')">
-          <div class="ticket-cutout left"></div>
-          <div class="ticket-cutout right"></div>
-          <div class="relative w-full h-full bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 rounded-2xl p-6 flex items-center justify-between overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] group-hover:border-emerald-500/50">
-            <div class="absolute top-0 bottom-0 left-[25%] border-l-2 border-dashed border-emerald-500/30"></div>
-            <div class="w-1/4 flex flex-col items-center justify-center z-10 pr-4">
-              <svg class="w-10 h-10 text-emerald-400 mb-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
-              <span class="text-emerald-500/80 text-xs font-bold tracking-widest uppercase transform -rotate-90 origin-center whitespace-nowrap mt-6">Comodín</span>
-            </div>
-            <div class="w-3/4 pl-8 z-10">
-              <h4 class="text-xl font-bold text-white mb-2 font-serif group-hover:text-emerald-300 transition-colors">Tener la Razón</h4>
-              <p class="text-sm text-gray-400 leading-relaxed">Úsalo en cualquier momento. Automáticamente me rindo y admito que tú tienes la absoluta razón.</p>
-              <button class="mt-4 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider group-hover:bg-emerald-500 group-hover:text-white transition-colors">Canjear Vale</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Vale 4 -->
-        <div class="ticket-card group cursor-pointer" onclick="reclamarVale(this, '¡Ataque de besos inminente! No tienes escapatoria.')">
-          <div class="ticket-cutout left"></div>
-          <div class="ticket-cutout right"></div>
-          <div class="relative w-full h-full bg-gradient-to-r from-rose-500/10 to-pink-500/10 border border-rose-500/20 rounded-2xl p-6 flex items-center justify-between overflow-hidden transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(244,63,94,0.2)] group-hover:border-rose-500/50">
-            <div class="absolute top-0 bottom-0 left-[25%] border-l-2 border-dashed border-rose-500/30"></div>
-            <div class="w-1/4 flex flex-col items-center justify-center z-10 pr-4">
-              <svg class="w-10 h-10 text-rose-400 mb-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              <span class="text-rose-500/80 text-xs font-bold tracking-widest uppercase transform -rotate-90 origin-center whitespace-nowrap mt-6">Infinito</span>
-            </div>
-            <div class="w-3/4 pl-8 z-10">
-              <h4 class="text-xl font-bold text-white mb-2 font-serif group-hover:text-rose-300 transition-colors">Ataque de Besos</h4>
-              <p class="text-sm text-gray-400 leading-relaxed">Válido por mil besos sin parar. Úsalo cuando necesites extra cariño o cuando estés celosita.</p>
-              <button class="mt-4 px-4 py-1.5 rounded-full bg-rose-500/20 text-rose-300 text-xs font-semibold uppercase tracking-wider group-hover:bg-rose-500 group-hover:text-white transition-colors">Canjear Vale</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Notification Toast -->
-    <div id="toast-vale" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-white text-gray-900 px-6 py-3 rounded-full font-bold shadow-2xl opacity-0 pointer-events-none transition-all duration-300 transform translate-y-8 z-50 flex items-center gap-2">
-      <svg class="w-5 h-5 text-rose-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      <span id="toast-vale-text">Vale reclamado</span>
-    </div>
-  </section>
 
   <!-- ══ CELEBRACIÓN ══ -->
   <section class="relative z-10 py-20 px-6 flex flex-col items-center justify-center min-h-[50vh]">
@@ -1139,8 +1501,8 @@ const razones = [
   // CORAZONES FLOTANTES AL HACER CLIC EN CUALQUIER PARTE
   // ───────────────────────────────────────────
   document.addEventListener('click', (e) => {
-    // Evitar disparar en botones, sobre de carta, enlaces, tarjetas de fotos o mapa de aventuras
-    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.stack-card') || e.target.closest('.envelope-container') || e.target.closest('.adventure-card')) return;
+    // Evitar disparar en botones, drawer de carta, enlaces, tarjetas de fotos o mapa de aventuras
+    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('#carta-drawer') || e.target.closest('.adventure-card')) return;
 
     const heart = document.createElement('div');
     heart.className = 'fixed pointer-events-none z-50 text-purple-500/80';
@@ -1224,6 +1586,18 @@ const razones = [
       albumArt.style.backgroundImage = '';
       albumSvg.style.display = '';
     }
+
+    // Actualizar estilo en la playlist
+    document.querySelectorAll('.playlist-item').forEach((item, index) => {
+      const title = item.querySelector('.playlist-item-title');
+      if (index === i) {
+        item.classList.add('bg-white/10');
+        if (title) title.classList.add('text-[#1ed760]');
+      } else {
+        item.classList.remove('bg-white/10');
+        if (title) title.classList.remove('text-[#1ed760]');
+      }
+    });
   }
 
   function actualizarLetra() {
@@ -1301,28 +1675,62 @@ const razones = [
     audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
   });
 
+  // Eventos de la playlist interactiva
+  document.querySelectorAll('.playlist-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      const parent = e.target.closest('.playlist-item');
+      if (parent) {
+        idx = parseInt(parent.dataset.index);
+        cargarCancion(idx);
+        playTrack();
+      }
+    });
+  });
+
   cargarCancion(0);
 
 
   // ───────────────────────────────────────────
-  // INTERACCIÓN DE APERTURA DEL SOBRE DE CARTA
+  // PANEL LATERAL (DRAWER) DE LA CARTA EN EL COSTADO
   // ───────────────────────────────────────────
-  const sobre = document.getElementById('sobre');
-  const sello = document.getElementById('sello');
+  const cartaDrawer        = document.getElementById('carta-drawer');
+  const cartaBackdrop      = document.getElementById('carta-backdrop');
+  const btnHeaderCarta     = document.getElementById('btn-abrir-carta-header');
+  const btnNavCarta        = document.getElementById('btn-nav-carta');
+  const btnCloseDrawer     = document.getElementById('btn-cerrar-carta-drawer');
+  const btnCloseDrawerFoot = document.getElementById('btn-cerrar-carta-drawer-foot');
 
-  sobre.addEventListener('click', (e) => {
-    e.stopPropagation(); // Evitar disparar corazones de fondo al abrir/cerrar la carta
-    sobre.classList.toggle('open');
-    if (sobre.classList.contains('open')) {
-      sello.style.transform = 'scale(0) rotate(180deg)';
-      sello.style.opacity = '0';
-      // ¡AUTO-PLAY DE LA MÚSICA CON EFECTO DE BEAT AUTOMÁTICO AL ABRIR LA CARTA!
-      if (audio.paused) {
-        playTrack();
-      }
-    } else {
-      sello.style.transform = 'scale(1) rotate(0deg)';
-      sello.style.opacity = '1';
+  function abrirCartaDrawer() {
+    if (!cartaDrawer || !cartaBackdrop) return;
+    cartaBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+    cartaBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+    cartaDrawer.classList.remove('translate-x-full');
+    cartaDrawer.classList.add('translate-x-0');
+    document.body.style.overflow = 'hidden';
+
+    if (audio && audio.paused) {
+      playTrack();
+    }
+  }
+
+  function cerrarCartaDrawer() {
+    if (!cartaDrawer || !cartaBackdrop) return;
+    cartaDrawer.classList.remove('translate-x-0');
+    cartaDrawer.classList.add('translate-x-full');
+    cartaBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+    cartaBackdrop.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = '';
+  }
+
+  if (btnHeaderCarta) btnHeaderCarta.addEventListener('click', abrirCartaDrawer);
+  if (btnNavCarta) btnNavCarta.addEventListener('click', abrirCartaDrawer);
+  if (btnCloseDrawer) btnCloseDrawer.addEventListener('click', cerrarCartaDrawer);
+  if (btnCloseDrawerFoot) btnCloseDrawerFoot.addEventListener('click', cerrarCartaDrawer);
+  if (cartaBackdrop) cartaBackdrop.addEventListener('click', cerrarCartaDrawer);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && cartaDrawer && !cartaDrawer.classList.contains('translate-x-full')) {
+      cerrarCartaDrawer();
     }
   });
 
@@ -1370,56 +1778,165 @@ const razones = [
 
 <script is:inline>
   // ───────────────────────────────────────────
-  // MANEJADOR DE AVENTURAS INTERACTIVAS CON GLOW EN EL CAMINO (MAPA DE RUTA)
+  // BUCKET LIST — STICKY HORIZONTAL SCROLL DE ACOMPAÑAMIENTO
   // ───────────────────────────────────────────
-  function toggleAdventure(card) {
-    card.classList.toggle('checked');
-    const badge = card.querySelector('.adventure-badge');
-    const row = card.closest('.adventure-path-row');
-    
-    if (card.classList.contains('checked')) {
-      badge.textContent = "¡Lo logramos! ✦";
-      if (row) {
-        row.classList.add('checked-row');
-      }
+
+  (function initLocurasScroll() {
+    const section = document.getElementById('locuras-section');
+    const track = document.getElementById('locuras-track');
+    const bgMarquee = document.getElementById('locuras-bg-marquee');
+    if (!section || !track) return;
+
+    function updateScroll() {
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      const totalScrollable = sectionHeight - windowHeight;
+      if (totalScrollable <= 0) return;
+
+      const currentScroll = -rect.top;
+      const progress = Math.max(0, Math.min(1, currentScroll / totalScrollable));
+
+      const maxTrackScroll = track.scrollWidth - track.parentElement.clientWidth;
       
-      // Efecto confeti de corazones al cumplir plan en su coordenada
+      const translateX = progress * maxTrackScroll;
+      track.style.transform = `translate3d(-${translateX}px, 0, 0)`;
+
+      if (bgMarquee) {
+        const bgTranslate = (progress - 0.5) * 500;
+        bgMarquee.style.transform = `translate3d(${bgTranslate}px, -50%, 0)`;
+      }
+    }
+
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    window.addEventListener('resize', updateScroll, { passive: true });
+    updateScroll();
+  })();
+
+  // --- Razones: Sticky Horizontal Scroll (Dirección Inversa: De Izquierda a Derecha) ---
+  (function initRazonesScroll() {
+    const section = document.getElementById('razones-section');
+    const track = document.getElementById('razones-track');
+    const bgMarquee = document.getElementById('razones-bg-marquee');
+    if (!section || !track) return;
+
+    function updateScroll() {
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      const totalScrollable = sectionHeight - windowHeight;
+      if (totalScrollable <= 0) return;
+
+      const currentScroll = -rect.top;
+      const progress = Math.max(0, Math.min(1, currentScroll / totalScrollable));
+
+      const maxTrackScroll = track.scrollWidth - track.parentElement.clientWidth;
+      
+      // Dirección invertida: al bajar con el scroll, la pista se desplaza hacia la DERECHA
+      const translateX = (1 - progress) * maxTrackScroll;
+      track.style.transform = `translate3d(-${translateX}px, 0, 0)`;
+
+      if (bgMarquee) {
+        const bgTranslate = (0.5 - progress) * 500;
+        bgMarquee.style.transform = `translate3d(${bgTranslate}px, -50%, 0)`;
+      }
+    }
+
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    window.addEventListener('resize', updateScroll, { passive: true });
+    updateScroll();
+  })();
+
+  // --- Vales Exclusivos: Sticky Horizontal Scroll ---
+  (function initValesScroll() {
+    const section = document.getElementById('vales-section');
+    const track = document.getElementById('vales-track');
+    const bgMarquee = document.getElementById('vales-bg-marquee');
+    if (!section || !track) return;
+
+    function updateScroll() {
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      const totalScrollable = sectionHeight - windowHeight;
+      if (totalScrollable <= 0) return;
+
+      const currentScroll = -rect.top;
+      const progress = Math.max(0, Math.min(1, currentScroll / totalScrollable));
+
+      const maxTrackScroll = track.scrollWidth - track.parentElement.clientWidth;
+      
+      const translateX = progress * maxTrackScroll;
+      track.style.transform = `translate3d(-${translateX}px, 0, 0)`;
+
+      if (bgMarquee) {
+        const bgTranslate = (progress - 0.5) * 500;
+        bgMarquee.style.transform = `translate3d(${bgTranslate}px, -50%, 0)`;
+      }
+    }
+
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    window.addEventListener('resize', updateScroll, { passive: true });
+    updateScroll();
+  })();
+
+  // --- Toggle de tarjeta de locura (marcar como cumplida) ---
+  function toggleLocuraCard(card) {
+    const isDone = card.classList.toggle('locura-done');
+    const checkEmpty = card.querySelector('.locura-check-empty');
+    const checkDone  = card.querySelector('.locura-check-done');
+    const titleEl    = card.querySelector('.locura-card-title');
+    const promptEl   = card.querySelector('.locura-prompt-text');
+
+    if (isDone) {
+      if (checkEmpty) checkEmpty.classList.add('hidden');
+      if (checkDone)  checkDone.classList.remove('hidden');
+      if (titleEl) {
+        titleEl.style.textDecoration = 'line-through';
+        titleEl.style.opacity = '0.5';
+      }
+      if (promptEl) promptEl.textContent = '¡Cumplido juntos! ✨';
+      card.style.borderColor = 'rgba(74, 222, 128, 0.4)';
+      card.style.background  = 'rgba(34, 197, 94, 0.12)';
+
+      // Confeti de corazones
       for (let i = 0; i < 15; i++) {
         const heart = document.createElement('div');
-        heart.className = 'fixed pointer-events-none z-50 text-purple-500/80';
-        
-        // Centrar alrededor de la tarjeta
+        heart.className = 'fixed pointer-events-none z-50 text-emerald-400';
         const rect = card.getBoundingClientRect();
-        heart.style.left = `${rect.left + rect.width/2 + (Math.random() - 0.5) * 100}px`;
-        heart.style.top = `${rect.top + rect.height/2 + (Math.random() - 0.5) * 100}px`;
-        
-        heart.innerHTML = `
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-        `;
-        
+        heart.style.left = `${rect.left + rect.width / 2 + (Math.random() - 0.5) * 140}px`;
+        heart.style.top  = `${rect.top  + rect.height / 2 + (Math.random() - 0.5) * 140}px`;
+        heart.innerHTML  = `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
         document.body.appendChild(heart);
-        
-        const xOffset = (Math.random() - 0.5) * 200;
-        const yOffset = -150 - Math.random() * 100;
-        
         heart.animate([
-          { transform: 'translate(0, 0) scale(1)', opacity: 0.9 },
-          { transform: `translate(${xOffset}px, ${yOffset}px) scale(1.8)`, opacity: 0 }
-        ], {
-          duration: 1500,
-          easing: 'ease-out',
-          fill: 'forwards'
-        });
-        
-        setTimeout(() => heart.remove(), 1500);
+          { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+          { transform: `translate(${(Math.random() - 0.5) * 200}px, ${-120 - Math.random() * 80}px) scale(1.6)`, opacity: 0 }
+        ], { duration: 1200, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+        setTimeout(() => heart.remove(), 1200);
       }
     } else {
-      badge.textContent = "Pendiente bonito ✦";
-      if (row) {
-        row.classList.remove('checked-row');
+      if (checkEmpty) checkEmpty.classList.remove('hidden');
+      if (checkDone)  checkDone.classList.add('hidden');
+      if (titleEl) {
+        titleEl.style.textDecoration = '';
+        titleEl.style.opacity = '';
       }
+      if (promptEl) promptEl.textContent = 'Toca para tachar';
+      card.style.borderColor = '';
+      card.style.background  = '';
+    }
+
+    // Actualizar contador y barra de progreso
+    const allCards  = document.querySelectorAll('.locura-card');
+    const doneCards = document.querySelectorAll('.locura-card.locura-done');
+    const label     = document.getElementById('locuras-count-label');
+    const fillBar   = document.getElementById('locuras-bar-fill');
+    if (label && fillBar) {
+      label.textContent = `${doneCards.length} / ${allCards.length} locuras cumplidas`;
+      fillBar.style.width = `${(doneCards.length / allCards.length) * 100}%`;
     }
   }
 
@@ -1491,55 +2008,6 @@ const razones = [
     setTimeout(updateButtons, 100);
     window.addEventListener('resize', updateButtons);
   }
-
-  // --- Lógica Vales Mágicos ---
-  window.reclamarVale = function(elemento, mensaje) {
-    if (elemento.classList.contains('canjeado')) return; // Ya canjeado
-    
-    // Animación del vale
-    elemento.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      elemento.style.transform = 'scale(1)';
-      elemento.style.opacity = '0.6';
-      elemento.classList.add('canjeado');
-      const btn = elemento.querySelector('button');
-      if(btn) {
-        btn.textContent = '¡CANJEADO!';
-        btn.classList.add('bg-gray-500/50', 'text-gray-300');
-        btn.classList.remove('bg-amber-500/20', 'bg-fuchsia-500/20', 'bg-emerald-500/20', 'bg-rose-500/20');
-      }
-    }, 150);
-
-    // Disparar corazoncitos flotantes
-    for(let i=0; i<15; i++) {
-      setTimeout(() => {
-        const heart = document.createElement('div');
-        heart.className = 'fixed pointer-events-none z-50 text-rose-500';
-        heart.style.left = '50%';
-        heart.style.top = '50%';
-        heart.innerHTML = `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
-        document.body.appendChild(heart);
-        const xOffset = (Math.random() - 0.5) * 400;
-        const yOffset = (Math.random() - 0.5) * 400;
-        heart.animate([
-          { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-          { transform: `translate(calc(-50% + ${xOffset}px), calc(-50% + ${yOffset}px)) scale(0)`, opacity: 0 }
-        ], { duration: 1000, easing: 'ease-out' });
-        setTimeout(() => heart.remove(), 1000);
-      }, i * 50);
-    }
-
-    // Mostrar Toast
-    const toast = document.getElementById('toast-vale');
-    const toastText = document.getElementById('toast-vale-text');
-    if(toast && toastText) {
-      toastText.textContent = mensaje;
-      toast.classList.remove('opacity-0', 'translate-y-8');
-      setTimeout(() => {
-        toast.classList.add('opacity-0', 'translate-y-8');
-      }, 3500);
-    }
-  };
 
   // --- Lógica Propuesta de Noviazgo ---
   const btnNo = document.getElementById('btn-no');
@@ -1640,4 +2108,336 @@ const razones = [
 
   window.addEventListener('scroll', updateHeader, { passive: true });
   updateHeader();
+
+  // ───────────────────────────────────────────
+  // SECCIÓN 1 MES — CARRUSEL CINEMATOGRÁFICO
+  // ───────────────────────────────────────────
+  (function() {
+    var fotosUnMes = [
+      { src: '/images/1month/1mesaniversaritortanoche.png',           caption: 'La noche de nuestro primer mes', side: 'right' },
+      { src: '/images/1month/ellaconmigoselfie.png',                  caption: 'Esa selfie que guardo en el corazón', side: 'left' },
+      { src: '/images/1month/elladedicacorazoncondedos.png',          caption: 'Tu corazón con los dedos', side: 'right' },
+      { src: '/images/1month/elladedicafotoencuadriplecorazonbar.png', caption: 'Esa noche en el bar llena de amor', side: 'left' },
+      { src: '/images/1month/elladurmiendo.png',                      caption: 'Dormida y tan hermosa', side: 'right' },
+      { src: '/images/1month/ellaenbar2.png',                         caption: 'Tú en el bar, brillando', side: 'left' },
+      { src: '/images/1month/ellaenbar3.png',                         caption: 'Una noche que no olvidaré', side: 'right' },
+      { src: '/images/1month/ellaenbarfoto.png',                      caption: 'Tu foto favorita del bar', side: 'left' },
+      { src: '/images/1month/ellaenelcarroconsuramo.png',             caption: 'Con tu ramo de rosas en el carro', side: 'right' },
+      { src: '/images/1month/ellajuntosdelamano.png',                 caption: 'De la mano y sin soltarte', side: 'left' },
+      { src: '/images/1month/ellamiradaangelical.png',                caption: 'Tu mirada que me roba el alma', side: 'right' },
+      { src: '/images/1month/ellaramoderosaskitty.png',               caption: 'Tu ramo de rosas Kitty', side: 'left' },
+      { src: '/images/1month/ellatierna.png',                         caption: 'Tan tierna que me derrites', side: 'right' },
+      { src: '/images/1month/ellaunabrazoensuhombro.png',             caption: 'Mi lugar favorito: tu hombro', side: 'left' },
+      { src: '/images/1month/ellaunafotodenoche.png',                 caption: 'Una noche contigo, perfecta', side: 'right' },
+      { src: '/images/1month/primerafotojuntosnoche.png',             caption: 'Nuestra primera foto juntos de noche', side: 'left' },
+    ];
+
+    var cineTrack        = document.getElementById('cine-track');
+    var cineDots         = document.getElementById('cine-dots');
+    var cinePrev         = document.getElementById('cine-prev');
+    var cineNext         = document.getElementById('cine-next');
+    var cineProgresoFill = document.getElementById('cine-progreso-fill');
+    if (!cineTrack) return;
+
+    var cineIdx       = 0;
+    var cineAutoTimer = null;
+    var cineAnimating = false;
+    var CINE_INTERVAL = 4500;
+
+    // Construir tarjetas
+    fotosUnMes.forEach(function(foto, index) {
+      var isLeft = foto.side === 'left';
+      var card = document.createElement('div');
+      card.className = 'cine-card';
+      card.dataset.index = index;
+      card.style.cssText = 'display:none; opacity:0;';
+
+      var numLabel = String(index + 1).padStart(2,'0') + ' / ' + String(fotosUnMes.length).padStart(2,'0');
+      var badgePos = isLeft ? 'right:1rem;' : 'left:1rem;';
+      var flexDir  = isLeft ? 'flex-direction:row;' : 'flex-direction:row-reverse;';
+      var textAlign = isLeft ? 'text-align:left;' : 'text-align:right;';
+      var lineDir  = isLeft ? 'from-rose-400/60 to-transparent' : 'from-transparent to-rose-400/60';
+      var justifyItems = isLeft ? 'justify-content:flex-start;' : 'justify-content:flex-end;';
+
+      card.innerHTML =
+        '<div class="cine-inner" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center;' + flexDir + '">' +
+
+          // Imagen
+          '<div style="position:relative;flex:1 1 340px;max-width:520px;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 25px 60px rgba(0,0,0,0.5);">' +
+            '<img src="' + foto.src + '" alt="' + foto.caption + '" loading="lazy" ' +
+              'style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform 0.7s ease;" ' +
+              'onmouseover="this.style.transform=\'scale(1.04)\'" ' +
+              'onmouseout="this.style.transform=\'scale(1)\'" ' +
+            '/>' +
+            '<div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);"></div>' +
+            '<div style="position:absolute;top:1rem;' + badgePos + 'background:rgba(0,0,0,0.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);border-radius:99px;padding:0.25rem 0.75rem;display:flex;align-items:center;gap:0.5rem;">' +
+              '<div style="width:6px;height:6px;border-radius:99px;background:#fb7185;animation:pulse 2s infinite;"></div>' +
+              '<span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:white;">' + numLabel + '</span>' +
+            '</div>' +
+          '</div>' +
+
+          // Texto
+          '<div style="flex:1 1 240px;max-width:320px;' + textAlign + '">' +
+            '<p style="font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:#fb7185;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;' + justifyItems + '">' +
+              '<svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>' +
+              'Recuerdo' +
+            '</p>' +
+            '<h3 style="color:white;font-weight:900;font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.1;font-style:italic;font-family:serif;margin-bottom:1.25rem;">' +
+              '\u201C' + foto.caption + '\u201D' +
+            '</h3>' +
+            '<div style="display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);border-radius:99px;padding:0.4rem 1rem;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(156,163,175,1);">' +
+              '1 mes juntos' +
+              '<span style="width:4px;height:4px;border-radius:99px;background:#fb7185;display:inline-block;"></span>' +
+              'Mayo 2026' +
+            '</div>' +
+            '<div style="margin-top:1.5rem;display:flex;align-items:center;gap:0.75rem;' + justifyItems + '">' +
+              '<span style="width:40px;height:1px;background:linear-gradient(to right, rgba(251,113,133,0.6), transparent);' + (isLeft ? '' : 'transform:scaleX(-1);') + '"></span>' +
+              '<svg width="16" height="16" fill="none" stroke="rgba(251,113,133,0.5)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>' +
+              '<span style="width:40px;height:1px;background:linear-gradient(to left, rgba(251,113,133,0.6), transparent);' + (isLeft ? '' : 'transform:scaleX(-1);') + '"></span>' +
+            '</div>' +
+          '</div>' +
+
+        '</div>';
+
+      cineTrack.appendChild(card);
+    });
+
+    // Crear dots
+    var allCards = cineTrack.querySelectorAll('.cine-card');
+    var allDots  = [];
+    fotosUnMes.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.style.cssText = 'width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,0.2);border:none;cursor:pointer;transition:all 0.3s;padding:0;';
+      dot.addEventListener('click', function() { irACine(i); });
+      if (cineDots) cineDots.appendChild(dot);
+      allDots.push(dot);
+    });
+
+    function updateDots(index) {
+      allDots.forEach(function(d, i) {
+        d.style.width  = i === index ? '16px' : '6px';
+        d.style.background = i === index ? '#fb7185' : 'rgba(255,255,255,0.2)';
+      });
+    }
+
+    function mostrarCine(index, direction) {
+      if (cineAnimating) return;
+      cineAnimating = true;
+
+      var currentCard = null;
+      allCards.forEach(function(c) { if (c.style.display !== 'none') currentCard = c; });
+      var nextCard = allCards[index];
+
+      updateDots(index);
+      var enterFrom = direction === 'next' ? '60px' : '-60px';
+      var exitTo    = direction === 'next' ? '-60px' : '60px';
+
+      function showNext() {
+        nextCard.style.display = 'block';
+        nextCard.style.opacity = '0';
+        nextCard.style.transform = 'translateX(' + enterFrom + ')';
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            nextCard.style.transition = 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)';
+            nextCard.style.opacity = '1';
+            nextCard.style.transform = 'translateX(0)';
+            setTimeout(function() {
+              nextCard.style.transition = '';
+              cineAnimating = false;
+            }, 520);
+          });
+        });
+      }
+
+      if (currentCard && currentCard !== nextCard) {
+        currentCard.style.transition = 'opacity 0.35s ease-in, transform 0.35s ease-in';
+        currentCard.style.opacity = '0';
+        currentCard.style.transform = 'translateX(' + exitTo + ')';
+        setTimeout(function() {
+          currentCard.style.display = 'none';
+          currentCard.style.transition = '';
+          currentCard.style.transform = 'translateX(0)';
+          showNext();
+        }, 370);
+      } else {
+        if (currentCard) currentCard.style.display = 'none';
+        showNext();
+      }
+
+      cineIdx = index;
+      resetProgreso();
+    }
+
+    function irACine(index) {
+      var dir = index >= cineIdx ? 'next' : 'prev';
+      mostrarCine(index, dir);
+      reiniciarAutoplay();
+    }
+
+    // Barra de progreso
+    function resetProgreso() {
+      if (!cineProgresoFill) return;
+      cineProgresoFill.style.transition = 'none';
+      cineProgresoFill.style.width = '0%';
+      setTimeout(function() {
+        cineProgresoFill.style.transition = 'width ' + CINE_INTERVAL + 'ms linear';
+        cineProgresoFill.style.width = '100%';
+      }, 30);
+    }
+
+    function iniciarAutoplay() {
+      clearInterval(cineAutoTimer);
+      cineAutoTimer = setInterval(function() {
+        var next = (cineIdx + 1) % fotosUnMes.length;
+        mostrarCine(next, 'next');
+      }, CINE_INTERVAL);
+      resetProgreso();
+    }
+
+    function reiniciarAutoplay() {
+      clearInterval(cineAutoTimer);
+      iniciarAutoplay();
+    }
+
+    if (cinePrev) cinePrev.addEventListener('click', function() {
+      var prev = (cineIdx - 1 + fotosUnMes.length) % fotosUnMes.length;
+      mostrarCine(prev, 'prev');
+      reiniciarAutoplay();
+    });
+    if (cineNext) cineNext.addEventListener('click', function() {
+      var next = (cineIdx + 1) % fotosUnMes.length;
+      mostrarCine(next, 'next');
+      reiniciarAutoplay();
+    });
+
+    // Swipe táctil
+    var swipeStartX = 0;
+    cineTrack.addEventListener('touchstart', function(e) { swipeStartX = e.touches[0].clientX; }, { passive: true });
+    cineTrack.addEventListener('touchend', function(e) {
+      var diff = swipeStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        var next = diff > 0
+          ? (cineIdx + 1) % fotosUnMes.length
+          : (cineIdx - 1 + fotosUnMes.length) % fotosUnMes.length;
+        mostrarCine(next, diff > 0 ? 'next' : 'prev');
+        reiniciarAutoplay();
+      }
+    }, { passive: true });
+
+    // Arrancar
+    mostrarCine(0, 'next');
+    iniciarAutoplay();
+
+    // ── MODAL DE VIDEO ──────────────────────────
+    var modalVideo   = document.getElementById('modal-video');
+    var modalPlayer  = document.getElementById('modal-video-player');
+    var btnsAbrir    = document.querySelectorAll('.btn-abrir-video');
+
+    window.cerrarVideoModal = function() {
+      if (!modalVideo) return;
+      if (modalPlayer) modalPlayer.pause();
+      modalVideo.style.display = 'none';
+      document.body.style.overflow = '';
+    };
+
+    btnsAbrir.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (!modalVideo) return;
+        modalVideo.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        setTimeout(function() {
+          if (modalPlayer) modalPlayer.play().catch(function(){});
+        }, 200);
+      });
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modalVideo && modalVideo.style.display === 'flex') {
+        window.cerrarVideoModal();
+      }
+    });
+  })();
+
+  // --- Toggle de vale (marcar como canjeado) ---
+  function toggleVale(card) {
+    const isClaimed = card.classList.toggle('vale-claimed');
+    const iconUnclaimed = card.querySelector('.vale-icon-unclaimed');
+    const iconClaimed   = card.querySelector('.vale-icon-claimed');
+    const titleEl       = card.querySelector('.vale-card-title');
+    const promptText    = card.querySelector('.vale-prompt-text');
+    const promptIcon    = card.querySelector('.vale-prompt-icon');
+    const stampEl       = card.querySelector('.vale-stamp');
+
+    if (isClaimed) {
+      if (iconUnclaimed) iconUnclaimed.classList.add('hidden');
+      if (iconClaimed)   iconClaimed.classList.remove('hidden');
+      if (titleEl) {
+        titleEl.style.textDecoration = 'line-through';
+        titleEl.style.opacity = '0.5';
+      }
+      if (promptText) promptText.textContent = 'Canjeado ✨';
+      if (promptIcon) promptIcon.style.opacity = '0';
+      if (stampEl) {
+        stampEl.style.opacity = '1';
+        stampEl.style.transform = 'translate(-50%, -50%) rotate(-12deg) scale(1)';
+      }
+      card.style.borderColor = 'rgba(52, 211, 153, 0.4)';
+      card.style.background  = 'rgba(16, 185, 129, 0.12)';
+
+      // Confeti de estrellas/besos
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'fixed pointer-events-none z-50 text-emerald-400';
+        const rect = card.getBoundingClientRect();
+        heart.style.left = `${rect.left + rect.width / 2 + (Math.random() - 0.5) * 140}px`;
+        heart.style.top  = `${rect.top  + rect.height / 2 + (Math.random() - 0.5) * 140}px`;
+        // Star SVG
+        heart.innerHTML  = `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+        document.body.appendChild(heart);
+        heart.animate([
+          { transform: 'translate(0, 0) scale(1) rotate(0deg)', opacity: 1 },
+          { transform: `translate(${(Math.random() - 0.5) * 200}px, ${-120 - Math.random() * 80}px) scale(1.6) rotate(${(Math.random() - 0.5) * 360}deg)`, opacity: 0 }
+        ], { duration: 1200, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+        setTimeout(() => heart.remove(), 1200);
+      }
+    } else {
+      if (iconUnclaimed) iconUnclaimed.classList.remove('hidden');
+      if (iconClaimed)   iconClaimed.classList.add('hidden');
+      if (titleEl) {
+        titleEl.style.textDecoration = 'none';
+        titleEl.style.opacity = '1';
+      }
+      if (promptText) promptText.textContent = 'Canjear Vale';
+      if (promptIcon) promptIcon.style.opacity = '1';
+      if (stampEl) {
+        stampEl.style.opacity = '0';
+        stampEl.style.transform = 'translate(-50%, -50%) rotate(-12deg) scale(1.5)';
+      }
+      card.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+      card.style.background  = 'transparent';
+    }
+
+    actualizarContadorVales();
+  }
+
+  function actualizarContadorVales() {
+    const valesCards = document.querySelectorAll('.vale-card');
+    const cumplidas = Array.from(valesCards).filter(c => c.classList.contains('vale-claimed')).length;
+    const total = valesCards.length;
+    
+    const label = document.getElementById('vales-count-label');
+    const fill  = document.getElementById('vales-bar-fill');
+    
+    if (label) {
+      label.textContent = `${cumplidas} / ${total} vales canjeados`;
+    }
+    if (fill) {
+      fill.style.width = `${(cumplidas / total) * 100}%`;
+      if (cumplidas === total) {
+        fill.classList.add('shadow-[0_0_15px_rgba(52,211,153,0.6)]');
+      } else {
+        fill.classList.remove('shadow-[0_0_15px_rgba(52,211,153,0.6)]');
+      }
+    }
+  }
 </script>
