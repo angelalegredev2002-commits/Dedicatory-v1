@@ -211,6 +211,7 @@ const vales = [
           <span>Carta</span>
         </button>
         <a href="#unmes" class="hover:text-rose-400 transition-colors text-rose-400/70 hidden sm:inline-block">1 Mes ♥</a>
+        <a href="#tresmeses" class="hover:text-rose-400 transition-colors text-fuchsia-400/70 hidden sm:inline-block">3 Meses ♥</a>
         <a href="#melodia" class="hover:text-white transition-colors hidden md:inline-block">Melodía</a>
         <a href="#recuerdos" class="hover:text-white transition-colors hidden md:inline-block">Recuerdos</a>
         <a href="#fotos" class="hover:text-white transition-colors hidden md:inline-block">Fotos</a>
@@ -1185,7 +1186,7 @@ const vales = [
     </div>
   </section>
 
-  <!-- ══ MODAL DE VIDEO ══ -->
+  <!-- ══ MODAL DE VIDEO (1 mes) ══ -->
   <div id="modal-video" class="fixed inset-0 z-[200] hidden items-center justify-center p-4">
     <div id="modal-backdrop" class="absolute inset-0 bg-black/95 backdrop-blur-2xl" onclick="cerrarVideoModal()"></div>
     <div class="relative z-10 w-full max-w-3xl">
@@ -1222,6 +1223,197 @@ const vales = [
         </svg>
         Un mes que siempre voy a recordar
         <svg class="w-3.5 h-3.5 text-rose-400 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECCIÓN 3 MESES ══ -->
+  <section id="tresmeses" class="relative z-10 py-28 px-4 overflow-hidden">
+
+    <!-- Fondo decorativo glow -->
+    <div class="absolute inset-0 pointer-events-none -z-10">
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-fuchsia-500/8 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-[80px]"></div>
+      <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-violet-600/10 rounded-full blur-[80px]"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto">
+
+      <!-- Encabezado -->
+      <div class="text-center mb-20">
+        <p class="text-fuchsia-400 text-[10px] uppercase tracking-[0.45em] font-semibold mb-4 flex items-center justify-center gap-2">
+          <span class="w-8 h-[1px] bg-fuchsia-400/50"></span>
+          18 de abril — 18 de julio de 2026
+          <span class="w-8 h-[1px] bg-fuchsia-400/50"></span>
+        </p>
+        <h2 class="font-black leading-[0.92] mb-5">
+          <span class="block text-white text-4xl md:text-5xl mb-2">Tres meses llenos de</span>
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-violet-400 to-purple-400 text-6xl md:text-[7rem] leading-none">amor</span>
+        </h2>
+        <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+          Noventa días que se convirtieron en mi historia favorita. Cada foto, cada instante, cada momento contigo es un tesoro que guardo para siempre.
+        </p>
+
+        <!-- Botón Videos -->
+        <button
+          id="btn-abrir-videos-3m"
+          class="group mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-fuchsia-500/20 to-violet-500/20 border border-fuchsia-400/30 px-6 py-3 text-sm text-white font-semibold tracking-wide hover:from-fuchsia-500/40 hover:to-violet-500/40 hover:border-fuchsia-400/60 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(192,38,211,0.3)] cursor-pointer"
+        >
+          <span class="w-10 h-10 rounded-full bg-fuchsia-500/30 border border-fuchsia-400/40 flex items-center justify-center group-hover:bg-fuchsia-500/50 transition-colors">
+            <svg class="w-4 h-4 text-fuchsia-300 translate-x-[1px]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </span>
+          <span>Ver nuestros videos de 3 meses</span>
+          <svg class="w-4 h-4 text-fuchsia-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Carrusel Cinematográfico 3 meses -->
+      <div id="cine3-carrusel" class="relative">
+        <div id="cine3-track" class="space-y-6 md:space-y-8 min-h-[500px]">
+          <!-- Cards inyectadas por JS -->
+        </div>
+
+        <!-- Controles de navegación -->
+        <div class="flex items-center justify-center gap-5 mt-12">
+          <button id="cine3-prev" class="w-12 h-12 rounded-full border border-white/10 bg-white/5 text-white flex items-center justify-center hover:bg-fuchsia-500/20 hover:border-fuchsia-400/40 transition-all hover:scale-110 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+            </svg>
+          </button>
+          <div id="cine3-dots" class="flex items-center gap-2"></div>
+          <button id="cine3-next" class="w-12 h-12 rounded-full border border-white/10 bg-white/5 text-white flex items-center justify-center hover:bg-fuchsia-500/20 hover:border-fuchsia-400/40 transition-all hover:scale-110 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Progreso autoplay -->
+        <div class="flex items-center justify-center gap-2 mt-5">
+          <div id="cine3-progreso-bar" class="h-[2px] w-40 bg-white/10 rounded-full overflow-hidden">
+            <div id="cine3-progreso-fill" class="h-full bg-gradient-to-r from-fuchsia-400 to-violet-400 rounded-full" style="width:0%"></div>
+          </div>
+          <span class="text-[10px] text-gray-500 uppercase tracking-[0.2em]">Auto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MODAL DE VIDEOS (3 meses) ══ -->
+  <div id="modal-videos-3m" class="fixed inset-0 z-[200] hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-2xl" onclick="cerrarVideos3m()"></div>
+    <div class="relative z-10 w-full max-w-3xl max-h-[92vh] overflow-y-auto">
+      <!-- Header del modal -->
+      <div class="flex items-center justify-between mb-6 px-2 sticky top-0 bg-transparent pt-2">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-fuchsia-500/20 border border-fuchsia-400/30 flex items-center justify-center text-fuchsia-300">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-fuchsia-400 mb-0.5">Videos especiales · 3 meses</p>
+            <h3 class="text-white font-bold text-lg">Nuestros momentos en video</h3>
+          </div>
+        </div>
+        <button onclick="cerrarVideos3m()" class="w-10 h-10 rounded-full bg-white/10 border border-white/10 text-white flex items-center justify-center hover:bg-fuchsia-500/30 hover:border-fuchsia-400/40 transition-all cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Video principal activo -->
+      <div class="rounded-[24px] overflow-hidden border border-white/10 shadow-2xl shadow-fuchsia-900/30 bg-black mb-6">
+        <video
+          id="video3m-player"
+          src="/images/month3/WhatsApp%20Video%202026-09-12%20at%204.22.32%20PM.mp4"
+          controls
+          playsinline
+          class="w-full max-h-[55vh] object-contain"
+        ></video>
+      </div>
+
+      <!-- Selector de videos (miniaturas) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 px-1">
+        <button
+          class="video3m-thumb group relative rounded-2xl overflow-hidden border-2 border-fuchsia-500/60 bg-black aspect-video cursor-pointer transition-all hover:border-fuchsia-400 hover:scale-105"
+          data-src="/images/month3/WhatsApp%20Video%202026-09-12%20at%204.22.32%20PM.mp4"
+          data-label="Momento 1"
+        >
+          <video src="/images/month3/WhatsApp%20Video%202026-09-12%20at%204.22.32%20PM.mp4" muted preload="metadata" class="w-full h-full object-cover" style="pointer-events:none;"></video>
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+            <span class="w-8 h-8 rounded-full bg-fuchsia-500/80 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 text-white translate-x-[1px]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </div>
+          <div class="absolute bottom-1.5 left-2 right-2">
+            <p class="text-white text-[9px] font-bold uppercase tracking-[0.15em] drop-shadow">Momento 1</p>
+          </div>
+        </button>
+
+        <button
+          class="video3m-thumb group relative rounded-2xl overflow-hidden border-2 border-white/10 bg-black aspect-video cursor-pointer transition-all hover:border-fuchsia-400 hover:scale-105"
+          data-src="/images/month3/WhatsApp%20Video%202026-09-12%20at%204.22.36%20PM.mp4"
+          data-label="Momento 2"
+        >
+          <video src="/images/month3/WhatsApp%20Video%202026-09-12%20at%204.22.36%20PM.mp4" muted preload="metadata" class="w-full h-full object-cover" style="pointer-events:none;"></video>
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+            <span class="w-8 h-8 rounded-full bg-fuchsia-500/80 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 text-white translate-x-[1px]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </div>
+          <div class="absolute bottom-1.5 left-2 right-2">
+            <p class="text-white text-[9px] font-bold uppercase tracking-[0.15em] drop-shadow">Momento 2</p>
+          </div>
+        </button>
+
+        <button
+          class="video3m-thumb group relative rounded-2xl overflow-hidden border-2 border-white/10 bg-black aspect-video cursor-pointer transition-all hover:border-fuchsia-400 hover:scale-105"
+          data-src="/images/month3/WhatsApp%20Video%202026-09-12%20at%204.22.41%20PM.mp4"
+          data-label="Momento 3"
+        >
+          <video src="/images/month3/WhatsApp%20Video%202026-09-12%20at%204.22.41%20PM.mp4" muted preload="metadata" class="w-full h-full object-cover" style="pointer-events:none;"></video>
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+            <span class="w-8 h-8 rounded-full bg-fuchsia-500/80 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 text-white translate-x-[1px]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </div>
+          <div class="absolute bottom-1.5 left-2 right-2">
+            <p class="text-white text-[9px] font-bold uppercase tracking-[0.15em] drop-shadow">Momento 3</p>
+          </div>
+        </button>
+
+        <button
+          class="video3m-thumb group relative rounded-2xl overflow-hidden border-2 border-white/10 bg-black aspect-video cursor-pointer transition-all hover:border-fuchsia-400 hover:scale-105"
+          data-src="/images/month3/WhatsApp%20Video%202026-09-12%20at%204.22.46%20PM.mp4"
+          data-label="Momento 4"
+        >
+          <video src="/images/month3/WhatsApp%20Video%202026-09-12%20at%204.22.46%20PM.mp4" muted preload="metadata" class="w-full h-full object-cover" style="pointer-events:none;"></video>
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+            <span class="w-8 h-8 rounded-full bg-fuchsia-500/80 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 text-white translate-x-[1px]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </div>
+          <div class="absolute bottom-1.5 left-2 right-2">
+            <p class="text-white text-[9px] font-bold uppercase tracking-[0.15em] drop-shadow">Momento 4</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Footer del modal -->
+      <div class="mt-6 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.25em] text-gray-500 pb-2">
+        <svg class="w-3.5 h-3.5 text-fuchsia-400 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        Tres meses de pura magia contigo
+        <svg class="w-3.5 h-3.5 text-fuchsia-400 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </svg>
       </div>
@@ -1322,6 +1514,44 @@ const vales = [
           Oficialmente juntos desde el {hitosCamino[0].fecha}
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- ══ PARALLAX FINAL ══ -->
+  <section id="parallax-final" class="relative z-10 h-[80vh] w-full overflow-hidden bg-[#050505] flex items-center justify-center border-t border-white/5">
+    <!-- Capa 1: Fondo profundo (estrellas lentas) -->
+    <div id="parallax-bg" class="absolute inset-0 w-full h-[150%] -top-[25%] pointer-events-none opacity-50" style="background-image: radial-gradient(circle at center, transparent 0%, #050505 100%), url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'1\' fill=\'%23fff\'/%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'1.5\' fill=\'%23f472b6\'/%3E%3Ccircle cx=\'80\' cy=\'30\' r=\'0.5\' fill=\'%23fff\'/%3E%3Ccircle cx=\'30\' cy=\'80\' r=\'1\' fill=\'%23c084fc\'/%3E%3C/svg%3E'); background-size: 150px 150px; will-change: transform;"></div>
+    
+    <!-- Capa 2: Medio (nubes/brillos medios) -->
+    <div id="parallax-mid" class="absolute inset-0 w-full h-[150%] -top-[25%] pointer-events-none opacity-60" style="will-change: transform;">
+      <div class="absolute top-[20%] left-[10%] w-80 h-80 bg-fuchsia-500/10 rounded-full blur-[100px]"></div>
+      <div class="absolute top-[60%] right-[15%] w-96 h-96 bg-purple-600/10 rounded-full blur-[120px]"></div>
+      <div class="absolute top-[40%] left-[60%] w-64 h-64 bg-rose-500/10 rounded-full blur-[80px]"></div>
+    </div>
+
+    <!-- Capa 3: Frente (elementos flotantes rápidos) -->
+    <div id="parallax-front" class="absolute inset-0 w-full h-[150%] -top-[25%] pointer-events-none" style="will-change: transform;">
+       <!-- Elementos decorativos esparcidos -->
+       <svg class="absolute top-[25%] left-[15%] w-8 h-8 text-rose-400/80 drop-shadow-[0_0_15px_rgba(251,113,133,0.8)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+       <svg class="absolute top-[45%] right-[20%] w-10 h-10 text-fuchsia-400/80 drop-shadow-[0_0_20px_rgba(192,38,211,0.8)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>
+       <svg class="absolute top-[75%] left-[35%] w-6 h-6 text-purple-400/80 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>
+       <svg class="absolute top-[15%] right-[40%] w-4 h-4 text-pink-300/80 drop-shadow-[0_0_8px_rgba(249,168,212,0.8)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+       <svg class="absolute top-[85%] right-[30%] w-7 h-7 text-rose-500/80 drop-shadow-[0_0_12px_rgba(244,63,94,0.8)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+
+    <!-- Capa 4: Texto (Centro, se mueve ligeramente) -->
+    <div id="parallax-text" class="relative z-20 text-center px-6 max-w-3xl" style="will-change: transform;">
+      <p class="text-fuchsia-400 text-[10px] md:text-[12px] uppercase tracking-[0.45em] font-semibold mb-6 flex items-center justify-center gap-4">
+        <span class="w-16 h-[1px] bg-gradient-to-r from-transparent to-fuchsia-400/60"></span>
+        Nuestro futuro
+        <span class="w-16 h-[1px] bg-gradient-to-l from-transparent to-fuchsia-400/60"></span>
+      </p>
+      <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 glow-text font-serif leading-tight">
+        Y esto es solo el <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-rose-400 to-purple-400">comienzo...</span>
+      </h2>
+      <p class="text-gray-300 font-light text-base md:text-xl italic font-serif">
+        "El universo es infinito, pero mi amor por ti es aún mayor."
+      </p>
     </div>
   </section>
 
@@ -2354,6 +2584,264 @@ const vales = [
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && modalVideo && modalVideo.style.display === 'flex') {
         window.cerrarVideoModal();
+      }
+    });
+  })();
+
+  // ───────────────────────────────────────────
+  // SECCIÓN 3 MESES — CARRUSEL CINEMATOGRÁFICO
+  // ───────────────────────────────────────────
+  (function() {
+    var fotos3Meses = [
+      { src: '/images/month3/image.png',          caption: 'Tres meses y seguimos brillando', side: 'right' },
+      { src: '/images/month3/image copy.png',     caption: 'Tu sonrisa que ilumina mis días', side: 'left' },
+      { src: '/images/month3/image copy 2.png',   caption: 'Momentos que atesoro en el alma', side: 'right' },
+      { src: '/images/month3/image copy 3.png',   caption: 'Contigo cada instante es perfecto', side: 'left' },
+      { src: '/images/month3/image copy 4.png',   caption: 'Tu mirada que me lo dice todo', side: 'right' },
+      { src: '/images/month3/image copy 5.png',   caption: 'Tres meses de pura felicidad', side: 'left' },
+      { src: '/images/month3/image copy 6.png',   caption: 'Lo nuestro sigue creciendo bonito', side: 'right' },
+      { src: '/images/month3/image copy 7.png',   caption: 'Cada foto nuestra me enamora más', side: 'left' },
+      { src: '/images/month3/image copy 8.png',   caption: 'Y apenas estamos empezando', side: 'right' },
+    ];
+
+    var cine3Track        = document.getElementById('cine3-track');
+    var cine3Dots         = document.getElementById('cine3-dots');
+    var cine3Prev         = document.getElementById('cine3-prev');
+    var cine3Next         = document.getElementById('cine3-next');
+    var cine3ProgresoFill = document.getElementById('cine3-progreso-fill');
+    if (!cine3Track) return;
+
+    var cine3Idx       = 0;
+    var cine3AutoTimer = null;
+    var cine3Animating = false;
+    var CINE3_INTERVAL = 4500;
+
+    // Construir tarjetas
+    fotos3Meses.forEach(function(foto, index) {
+      var isLeft = foto.side === 'left';
+      var card = document.createElement('div');
+      card.className = 'cine3-card';
+      card.dataset.index = index;
+      card.style.cssText = 'display:none; opacity:0;';
+
+      var numLabel = String(index + 1).padStart(2,'0') + ' / ' + String(fotos3Meses.length).padStart(2,'0');
+      var badgePos = isLeft ? 'right:1rem;' : 'left:1rem;';
+      var flexDir  = isLeft ? 'flex-direction:row;' : 'flex-direction:row-reverse;';
+      var textAlign = isLeft ? 'text-align:left;' : 'text-align:right;';
+      var justifyItems = isLeft ? 'justify-content:flex-start;' : 'justify-content:flex-end;';
+
+      card.innerHTML =
+        '<div class="cine-inner" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center;' + flexDir + '">' +
+
+          // Imagen
+          '<div style="position:relative;flex:1 1 340px;max-width:520px;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 25px 60px rgba(0,0,0,0.5);">' +
+            '<img src="' + foto.src + '" alt="' + foto.caption + '" loading="lazy" ' +
+              'style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform 0.7s ease;" ' +
+              'onmouseover="this.style.transform=\'scale(1.04)\'" ' +
+              'onmouseout="this.style.transform=\'scale(1)\'" ' +
+            '/>' +
+            '<div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);"></div>' +
+            '<div style="position:absolute;top:1rem;' + badgePos + 'background:rgba(0,0,0,0.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);border-radius:99px;padding:0.25rem 0.75rem;display:flex;align-items:center;gap:0.5rem;">' +
+              '<div style="width:6px;height:6px;border-radius:99px;background:#c026d3;animation:pulse 2s infinite;"></div>' +
+              '<span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:white;">' + numLabel + '</span>' +
+            '</div>' +
+          '</div>' +
+
+          // Texto
+          '<div style="flex:1 1 240px;max-width:320px;' + textAlign + '">' +
+            '<p style="font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:#c026d3;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;' + justifyItems + '">' +
+              '<svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>' +
+              'Recuerdo' +
+            '</p>' +
+            '<h3 style="color:white;font-weight:900;font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.1;font-style:italic;font-family:serif;margin-bottom:1.25rem;">' +
+              '\u201C' + foto.caption + '\u201D' +
+            '</h3>' +
+            '<div style="display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);border-radius:99px;padding:0.4rem 1rem;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(156,163,175,1);">' +
+              '3 meses juntos' +
+              '<span style="width:4px;height:4px;border-radius:99px;background:#c026d3;display:inline-block;"></span>' +
+              'Julio 2026' +
+            '</div>' +
+            '<div style="margin-top:1.5rem;display:flex;align-items:center;gap:0.75rem;' + justifyItems + '">' +
+              '<span style="width:40px;height:1px;background:linear-gradient(to right, rgba(192,38,211,0.6), transparent);' + (isLeft ? '' : 'transform:scaleX(-1);') + '"></span>' +
+              '<svg width="16" height="16" fill="none" stroke="rgba(192,38,211,0.5)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l2.4 4.8 5.6.8-4 4 1 5.4-5-2.8-5 2.8 1-5.4-4-4 5.6-.8z"/></svg>' +
+              '<span style="width:40px;height:1px;background:linear-gradient(to left, rgba(192,38,211,0.6), transparent);' + (isLeft ? '' : 'transform:scaleX(-1);') + '"></span>' +
+            '</div>' +
+          '</div>' +
+
+        '</div>';
+
+      cine3Track.appendChild(card);
+    });
+
+    // Crear dots
+    var all3Cards = cine3Track.querySelectorAll('.cine3-card');
+    var all3Dots  = [];
+    fotos3Meses.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.style.cssText = 'width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,0.2);border:none;cursor:pointer;transition:all 0.3s;padding:0;';
+      dot.addEventListener('click', function() { irACine3(i); });
+      if (cine3Dots) cine3Dots.appendChild(dot);
+      all3Dots.push(dot);
+    });
+
+    function update3Dots(index) {
+      all3Dots.forEach(function(d, i) {
+        d.style.width  = i === index ? '16px' : '6px';
+        d.style.background = i === index ? '#c026d3' : 'rgba(255,255,255,0.2)';
+      });
+    }
+
+    function mostrarCine3(index, direction) {
+      if (cine3Animating) return;
+      cine3Animating = true;
+
+      var currentCard = null;
+      all3Cards.forEach(function(c) { if (c.style.display !== 'none') currentCard = c; });
+      var nextCard = all3Cards[index];
+
+      update3Dots(index);
+      var enterFrom = direction === 'next' ? '60px' : '-60px';
+      var exitTo    = direction === 'next' ? '-60px' : '60px';
+
+      function showNext3() {
+        nextCard.style.display = 'block';
+        nextCard.style.opacity = '0';
+        nextCard.style.transform = 'translateX(' + enterFrom + ')';
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            nextCard.style.transition = 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)';
+            nextCard.style.opacity = '1';
+            nextCard.style.transform = 'translateX(0)';
+            setTimeout(function() {
+              nextCard.style.transition = '';
+              cine3Animating = false;
+            }, 520);
+          });
+        });
+      }
+
+      if (currentCard && currentCard !== nextCard) {
+        currentCard.style.transition = 'opacity 0.35s ease-in, transform 0.35s ease-in';
+        currentCard.style.opacity = '0';
+        currentCard.style.transform = 'translateX(' + exitTo + ')';
+        setTimeout(function() {
+          currentCard.style.display = 'none';
+          currentCard.style.transition = '';
+          currentCard.style.transform = 'translateX(0)';
+          showNext3();
+        }, 370);
+      } else {
+        if (currentCard) currentCard.style.display = 'none';
+        showNext3();
+      }
+
+      cine3Idx = index;
+      resetProgreso3();
+    }
+
+    function irACine3(index) {
+      var dir = index >= cine3Idx ? 'next' : 'prev';
+      mostrarCine3(index, dir);
+      reiniciarAutoplay3();
+    }
+
+    function resetProgreso3() {
+      if (!cine3ProgresoFill) return;
+      cine3ProgresoFill.style.transition = 'none';
+      cine3ProgresoFill.style.width = '0%';
+      setTimeout(function() {
+        cine3ProgresoFill.style.transition = 'width ' + CINE3_INTERVAL + 'ms linear';
+        cine3ProgresoFill.style.width = '100%';
+      }, 30);
+    }
+
+    function iniciarAutoplay3() {
+      clearInterval(cine3AutoTimer);
+      cine3AutoTimer = setInterval(function() {
+        var next = (cine3Idx + 1) % fotos3Meses.length;
+        mostrarCine3(next, 'next');
+      }, CINE3_INTERVAL);
+      resetProgreso3();
+    }
+
+    function reiniciarAutoplay3() {
+      clearInterval(cine3AutoTimer);
+      iniciarAutoplay3();
+    }
+
+    if (cine3Prev) cine3Prev.addEventListener('click', function() {
+      var prev = (cine3Idx - 1 + fotos3Meses.length) % fotos3Meses.length;
+      mostrarCine3(prev, 'prev');
+      reiniciarAutoplay3();
+    });
+    if (cine3Next) cine3Next.addEventListener('click', function() {
+      var next = (cine3Idx + 1) % fotos3Meses.length;
+      mostrarCine3(next, 'next');
+      reiniciarAutoplay3();
+    });
+
+    // Swipe táctil
+    var swipe3StartX = 0;
+    cine3Track.addEventListener('touchstart', function(e) { swipe3StartX = e.touches[0].clientX; }, { passive: true });
+    cine3Track.addEventListener('touchend', function(e) {
+      var diff = swipe3StartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        var next = diff > 0
+          ? (cine3Idx + 1) % fotos3Meses.length
+          : (cine3Idx - 1 + fotos3Meses.length) % fotos3Meses.length;
+        mostrarCine3(next, diff > 0 ? 'next' : 'prev');
+        reiniciarAutoplay3();
+      }
+    }, { passive: true });
+
+    // Arrancar
+    mostrarCine3(0, 'next');
+    iniciarAutoplay3();
+
+    // ── MODAL DE VIDEOS 3 MESES ─────────────────
+    var modal3m   = document.getElementById('modal-videos-3m');
+    var player3m  = document.getElementById('video3m-player');
+    var btnAbrir3m = document.getElementById('btn-abrir-videos-3m');
+    var thumbs3m  = document.querySelectorAll('.video3m-thumb');
+
+    window.cerrarVideos3m = function() {
+      if (!modal3m) return;
+      if (player3m) player3m.pause();
+      modal3m.style.display = 'none';
+      document.body.style.overflow = '';
+    };
+
+    if (btnAbrir3m) {
+      btnAbrir3m.addEventListener('click', function() {
+        if (!modal3m) return;
+        modal3m.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        setTimeout(function() {
+          if (player3m) player3m.play().catch(function(){});
+        }, 200);
+      });
+    }
+
+    thumbs3m.forEach(function(thumb) {
+      thumb.addEventListener('click', function() {
+        var src = thumb.dataset.src;
+        if (!player3m || !src) return;
+        player3m.pause();
+        player3m.src = src;
+        player3m.load();
+        player3m.play().catch(function(){});
+        // Actualizar borde activo
+        thumbs3m.forEach(function(t) {
+          t.style.borderColor = 'rgba(255,255,255,0.1)';
+          t.style.borderWidth = '2px';
+        });
+        thumb.style.borderColor = 'rgba(192,38,211,0.8)';
+      });
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal3m && modal3m.style.display === 'flex') {
+        window.cerrarVideos3m();
       }
     });
   })();
